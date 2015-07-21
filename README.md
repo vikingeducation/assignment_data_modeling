@@ -120,14 +120,19 @@ Billing
 4. last name string
 5. MM/YY date
 6. CVC string
-7. Address ID integer
+7. Address ID for billitg integer
+
+Shipment
+1.Shipment ID
+2.Status
+3. Address ID for shipment, integer
 
 Order
 
 1. OrderID integer
 2. UserID integer
-3. time of the order date
-4. ShipmentID integer
+3. Time of the order, date
+4. Shipment ID, integer
 5. BillingID integer
 
 Join Orders/Product
