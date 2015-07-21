@@ -18,18 +18,18 @@ attr & types: course: 1) name = string < 40 char.;
 
 relationship: 1 course : many lessons
 tables:
-Course Table: 1) ID, int
+Course Table: 1) ID, int (PK)
               2) name, string, 1-40 char.
               3) description, string, 1(50)-400 char. <-min ok?
               4) created_at, DateTime
               5) updated_at, DateTime (can add col for subj.)
 
-Lesson Table: 1) ID, int
+Lesson Table: 1) ID, int (PK)
               2) title, string, 1-100 char.
               3) body = string, >0 char.
               4) created_at, DateTime
               5) updated_at, DateTime
-              6) course_id, int
+              6) course_id, int (FK)
 
 ##2
 goal: collect demo. info on users
@@ -47,16 +47,16 @@ attr & types: user: 1) username, str < 20 char;
 
 relationship: many users : 1 location
 tables:
-User Table:   1) ID, int
+User Table:   1) ID, int (PK)
               2) Username, str 1-20 chars
               3) email, str 5-40 chars
               4) age, int 1-4 chars
               5) gender, char (1)
-              6) location ID, int
+              6) location ID, int (FK)
               7) created_at, DateTime
               8) updated_at, DateTime
 
-Location Table:     1) Location ID, int
+Location Table:     1) Location ID, int (PK)
                     2) City, string 1-30 char
                     3) state, string 1-30 chars
                     4) country, string 1-30 chars
@@ -267,7 +267,7 @@ Tables:
           3) Content: string, > 0 char
           4) View, int
 
-    Links:  1) URL (FK)
+    Links:  1) URL (PK)
             2) amt of clicks, Int
 
     Page-link : 1) page URL (FK)
