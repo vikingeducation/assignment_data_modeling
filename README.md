@@ -170,34 +170,61 @@ Billing_info
 
 2)
 
+assume id is primary key integer
+User
+  username - unique, string,
+  Age - integer, minimum 13
+  password - string, minimum 16 chars, at least one number/special char
+  Gender - male/female, maybe a boolean?
+
+
+Do we want to pay the calculation cost for location up front
+or rather whenever we want to query the database?
+/*
+Upfront
+ip Table
+  city - calculated from address
+  state - calculated from address
+  country - calculated from address
+  address - "string", represents IP address.
+
+Can become out of date.
+
+When queried
+ip Table
+  address - "string", represents IP address.
+
+  city/state/country calculated when needed.
+
+Has to pay calculation cost every time we need to try to glean
+the user's location, but it will be up to date.
+
+*/
+
 Page Table
-  ID
-  Title -  string
-  Body - stirng
+  Title - string, max 35 chars
+  Body - string, 15,000 max chars
 
 Viewing Table
   PageID - integer , foreign key
-  UserID - id if logged in, else nil
-  Links Clicked - Integer
+  UserID - foreign key, id if logged in, else null
+  ip - foreign_key to ip_table
   Time on Page - DateTime
+  time_stamps - DateTime
+
+ClickedTable
+  page_id - foreign key
+  link_id - foreign key
+  user_id - foreign key, null if user not logged in.
+  ip - foreign_key to ip_table
+  time_stamps - DateTime
 
 
+Viewing tables
+many users view many pages
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ClickedTable
+many users click many links on many pages
 
 
 
