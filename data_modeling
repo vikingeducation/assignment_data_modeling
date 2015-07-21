@@ -92,12 +92,12 @@ id    body    link      UserID
 (int) (text)  (string)  (int)
 
 Table 3 (Comments)
-id    body     MessageID   CommentID
-(int) (string) (int)       (int)
+id    body     MessageID  CommentID
+(int) (string) (int)      (int)
 
+--------
 
-
-
+4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app.
 
 
 
