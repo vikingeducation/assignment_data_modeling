@@ -144,7 +144,6 @@ attributes & types:
 
     User: Credit Card:  1) user
                         2) Credit Card
-                        3) Order #
 
     Product:  1) name
               2) description
@@ -234,6 +233,53 @@ Tables:
               4) arrival date, datetime
 
 ##2)
+goal: collect analytics data for visitorss and logged in users
+entities:  User (visitor = type of user), page(stats), links(stats)
+relationships:
+  user to page:  1 user : many pages
+                  1 page : many users
 
+  page to links:  1 page : many links
+                  1 link : many pages
+
+  links to user: 1 link : many users
+                 1 user : many links
+
+attributes & types:
+      User: 1) Username
+            2) Email
+
+      Page: 1) views
+            2) content
+            3) title
+            4) page ID
+
+      Link: 1) url
+            2) amount of clicks
+
+Tables:
+
+    User: 1) Username, string, 1-40 char (PK)
+          2) Email, string, 5-40 char
+
+    Page: 1) ID: url, string < 100 char (PK)
+          2) Title: string, 1-50 char
+          3) Content: string, > 0 char
+          4) View, int
+
+    Links:  1) URL (FK)
+            2) amt of clicks, Int
+
+    Page-link : 1) page URL (FK)
+                2) link URL (FK)
+
+    User-page:  1) username (FK)
+                2) page  url (FK)
+                3) time page opened, DateTime
+                4) quantity of time user visited pg, int
+
+    User-link:  1) username (FK)
+                2) link URL (FK)
+                3) quantity of clicks, int
 
 
