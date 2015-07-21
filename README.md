@@ -104,3 +104,78 @@ UserComment
 
 1. user ID
 2. comment ID
+
+
+Example 4
+
+Entities: User, Products, Orders, Shipment, Billing
+
+User
+1. ID
+2. username
+3. password
+
+Products
+1. ID
+2. name
+3. description
+
+Adreess
+
+1. Address ID
+2. house number
+3. street name
+4. city
+5. state
+6. zip code
+7. country
+
+Billing
+1. Billing ID
+2. Credit card number
+3. first name
+4. last name
+5. MM/YY
+6. CVC
+7. house number
+8. street name
+9. city
+10. state
+11. zip code
+12. country
+
+Join Orders/User
+1. OrderID
+2. User ID
+
+
+
+# User1 Order1
+# User1 Order2
+
+Join Orders/User
+1. OrderID
+2. ProductID
+3. Quantity
+
+# Order1 Product1 Quantity 2
+# Order1 Product2 Quantity 3
+
+Join Order/Shipment
+
+1. Address ID
+2. Order ID
+
+Join User/Billing
+
+1. User ID
+2. Billing ID
+
+
+
+
+
+
+
+
+
