@@ -70,7 +70,7 @@ Goal: To build a message board where each post can have comments and responses t
 
 Entities: User, Posts, Comments
 
-Attributes & Types: 
+Attributes & Types:
 
     Users:      1) Username
                 2) Email
@@ -102,8 +102,16 @@ Tables:
                         2) Title, string 1-50 chars
                         3) Link to article, string <500 chars
                         4) Username, string (Foreign Key)
+                        5) created_at, DateTime
+                        6) updated_at, DateTime
 
-    Comment Table:      1) 
+    Comment Table:      1) Author, string 1-30 char(user foreign key)
+                        2) created_at, DateTime
+                        3) updated_at, DateTime
+                        4) body, string  < 1000 chars
+                        5) Post ID (foreign key)
+                        6) Parent Comment ID (foreign key) (optional)
+                        7) Comment ID (primary key) OR 4 combo ID's?
 
 
 
