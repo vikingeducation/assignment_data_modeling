@@ -144,16 +144,21 @@ Billing
 11. zip code
 12. country
 
+Order
+
+1. OrderID
+2. ShipmentID
+3. BillingID
+
 Join Orders/User
 1. OrderID
 2. User ID
 
 
-
 # User1 Order1
 # User1 Order2
 
-Join Orders/User
+Join Orders/Product
 1. OrderID
 2. ProductID
 3. Quantity
@@ -161,21 +166,41 @@ Join Orders/User
 # Order1 Product1 Quantity 2
 # Order1 Product2 Quantity 3
 
-Join Order/Shipment
 
-1. Address ID
-2. Order ID
+Example #
 
-Join User/Billing
+Entities: Visitor, User, PageViews, Link
 
-1. User ID
-2. Billing ID
+Visitor ID-
 
+1. Visitor ID
+2. IP
+3. Browser
+4. Device type
 
+User ID-
 
+1. UserID
+2. Username
+3. Password
+4. VisitorID
 
+Link-
 
+1. LinkID
+2. Click?
+3. VisitorID
 
+Joined PageViews/Visitors- 
 
+1. PageID
+2. VisitorID
+3. Time arrived
+4. Time left
 
+Joined PageID/LinkID
 
+1. PageID
+2. LinkID
+
+# Dynamic generate view count? Time on page?
