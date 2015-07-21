@@ -144,21 +144,96 @@ attributes & types:
 
     User: Credit Card:  1) user
                         2) Credit Card
-                        3) ID
+                        3) Order #
 
     Product:  1) name
               2) description
               3) price
               4) amount in stock
+              5) Product ID
 
-    Order:  1) user : credit card
+    Order:  1) Order #
             2) address
-            4) product
-            5) quantity of product
-            6) order #
+
+    Order products    1) Order #
+                      2) Product ID
+                      3) Quantity of Product in the order
 
     Shipping: 1) order #
               2) pack date
               3) ship date
               4) arrival date
+
+Relationships:
+    User -> Address - One Users : Many Adresses
+                      One Adress : Many Users
+
+    Credit Card -> Adress - Many Credit Card : One Billing Address
+
+    User -> Credit Card - One user : Many Credit Cards
+                          One Credit Card : Many users
+
+    Product -> Order - One Product : Many Orders
+                        One Order : Many Products
+
+    Shipping -> Order - 1 Order : 1 Shipments
+
+    Order -> Address -  1 Order : 1 Address
+                        1 Address : Many Orders
+
+    Order -> User - 1 Order : 1 User
+                    1 User : Many Orders
+
+    Order -> CC# - 1 Order : 1 Credit Card
+
+
+Tables:
+    User: 1) Username, string, 1-40 char (PK)
+          2) Email, string, 5-40 char
+
+        User : Address: 1) username, string (FK)
+                        2) address ID, int, (FK)
+
+    Address:  1) city, string < 30 char
+              2) state, string < 30 chars
+              3) country, string < 30 chars
+              4) zip code, int (optional)
+              5) Building #, int (optional)
+              6) street name, string < 50 chars
+              7) apt #, string < 5 char
+              8) Address ID, int (PK)
+
+  Credit Cards: 1) credit card #, int (PK)
+                2) name on card, string < 50 char
+                3) exp. date, date(MM/YY)
+                4) CID, int, 3-4 digits
+                5) type of card, string, 2 char
+                6) address ID, int (FK)
+
+      User: Credit Card:  1) username, string (FK)
+                          2) Credit Card # (FK)
+
+    Product:  1) name, string 1-50 char
+              2) description, string, 500 char
+              3) price, float
+              4) amount in stock, int >= 0
+              5) Product ID, int (PK)
+
+    Order:  1) Order #, int (PK)
+            2) CC #, int (FK)
+            3) Username, string (FK)
+            4) address ID, int (FK)
+
+    Order products    1) Order #, int (FK)
+                      2) Product ID, int (FK)
+                      3) Quantity of Product in the order, int > 0
+
+    Shipping: 1) order #, int (FK)
+              2) pack date, datetime
+              3) ship date, datetime
+              4) arrival date, datetime
+
+##2)
+
+
 
