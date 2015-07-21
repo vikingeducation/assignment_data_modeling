@@ -62,7 +62,7 @@ Country
 Intermediate:
 
   System Goals
-  Users can post links where other users can comment on them. 
+  Users can post links where other users can comment on them.
   Users can comment on comments and these comments need to be nested in proper hierarchy.
 
   User Table
@@ -84,7 +84,7 @@ Intermediate:
     UserID - foreign Key, integer
     SubmissionID - foreign key, integer
     Date - DateTime,  unmodifyable.
-    Score - Integer 
+    Score - Integer
     Body - string , max 300 chars
     ParentID - integer #reference to comment above, null if root
 
@@ -100,18 +100,89 @@ Intermediate:
   ParentComments is a one-to-many of Comments
     A ParentComment can have many comments, but comments can only have one ParentComment
 
+Advanced:
+1)
+
+Goals
+We want users to be able to order things and have it ship to them.
+
+OPT A
+Products
+  many to many with orders
+Users
+  one to many with orders
+  one to many with shipments
+Orders
+  many to many with products
+  many to many with orders
+  many to one with users
+Shipments
+  one to many with Orders
+------------------------------------
+OPT B
+User
+
+Product
+  one to many with orders
+Order
+  can have many products
+  has a quantity
+Cart
+  has many orders
+  has one user
+Shipments
+  has one cart?
+  location
+
+
+Products
+  id
+  url
+  price
+  desc
+  name
+  manufacturer location
+
+Location
+  city_id - foreign key
+  state_id - foreign key
+  country_id - foreign key
+  zip_code - Integer
+
+ProductOrder
+  products
+  orders
+
+ProductShipments
+  product_id
+  shipment_id
+  quantity
+
+Order
+  User - foreign key to user
+  location_id - Can use user's or they can input a new custom one
+
+User
+  username - string, 16 max chars, required, unique
+  email - string, required, unique, must be a legit email (use a regex maybe?)
+  password - string, alphanumeric, 16 chars *MINIMUM* length, 32 chars max length, at least 1 number/special char, required.
+  age - DateTime, minimum length 18, required
+  address_id - reference to a default delivery location
+  billing_info_id - reference to billing information
+
+Shipment
+  order_id - reference to order
+  location_id - pulled from order user?
 
 
 
+The reason we split out billing info is so if there is some sort of vulnerability
+related to one credit card vendor we can easily notify the user.
 
-
-
-
-
-
-
-
-
+Billing_info
+  cc_vendor, Integer, 0-however many credit card vendors we care about
+  cc_num, integer, encrpyted somehow, not plain text
+  billing_address_id - reference to default billing location
 
 
 
