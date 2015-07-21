@@ -21,7 +21,7 @@ Courses-
 
 Students-
 
-1. ID, int
+1. ID, integer
 2. First_Name, string
 3. Last_Name, string
 
@@ -29,13 +29,13 @@ Join Tables
 
 StudentCourses Table
 
-1. Student_ID
-2. Course_ID
+1. Student_ID integer
+2. Course_ID integer
 
 CourseLesson Table
 
-1. Course_ID
-2. Lesson_ID
+1. Course_ID integer
+2. Lesson_ID integer
 
 
 
@@ -45,23 +45,23 @@ Entities: User, Address
 
 User-
 
-1. ID, int
+1. ID, integer
 2. username, string
 3. email, string
 4. password, string
-5. age, int
+5. age, integer
 6. gender, string
 7. address_ID, string
 
 Address-
 
-1. ID, int
-2. house number
-3. street name
-4. city
-5. state
-6. zip code
-7. country
+1. ID, integer
+2. house number, integer
+3. street name, string
+4. city, string
+5. state, string
+6. zip code, integer
+7. country, string
 
 
 
@@ -69,46 +69,29 @@ Example 3
 
 Entities: Users, First Level Comments, Second Level Comments
 
-User-
+User
 
 1. ID
 2. name
 
------------------------------------------------------
-
-First Level Comments-
-
-1. ID
-2. Body
-
-Second Level Comments-
-
-1. ID
-2. Body
-3. First Level ID
-
-UserComment Table
-
-1. User ID
-2. First Level ID
-
------------------------------------------------------
-
 Comment
 
-1. ID
+1. Comment ID
 2. Body
-3. Parent
+3. Parent ID
+4. Parent-type postID or commentID
+5. user ID
 
-UserComment
-
-1. user ID
-2. comment ID
 
 
 Example 4
 
 Entities: User, Products, Orders, Shipment, Billing
+Relationship: 
+User has many orders, order has one user
+Orders has many products, products have many orders
+
+Order has one one billing and shipment address, bill/ship has many orders
 
 User
 1. ID
@@ -137,39 +120,32 @@ Billing
 4. last name
 5. MM/YY
 6. CVC
-7. house number
-8. street name
-9. city
-10. state
-11. zip code
-12. country
+7. Address ID
 
 Order
 
 1. OrderID
-2. ShipmentID
-3. BillingID
-
-Join Orders/User
-1. OrderID
-2. User ID
-
-
-# User1 Order1
-# User1 Order2
+2. UserID
+3. time of the order
+4. ShipmentID
+5. BillingID
 
 Join Orders/Product
 1. OrderID
 2. ProductID
 3. Quantity
 
-# Order1 Product1 Quantity 2
-# Order1 Product2 Quantity 3
 
 
 Example #
 
 Entities: Visitor, User, PageViews, Link
+
+Visitor => User
+
+Page has many links, link has one page
+Visiotr has many views/pages, page has many visitors
+Visitor has many links=click, links=click has one visitor
 
 Visitor ID-
 
@@ -185,22 +161,37 @@ User ID-
 3. Password
 4. VisitorID
 
-Link-
+Link
 
 1. LinkID
-2. Click?
-3. VisitorID
+2. URL
+3. Title
+2. PageID
 
-Joined PageViews/Visitors- 
+Page
+
+1. PageID
+2. URL
+3. Title
+4. Body
+
+
+Joined Page/Visitors- 
 
 1. PageID
 2. VisitorID
 3. Time arrived
 4. Time left
 
-Joined PageID/LinkID
+Joined VisitorID/LinkID
 
-1. PageID
+1. VisitorID
 2. LinkID
+3. Time clicked
 
+
+#How namy clicks on the page today?
 # Dynamic generate view count? Time on page?
+
+
+
