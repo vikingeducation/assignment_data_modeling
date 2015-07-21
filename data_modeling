@@ -97,7 +97,3 @@ id    body     MessageID  CommentID
 
 --------
 
-4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app.
-
-
-

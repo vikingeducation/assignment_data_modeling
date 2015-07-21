@@ -1,0 +1,19 @@
+
+4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app.
+
+
+users - can have multiple orders
+  -id:int, first_name:string , last_name:string , emails: string,  
+
+  -Join table for address and users- (many (users) to many (address)
+    
+  address_id: id:int , street:string, city: string, state: string, zip: int
+
+  billing_id: id:int ,user_id:int, street:string, city: string, state: string, zip: int, cc_type:string, cc_number:int, cc_exp:date, cc_cid:int  
+
+
+products - can belong to multiple orders
+
+orders  - can have multiple products (belongs to one user)
+
+shipments - belong to order
