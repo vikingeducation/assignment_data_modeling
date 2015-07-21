@@ -60,3 +60,59 @@ Country
   population - Integer
 
 Intermediate:
+
+  System Goals
+  Users can post links where other users can comment on them. 
+  Users can comment on comments and these comments need to be nested in proper hierarchy.
+
+  User Table
+    ID
+    username - string, 16 max chars, required, unique
+    email - string, required, unique, must be a legit email (use a regex maybe?)
+    password - string, alphanumeric, 16 chars *MINIMUM* length, 32 chars max length, at least 1 number/special char, required.
+
+  Submission Table
+    ID
+    UserID - foreign key, integer
+    URL - string, 1-64 chars
+    Title - string 1-32 chars
+    Score - Integer
+    PostDate - DateTime
+
+  Comments Table
+    ID
+    UserID - foreign Key, integer
+    SubmissionID - foreign key, integer
+    Date - DateTime,  unmodifyable.
+    Score - Integer 
+    Body - string , max 300 chars
+    ParentID - integer #reference to comment above, null if root
+
+  User is a one-to-many of Submission
+    A user can have many submissions, but a submission can only have one user
+
+  User is a one-to-many of Comments
+    A user can have many comments, but comments can only have one user
+
+  Submission is a one-to-many of Comments
+    A submission can have many comments, but comments can only be related to one submission
+
+  ParentComments is a one-to-many of Comments
+    A ParentComment can have many comments, but comments can only have one ParentComment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
