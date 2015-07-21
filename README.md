@@ -106,7 +106,8 @@ Advanced:
 Goals
 We want users to be able to order things and have it ship to them.
 
-OPT A
+Relationships
+
 Products
   many to many with orders
 Users
@@ -119,47 +120,31 @@ Orders
 Shipments
   one to many with Orders
 ------------------------------------
-OPT B
-User
-
-Product
-  one to many with orders
-Order
-  can have many products
-  has a quantity
-Cart
-  has many orders
-  has one user
-Shipments
-  has one cart?
-  location
-
 
 Products
-  id
-  url
-  price
-  desc
-  name
-  manufacturer location
+  id - integer
+  price - integer
+  desc - string 500 max chars
+  name - string 25 max chars
+  manufacturer location - foreign_key - integer
 
 Location
-  city_id - foreign key
-  state_id - foreign key
-  country_id - foreign key
+  city_id - foreign key, interger
+  state_id - foreign key, interger
+  country_id - foreign key, interger
   zip_code - Integer
 
 ProductOrder
-  products
-  orders
+  product_id - Integer, foreign key
+  order_id - Integer, foreign key
 
 ProductShipments
-  product_id
-  shipment_id
-  quantity
+  product_id - Integer, foreign key
+  shipment_id - Integer, foreign key
+  quantity - Integer
 
 Order
-  User - foreign key to user
+  UserId - foreign key to user, integer
   location_id - Can use user's or they can input a new custom one
 
 User
@@ -175,7 +160,6 @@ Shipment
   location_id - pulled from order user?
 
 
-
 The reason we split out billing info is so if there is some sort of vulnerability
 related to one credit card vendor we can easily notify the user.
 
@@ -183,6 +167,36 @@ Billing_info
   cc_vendor, Integer, 0-however many credit card vendors we care about
   cc_num, integer, encrpyted somehow, not plain text
   billing_address_id - reference to default billing location
+
+2)
+
+Page Table
+  ID
+  Title -  string
+  Body - stirng
+
+Viewing Table
+  PageID - integer , foreign key
+  UserID - id if logged in, else nil
+  Links Clicked - Integer
+  Time on Page - DateTime
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
