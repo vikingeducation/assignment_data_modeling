@@ -1,0 +1,39 @@
+You are building a free online learning platform
+
+ which will be used by students
+
+
+  -offer many different courses, 
+        -each with a title and description, 
+        -each has multiple lessons 
+              - Lesson content consists of a title and body text.
+
+
+Entities - students - multiple courses
+               -first_name , last_name, and email                    
+           courses  -  multiple - students    (Many to Many ^)
+               -title and description
+           lessons  -  one(course) to many (lessons)
+               -title and body                 
+
+  Table 1 (Student)
+    ID      first_name    last_name    email 
+  (int)      (string)      (string)   (string)
+  
+  Join Table (Student,Course)
+ StudentID  CourseID
+  (int)       (int)                                                 
+
+  Table 2 (Course)
+   ID        Title         Description
+  (int)     (string)        (string)
+
+
+  Table 3 (Lesson)                  
+   ID        Title        Body      CourseID
+  (int)     (string)    (string)      (int)
+ 
+
+
+
+What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
