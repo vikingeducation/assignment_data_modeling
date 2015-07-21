@@ -71,16 +71,16 @@ Entities: Users, First Level Comments, Second Level Comments
 
 User
 
-1. ID
-2. name
+1. ID integer
+2. name string
 
 Comment
 
-1. Comment ID
-2. Body
-3. Parent ID
-4. Parent-type postID or commentID
-5. user ID
+1. Comment ID integer
+2. Body string
+3. Parent ID integer
+4. Parent-type postID or commentID integer
+5. user ID integer
 
 
 
@@ -94,46 +94,46 @@ Orders has many products, products have many orders
 Order has one one billing and shipment address, bill/ship has many orders
 
 User
-1. ID
-2. username
-3. password
+1. ID integer
+2. username string
+3. password string
 
 Products
-1. ID
-2. name
-3. description
+1. ID integer
+2. name string
+3. description string
 
 Adreess
 
-1. Address ID
-2. house number
-3. street name
-4. city
-5. state
-6. zip code
-7. country
+1. Address ID integer
+2. house number integer
+3. street name string
+4. city string
+5. state string
+6. zip code string
+7. country string
 
 Billing
-1. Billing ID
-2. Credit card number
-3. first name
-4. last name
-5. MM/YY
-6. CVC
-7. Address ID
+1. Billing ID integer
+2. Credit card number string
+3. first name string
+4. last name string
+5. MM/YY date
+6. CVC string
+7. Address ID integer
 
 Order
 
-1. OrderID
-2. UserID
-3. time of the order
-4. ShipmentID
-5. BillingID
+1. OrderID integer
+2. UserID integer
+3. time of the order date
+4. ShipmentID integer
+5. BillingID integer
 
 Join Orders/Product
-1. OrderID
-2. ProductID
-3. Quantity
+1. OrderID integer
+2. ProductID integer
+3. Quantity integer
 
 
 
@@ -149,45 +149,44 @@ Visitor has many links=click, links=click has one visitor
 
 Visitor ID-
 
-1. Visitor ID
-2. IP
-3. Browser
-4. Device type
+1. Visitor ID integer
+2. IP string
+3. Browser string
+4. Device type string
 
 User ID-
 
-1. UserID
-2. Username
-3. Password
-4. VisitorID
+1. UserID integer
+2. Username string
+3. Password string
+4. VisitorID integer
 
 Link
 
-1. LinkID
-2. URL
-3. Title
-2. PageID
+1. LinkID integer
+3. Title string
+2. PageID integer
 
 Page
 
-1. PageID
-2. URL
-3. Title
-4. Body
+1. PageID integer
+2. URL string
+3. Title string
+4. Body string
 
 
 Joined Page/Visitors- 
 
-1. PageID
-2. VisitorID
-3. Time arrived
-4. Time left
+1. PageID integer
+2. VisitorID integer
+3. Time arrived datetime
+4. Time left datetime
 
 Joined VisitorID/LinkID
 
-1. VisitorID
-2. LinkID
-3. Time clicked
+1. VisitorID integer
+2. LinkID integer
+3. Time clicked datetime
 
 
 #How namy clicks on the page today?
