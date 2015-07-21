@@ -113,5 +113,52 @@ Tables:
                         6) Parent Comment ID (foreign key) (optional)
                         7) Comment ID (primary key) OR 4 combo ID's?
 
+#ADVANCED
+##1)
+goal:   keep track of products, users, orders, shipments and how
+        they link to each other
+entities: user, product, order, shipment, Credit Card, Address
 
+attributes & types:
+    User: 1) Username
+          2) Email
+          3) Credit Card #
+
+    User : Address: 1) user
+                    2) address
+
+    Address:  1) city, string < 30 char
+              2) state, string < 30 chars
+              3) country, string < 30 chars
+              4) zip code, int (optional)
+              5) Building #
+              6) street name
+              7) apt #
+
+    Credit Cards: 1) credit card #
+                  2) name on card
+                  3) exp. date
+                  4) CID
+                  5) type of card
+                  6) address
+
+    User: Credit Card:  1) user
+                        2) Credit Card
+                        3) ID
+
+    Product:  1) name
+              2) description
+              3) price
+              4) amount in stock
+
+    Order:  1) user : credit card
+            2) address
+            4) product
+            5) quantity of product
+            6) order #
+
+    Shipping: 1) order #
+              2) pack date
+              3) ship date
+              4) arrival date
 
