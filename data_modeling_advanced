@@ -37,18 +37,26 @@ id   name    description   price   weight
 int  string  string        int     int
 
 Table 6: Orders
-id   UserID   billing_price
-int  id       int
+id   UserID
+int  id
 
 Table 7: Products-Orders Join
-ProductID 	OrderID
-int					int
+ProductID 	OrderID   Quantity
+int					int       int
 
 Table 8: Shipments
-id   OrderID   shipping_label   ShipPriceID
-int  int       string           int
+id   OrderID   shipping_label
+int  int       string
 
-Table 9: ShipPrice
-id   weight   price
-int  int      int
+Table 9: ShipRates
+weight   price
+int      int
+
+--------------
+
+5. You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure.
+
+
+
+
 
