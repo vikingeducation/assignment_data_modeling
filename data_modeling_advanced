@@ -1,0 +1,62 @@
+4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app.
+
+users - can have multiple orders
+  - User table: id:int, first_name:string, last_name:string, emails: string
+  - Join table for address and users - many (users) to many (address)
+  - Address table: id:int, street:string, city: string, state: string, zip: int
+  - Billing table: id:int, user_id:int, street:string, city: string, state: string, zip: int, cc_type:string, cc_number:int, cc_exp:date
+
+products - can belong to multiple orders (one product can be in multiple orders)
+	- Product table: id:int, name:string, description:string, price:int, order_id:int, weight:int
+
+orders  - can have multiple products (one order has many products) and belongs to one user (one user has many orders)
+	- Order table: id:int, user_id:int, billing_price:int
+
+shipments - belongs to an order (one-to-one)
+	- Shipment table: id:int, order_id:int, shipping_label:int, ShipPrice_id:int
+	- ShipPrice table: id:int, weight:int, price:int
+
+Table 1: Users
+id   first_name   last_name   emails
+int  string       string      string
+
+Table 2: Addresses
+id   street    city    state    zip
+int  string    string  string   int
+
+Table 3: Users-Addresses Join
+UserID   AddressID
+int      int
+
+Table 4: Billing
+id   UserID  AddressID   cc_type   cc_number   cc_ext
+int  int     id          string    int         date
+
+Table 5: Products
+id   name    description   price   weight
+int  string  string        int     int
+
+Table 6: Orders
+id   UserID
+int  id
+
+Table 7: Products-Orders Join
+ProductID 	OrderID   Quantity
+int					int       int
+
+Table 8: Shipments
+id   OrderID   shipping_label
+int  int       string
+
+Table 9: ShipRates
+weight   price
+int      int
+
+--------------
+
+5. You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure.
+
+
+
+
+

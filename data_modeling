@@ -1,0 +1,99 @@
+1. You are building a free online learning platform which will be used by students
+
+Goals - -offer many different courses,
+        -each with a title and description,
+        -each has multiple lessons
+              - Lesson content consists of a title and body text.
+
+Entities - students - multiple courses
+               -first_name , last_name, and email
+           courses  -  multiple - students    (Many to Many ^)
+               -title and description
+           lessons  -  one(course) to many (lessons)
+               -title and body
+
+  Table 1 (Student)
+    ID      first_name    last_name    email
+  (int)      (string)      (string)   (string)
+
+  Join Table (Student,Course)
+   StudentID  CourseID
+   (int)       (int)
+
+  Table 2 (Course)
+   ID        Title         Description
+  (int)     (string)        (string)
+
+  Table 3 (Lesson)
+   ID        Title        Body      CourseID
+  (int)     (string)    (string)      (int)
+
+---------
+
+2. You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
+
+Goals - - building the profile page for a new User on your login site
+          - want to collect demographic information like City, State, Country, Age and Gender
+
+Entities - User - will have one profile
+                - username:string, email:string
+           Profile - will have one user
+                  - city:string, state:string, country:string, age:string, gender:string
+                    - a profile will have one gender (one-to-one) #so we can search by gender
+                    - a profile will have one city, state, country, age
+
+Table 1 (User)
+id      username      email
+(int)   (string)      (string)
+
+Table 2 (Profile)
+id      city      state     country    age     GenderID   UserID
+(int)   (string)  (string)  (string)   (int)   (int)      (int)
+
+Table 3 (Gender)
+id    sex
+(int) (string)
+
+---------
+
+3. You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+
+Goals - - build a message board
+        - Users can post links
+        - Other users can comment on these submissions
+        - Other users can comment on the comments
+
+Entities -
+
+Users (has multiple messages)
+        - f_name:string
+        - l_name:string
+        - id:int
+        - email:string
+Messages/Links  (belongs to one User) (one user to many messages - user ID goes in messages)
+                (has multiple comments)
+                - link:string
+                - body:text
+                - id:int
+Comments (belongs to a message/link)  (one message has many comments - message ID goes in comment)
+         (belongs to a comment) (one comment has many comments)
+         - body:text
+         - id:int
+         - MessageID (table that has CommentID, MessageID)
+         - CommentID (table that has CommentID, CommentID)
+
+
+Table 1 (Users)
+id     f_name    l_name    email
+(int)  (string)  (string)  (string)
+
+Table 2 (Messages)
+id    body    link      UserID
+(int) (text)  (string)  (int)
+
+Table 3 (Comments)
+id    body     MessageID  CommentID
+(int) (string) (int)      (int)
+
+--------
+
