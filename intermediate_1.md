@@ -6,7 +6,7 @@ You want to build a message board like [Hacker News](https://news.ycombinator.co
 
 ## Explanation
 
-A post may have many comments, a comment belongs to one post. However, a comment may also belong to a comment. Likewise, a comment might also have many comments!
+A post may have many comments, a comment belongs to one post. However, a comment may also belong to a comment. As such, a comment might also have many comments!
 
 It would be a waste to create a comment reply table. The solution could be handled with the following schema and making decisions based on it at runtime.
 
