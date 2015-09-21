@@ -129,30 +129,6 @@ ShipmentStatus
 
 ---
 
-ShipmentDestination
-
-- id SERIAL
-- address_id INTEGER FK
-- shipment_id INTEGER FK
-
----
-
-ShippingAddresses
-
-- id SERIAL
-- address_id INTEGER FK
-- user_id INTEGER FK
-
----
-
-BillingAddresses
-
-- id SERIAL
-- address_id INTEGER FK
-- user_id INTEGER FK
-
----
-
 Addresses
 
 - id SERIAL
