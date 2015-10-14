@@ -65,9 +65,72 @@ Author_ID - foreign_key, users table, 1:X
 Upvotes - int  
 Body - text  
 Timestamps - DateTime  
-Parent_ID - can be blank, otherwise direct parent comment, 1:X  
-Submission_ID - can be blank, otherwise parent submission, 1:X  
+Parent_Comment_ID - can be blank, otherwise direct parent comment, 1:X  
+Submission_ID - 1:X  
 
-Only need to know comment's parent, whether thats a submission or another comment  
-sort of like a tree  
 
+## Not Amazon.com  
+
+**User**  
+Email - valid email, unique
+
+**Address**
+User_ID - 1:X
+Street - string
+City_ID - 1:X  
+State_ID - 1:X  
+Country_ID - 1:X  
+Zipcode - valid zipcode
+
+**City**  
+Name  
+State_ID - 1:X  
+
+**State**  
+Name  
+Country_ID - 1:X  
+
+**Country**
+Name
+
+**Product**  
+Title - string  
+Description - text  
+Price - float, required, can't be 0 ;) 
+Stock - int 
+
+**Review**  
+Title - string  
+Body - text  
+Rating - int (number of stars)  
+Product_ID - 1:X  
+User_ID - 1:X
+
+**Wishlist**  
+Title - string  
+User_ID - 1:X  
+
+**WishlistsAndProducts (Join Table)**  
+Wishlist_ID  
+Product_ID  
+
+**Category**  
+Name  
+
+**CategoriesAndProducts (Join Table)**  
+Category_ID  
+Product_ID  
+
+**Order**  
+User_ID - 1:X  
+Shipment_ID - 1:X  
+
+**ProductsAndOrders (Join Table)**  
+Product_ID  
+Order_ID  
+
+**Shipment**  
+User_ID - 1:X  
+Address_ID - 1:X  
+Shipped? - Boolean   
+Delivered? - Boolean   
