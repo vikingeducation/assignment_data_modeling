@@ -74,8 +74,8 @@ Submission_ID - 1:X
 **User**  
 Email - valid email, unique
 
-**Address**
-User_ID - 1:X  (user can have several addresses)  
+**Address**  
+User_ID - 1:X  (user can have multiple addresses)  
 Street - string  
 City_ID - 1:X  
 State_ID - 1:X  
