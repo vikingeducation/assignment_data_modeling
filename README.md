@@ -50,8 +50,8 @@ Type?
 ##Message Board  
 
 **User**  
-Email - valid email, unique 
-Link Karma - int 
+Email - valid email, unique  
+Link Karma - int  
 Comment Karma - int  
 
 **Submission**  
