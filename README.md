@@ -73,7 +73,7 @@ Submission_ID - 1:X
 
 **User**  
 Email - valid email, unique  
-Phone
+Phone  
 
 **Address**  
 User_ID - 1:X  (user can have multiple addresses)  
@@ -134,7 +134,7 @@ Order_ID
 User_ID - 1:X  
 Address_ID - 1:X  
 Shipped? - Boolean   
-Delivered? - Boolean 
+Delivered? - Boolean  
 Carrier_ID - 1:X  
 Tracking Number - unique  
 
