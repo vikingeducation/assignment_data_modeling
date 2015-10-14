@@ -75,12 +75,12 @@ Submission_ID - 1:X
 Email - valid email, unique
 
 **Address**
-User_ID - 1:X
-Street - string
+User_ID - 1:X  (user can have several addresses)  
+Street - string  
 City_ID - 1:X  
 State_ID - 1:X  
 Country_ID - 1:X  
-Zipcode - valid zipcode
+Zipcode - valid zipcode  
 
 **City**  
 Name  
@@ -96,7 +96,7 @@ Name
 **Product**  
 Title - string  
 Description - text  
-Price - float, required, can't be 0 ;) 
+Price - float, required, can't be 0 ;)  
 Stock - int 
 
 **Review**  
