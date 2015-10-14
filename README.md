@@ -72,7 +72,8 @@ Submission_ID - 1:X
 ## Not Amazon.com  
 
 **User**  
-Email - valid email, unique
+Email - valid email, unique  
+Phone
 
 **Address**  
 User_ID - 1:X  (user can have multiple addresses)  
@@ -133,6 +134,10 @@ Order_ID
 User_ID - 1:X  
 Address_ID - 1:X  
 Shipped? - Boolean   
-Delivered? - Boolean   
+Delivered? - Boolean 
+Carrier_ID - 1:X  
+Tracking Number - unique  
 
-*
+**Carrier**  
+Name  
+Support_Phone  
