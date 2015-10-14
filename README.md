@@ -7,11 +7,11 @@ Justin Mullis' fork
 
 ##Online Learning Platform  
 
-Course  
+*Course*  
 Title - string, length maximum 50  
 Description - text  
 
-Lesson  
+*Lesson*  
 Course_ID - foreign key, relationship 1:X  
 Title - string, length maximum 50  
 Body - text  
@@ -20,11 +20,11 @@ Body - text
 
 ##Profile Page  
 
-User  
+*User*  
 Username - min and max length  
 Email - passes some basic check for valid email  
 
-Profile  
+*Profile*  
 User_ID - foreign key, relationship 1:X  
 City_ID - 1:X  
 State_ID - 1:X  
@@ -32,37 +32,42 @@ Country_ID 1:X
 Age - int, min and max  
 Gender_ID - 1:X  
 
-City  
+*City*  
 State_ID - 1:X  
 Name  
 
-State
+*State*
 Country_ID - 1:X  
 Name  
 
-Country  
+*Country*  
 Name  
 
-Gender  
-Type  
+*Gender*  
+Type?
 
 
 ##Message Board  
 
-Users  
-Email  
-Link Karma  
-Comment Karma  
+*User*  
+Email - valid email, unique 
+Link Karma - int 
+Comment Karma - int  
 
-Submission  
-Title  
-URL  
-Upvotes  
-Timestamps  
+*Submission*  
+Title - string, length min max  
+URL - string, valid URL  
+Upvotes - int  
+Timestamps - DateTime  
 
+*Comments*    
+Author_ID - foreign_key, users table, 1:X   
+Upvotes - int  
+Body - text  
+Timestamps - DateTime  
+Parent_ID - can be blank, otherwise direct parent comment, 1:X  
+Submission_ID - can be blank, otherwise parent submission, 1:X  
 
-Comments  
-Author_ID  
-Body  
-Timestamps  
+Only need to know comment's parent, whether thats a submission or another comment  
+sort of like a tree  
 
