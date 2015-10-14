@@ -60,7 +60,9 @@ URL
 Upvotes  
 Timestamps  
 
+
 Comments  
 Author_ID  
 Body  
 Timestamps  
+
