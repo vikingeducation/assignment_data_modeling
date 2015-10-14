@@ -5,7 +5,7 @@ Mmmmm.... dataaaaa....
 
 Justin Mullis' fork
 
-_Online Learning Platform_
+##Online Learning Platform
 
 Course
 Title - string, length maximum 50
@@ -18,7 +18,7 @@ Body - text
 
 
 
-_Profile Page_
+##Profile Page
 
 User
 Username - min and max length
@@ -47,7 +47,7 @@ Gender
 Type
 
 
-_Message Board_
+##Message Board
 
 Users
 Email
