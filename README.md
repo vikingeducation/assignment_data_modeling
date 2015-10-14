@@ -90,8 +90,8 @@ State_ID - 1:X
 Name  
 Country_ID - 1:X  
 
-**Country**
-Name
+**Country**  
+Name  
 
 **Product**  
 Title - string  
@@ -134,3 +134,5 @@ User_ID - 1:X
 Address_ID - 1:X  
 Shipped? - Boolean   
 Delivered? - Boolean   
+
+*
