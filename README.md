@@ -55,14 +55,10 @@ link: string
 author_id (user_id)
 
 Comments (belongs to user, has many CommentConnections)
+parent_id
+parent_type
 text: text
 author_id (user_id)
-
-CommentConnections (belongs to Comment, belongs to Link)
-(this probably isn't right)
-comment_id
-parent_type (link or comment)
-parent_id (id of link or comment that the comment was referring to)
 
 4. E-commerce site
 
