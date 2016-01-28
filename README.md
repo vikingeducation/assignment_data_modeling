@@ -11,18 +11,26 @@ Nouns/Entities
 Students
     name
     email
-    address, etc
     course-join-key
 
-Course
+Addresses
+    student_id
+    number
+    street
+    city
+    zip
+
+Courses
     title
     description
     student-join-key
 
-Lesson
+Lessons
     course-foreignkey
     title
     bodytext
+
+StudentCourse (join)
 
 The idea of Course-Lessons as 1-many is that even if the lessons are repeated over courses, the responsibility changes.  Ie, that the responsibility for the lesson in a course is governed by the course even if the material behind it is the same.  There could be other entities which are hypothetically responsible for assigning or maintaining a single lesson across multiple courses but in the prompt we don't know who those entities are.
 
