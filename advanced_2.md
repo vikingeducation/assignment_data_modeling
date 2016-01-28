@@ -6,11 +6,11 @@ You want to collect analytics data for visitors and logged-in-users who are visi
 
 ## Explanation
 
-Since a user may or may not have an account, using IP addresses is the next best way to identify unique visitors. This of course has caveats, because what if a user is traveling or visiting the site from a friend's computer? I frequently invite strangers off the street to come in and check their Twitter accounts from my home computer. So, an IP address can be said to have multiple users. Also, a user can be assumed to have multiple IP addresses. This situation is ripe for a join table.
+Since a user may or may not have an account, using IP addresses is the next best way to identify unique visitors. This of course has caveats, because what if a user is traveling or visiting the site from a friend's computer? So, an IP address can be said to have multiple users. Also, a user can be assumed to have multiple IP addresses. This situation is ripe for a join table.
 
 By using a join table it allows IP address to be associated with many users and users to be associated with many IP addresses. By convention, the table is named with the tables in alphabetical order with a separating underscore.
 
-For the analytics table, storing both the `ip_id` and `user_id` is neccessary. This is because it is unknown whether the visit will come from a logged in user or just a guest without an account. Later, during analysis of the recorded data, it could be displayed that if the `user_id` is null, then the visit came from a guest without an account. If the `user_id` and `ip_id` are present in the analytics row, then the visit came from a logged in user. If the IP address is null, then analytics must be improved to determine how a user may access the internet without having an IP address. Probably need another join table or something.
+For the analytics table, storing both the IP and user is neccessary. This is because it is unknown whether the visit will come from a logged in user or just a guest without an account. To DRY up columns, we call the foreign key `entity_id` and then allow ourselves to derive the table type from `entity_type` which will be IP or User. This allows for tying visits to both IP addresses and Users.
 
 Each page would have a row in a pages table. Each link could also be stored in a table. The link would have a `page_id` key because it belongs to a page.
 
@@ -67,8 +67,8 @@ Analytics
 
 - id SERIAL
 - created_at TIMESTAMP
-- ip_id INTEGER FK
-- user_id INTEGER FK
+- entity_type VARCHAR(255)
+- entity_id INTEGER FK
 
 ---
 
