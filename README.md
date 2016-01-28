@@ -5,9 +5,9 @@ Thomas LO
 
 *Include your ERM modeling "pseudocode" in the space below*
 
-Basic
+# Basic
 
-1.
+1. Courses and Lessons
   Goals: The goal is to keep track of all the courses and their associated lessons.
   Entities: Courses
     Attributes: Title and Description
@@ -33,7 +33,7 @@ Basic
     Body Text
     Course ID(FK)
 
-2.
+2. User Profile
   A user can only have one profile. The profile includes location data which could be redundant, so we made a join table to allow many-to-many relationships between profile and location (such as one person having more than one shipping address, or many people living in the same place)
 
   User (1:1 with profile)
@@ -60,9 +60,9 @@ Basic
     city
     ProfileLocation (FK)
 
-Intermediate
+# Intermediate
 
-1.
+1. Posts and Comments
   The Goal is to figure out the relationship between comments on submissions, and comments on comments and how each item fits in the hierarchy. Due to the two difference between post and comment, we used two join tables to relate them. One table for relating a post to its comments, and another for relating a comment to its child comments.
 
   Post (1:x with comments through PostComment)
@@ -82,10 +82,10 @@ Intermediate
     parentComment id (FK)
     childComment id (FK)
 
-Advanced
+# Advanced
 
-1.
-  The goal is keep track of products, users, orders, shipments, etc. - everything necessary to get the right products to the right people and keep track of every step of the transaction.
+1. E-commerce
+  The goal is to keep track of products, users, orders, shipments, etc. - everything necessary to get the right products to the right people and keep track of every step of the transaction.
 
   Users (has many shipping addresses, has many billing addresses, has many orders, has many payment info)
     id (PK)
@@ -121,7 +121,6 @@ Advanced
     product id (FK)
     shipment id (FK)
 
-
   UserBillingAddress (join table)
     user id
     address id
@@ -142,3 +141,34 @@ Advanced
     user id (FK)
     CC information, integer, valid cc
     Billing Information, text, valid billing address.
+
+2. Optional- Website use data
+  Visitor
+    id (PK)
+    ip, string, valid format
+
+  User (x:x page_visits)
+    id (PK)
+    first_name, string, required
+    last_name, string, required
+    password, string, required, valid length, valid format
+    email, string, required, valid format
+
+  Page (x:x user, 1:x visit_data)
+    id (PK)
+    url, string, required, valid format
+
+  UserPageVisit (join table for user, visit_data)
+    user id (FK)
+    visit_data id (FK)
+
+  VisitData (1:1 page)
+    id (PK)
+    page id (FK)
+    clicks, integer
+    time arrived, datetime
+    time left, datetime
+    
+  VisitorPageVisit
+    visitor id (FK)
+    visit_data id (FK)
