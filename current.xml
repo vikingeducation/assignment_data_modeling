@@ -81,6 +81,9 @@
 <row name="Password" null="1" autoincrement="0">
 <datatype>VARCHAR(50)</datatype>
 <default>NULL</default></row>
+<row name="Email" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>User ID</part>
 </key>
@@ -173,6 +176,63 @@
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
+</key>
+</table>
+<table x="211" y="603" name="User">
+<row name="User ID" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="username" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="password" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="email" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>User ID</part>
+</key>
+</table>
+<table x="431" y="530" name="Link">
+<row name="Link ID" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="User ID" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="User" row="User ID" />
+</row>
+<row name="link" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Link ID</part>
+</key>
+</table>
+<table x="712" y="623" name="Comment">
+<row name="Comment ID" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Link ID" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Link" row="Link ID" />
+</row>
+<row name="comment" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="User ID" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="User" row="User ID" />
+</row>
+<row name="depth" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="parent_key" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>Comment ID</part>
 </key>
 </table>
 </sql>
