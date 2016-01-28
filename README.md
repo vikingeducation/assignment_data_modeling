@@ -106,6 +106,8 @@ Link Table:
 "Link ID", Integer
 "User ID", Integer, Foreign Key
 "Link URL", String, no limits
+"created_at", DateTime
+"updated_at", DateTime
 
 Comment Table:
 
@@ -115,3 +117,65 @@ Comment Table:
 "Comment Text", text, no limits
 "Depth", Integer
 "Parent Comment ID", Integer, Foreign Key, not required
+"created_at", DateTime
+"updated_at", DateTime
+
+================================
+Basic (New User Profile Page)
+================================
+
+User Table:
+
+"User ID", Integer
+"Username", String, 4-40 characters long, must be unique, required
+"Email", Text, no limits, required, must be email, unique
+"Password", Text, no limits, required
+"created_at", DateTime
+"updated_at", DateTime
+
+Oder Table:
+
+"Order ID", Integer
+"User ID", Integer, Foreign Key, required
+"created_at", DateTime
+"updated_at", DateTime
+
+Product Table:
+
+"Product ID", Integer
+"name", Text, no limit, required
+"description", Text, no limit, required
+"price", Double precision, required
+"stock", Integer, required
+"manufacturer", Text, no limit, required
+"created_at", DateTime
+"updated_at", DateTime
+
+OrderProduct Table:
+
+"OrderProduct ID", Integer
+"Order ID", Integer, Foreign Key, required
+"Product ID", Integer, Foreign Key, required
+"created_at", DateTime
+"updated_at", DateTime
+
+Shipment Table:
+
+"Shipment ID", Integer
+"Order ID", Integer, Foreign Key, required
+"status", Text, no limit, required
+"shipped_from", Text, no limit, required
+"destination", Text, no limit, required
+"created_at", DateTime
+"updated_at", DateTime
+
+ProductUser Table:
+
+
+"ProductUser ID", Integer
+"Product ID", Integer, Foreign Key, required
+"User ID", Integer, Foreign Key, required
+"views", Integer, no limit, required
+"total_time", Double precision, no limit, required
+"created_at", DateTime
+"updated_at", DateTime
