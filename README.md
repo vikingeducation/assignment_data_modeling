@@ -87,7 +87,7 @@ Advanced
 1.
   The goal is keep track of products, users, orders, shipments, etc. - everything necessary to get the right products to the right people and keep track of every step of the transaction.
 
-  Users (has many shipping addresses, has many billing addresses, has many orders)
+  Users (has many shipping addresses, has many billing addresses, has many orders, has many payment info)
     id (PK)
     first_name, string, must exist
     last_name, string, must exist
@@ -95,7 +95,7 @@ Advanced
     gender, char
     prime_status, bool
 
-  Products (x:x product)
+  Products (x:x order)
     id (PK)
     title, string, must exist
     description, text, must exist
@@ -107,20 +107,20 @@ Advanced
     user id (FK)
     quantity, integer, must exist
 
-  OrderProduct
+  OrderProduct ( join table x:x order:product )
     order id (FK)
     product id (FK)
 
-  Shipments
+  Shipments ( 1:1 order )
     id (PK)
+    track_package, boolean
     address id (FK)
     order id (FK)
 
-  ProductShipment
+  ProductShipment ( join table x:x products:shipments )
     product id (FK)
-    user id (FK)
+    shipment id (FK)
 
-  Shopping Cart
 
   UserBillingAddress (join table)
     user id
@@ -131,11 +131,14 @@ Advanced
     address id
 
   Address
-    country
-    city
-    state
-    zip code
+    id (PK)
+    country, string, valid country
+    city, string, valid city
+    state, string, valid state
+    zip code, string, valid zip
 
-  BillingInfo
-
-  UserHistory
+  UserPaymentInfo ( 1:1 Each payment info will have one User )
+    id (PK)
+    user id (FK)
+    CC information, integer, valid cc
+    Billing Information, text, valid billing address.
