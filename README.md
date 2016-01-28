@@ -7,7 +7,7 @@ Thomas LO
 
 Basic
 
-1. 
+1.
   Goals: The goal is to keep track of all the courses and their associated lessons.
   Entities: Courses
     Attributes: Title and Description
@@ -20,7 +20,7 @@ Basic
 
   Relationships: One to many relationship. One Course to many Lessons.
 
-  Design: One table for each Entity(two in total). The lessons table will have the Courses Primary ID as a foreign key in a column. 
+  Design: One table for each Entity(two in total). The lessons table will have the Courses Primary ID as a foreign key in a column.
 
   Course
     Primary ID
@@ -33,4 +33,33 @@ Basic
     Body Text
     Course ID(FK)
 
-2. 
+2.
+  A user can only have one profile. The profile includes location data which could be redundant, so we made a join table to allow many-to-many relationships between profile and location (such as one person having more than one shipping address, or many people living in the same place)
+
+  User (1:1 with profile)
+    id (PK)
+    name
+    email
+
+  Profile (1:1 with user, x:x with location through ProfileLocation)
+    id (PK)
+    age
+    gender
+    user id (FK)
+    ProfileLocation id (FK)
+
+  ProfileLocation
+    id (PK)
+    profile id (FK)
+    location id (FK)
+
+  Location (x:x with profile through ProfileLocation)
+    id (PK)
+    country
+    state
+    city
+    ProfileLocation (FK)
+
+Intermediate
+
+1.  
