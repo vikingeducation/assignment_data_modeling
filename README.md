@@ -62,4 +62,80 @@ Basic
 
 Intermediate
 
-1. Figure out the relationship between comments on submissions, and comments on comments. 
+1.
+  The Goal is to figure out the relationship between comments on submissions, and comments on comments and how each item fits in the hierarchy. Due to the two difference between post and comment, we used two join tables to relate them. One table for relating a post to its comments, and another for relating a comment to its child comments.
+
+  Post (1:x with comments through PostComment)
+    id (PK)
+    Link, text, valid link
+    Source, text
+
+  Comments (1:1 post through PostComment, 1:x comment through CommentComment)
+    id (PK)
+    message, text
+
+  PostComment
+    post id (FK)
+    comment id (FK)
+
+  CommentComment
+    parentComment id (FK)
+    childComment id (FK)
+
+Advanced
+
+1.
+  The goal is keep track of products, users, orders, shipments, etc. - everything necessary to get the right products to the right people and keep track of every step of the transaction.
+
+  Users (has many shipping addresses, has many billing addresses, has many orders)
+    id (PK)
+    first_name, string, must exist
+    last_name, string, must exist
+    email, string, must exist, must be valid
+    gender, char
+    prime_status, bool
+
+  Products (x:x product)
+    id (PK)
+    title, string, must exist
+    description, text, must exist
+    price, float (2 dec places), must exist
+    quantity_in_stock, integer, must exist
+
+  Orders (x:x product, 1:x shipment)
+    id (PK)
+    user id (FK)
+    quantity, integer, must exist
+
+  OrderProduct
+    order id (FK)
+    product id (FK)
+
+  Shipments
+    id (PK)
+    address id (FK)
+    order id (FK)
+
+  ProductShipment
+    product id (FK)
+    user id (FK)
+
+  Shopping Cart
+
+  UserBillingAddress (join table)
+    user id
+    address id
+
+  UserShippingAddress (join table)
+    user id
+    address id
+
+  Address
+    country
+    city
+    state
+    zip code
+
+  BillingInfo
+
+  UserHistory
