@@ -25,3 +25,6 @@ Lessons
 - title VARCHAR(32)
 - body TEXT
 - course_id INTEGER FK
+
+
+

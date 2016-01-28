@@ -10,7 +10,7 @@ A post may have many comments, a comment belongs to one post. However, a comment
 
 It would be a waste to create a comment reply table. The solution could be handled with the following schema and making decisions based on it at runtime.
 
-Top level comments would be those without a set `comment_id`. Those comments with a `comment_id` would be nested.
+Top level comments would be those with a `parent_type` of Post and nested comments would be those with a `parent_type` of Comment. While iterating through the comments, levels could be handled either iteratively or recursively.
 
 The ordering of comments would be done by using the `created_at` timestamp.
 
@@ -21,8 +21,8 @@ Post
 - id SERIAL
 - title VARCHAR(32)
 - link VARCHAR(255)
-- created_at TIMESTAMP
 - user_id INTEGER FK
+- created_at TIMESTAMP
 
 ---
 
@@ -30,7 +30,9 @@ Comment
 
 - id SERIAL
 - body TEXT
-- created_at TIMESTAMP
-- post_id INTEGER FK
 - user_id INTEGER FK
-- comment_id INTEGER FK
+- parent_type VARCHAR(255)
+- parent_id INTEGER FK
+- created_at TIMESTAMP
+
+

@@ -10,7 +10,7 @@ A user should only have a single profile. This a is one-to-one relationship betw
 
 Retrieving the location of a user is more complex. A location may change and is not a property of the profile. It is more a global constant that may be updated as the world changes.
 
-To mimic this, a city, state, country, and zip code table are created to independently store the location data. Then the profile can link to these separately allowing the location names and associations to be changed without needing to change multiple profile rows.
+To mimic this, a city, state, country, and zip code table are created to independently store the location data. Then the profile can link to these through the zip code only. Since the zip code has a reference to the city and the city then leads up the chain to country the entire location can be inferred by the zip code.
 
 Age of a user can be determined at runtime by subracting the birthday given in the user table with the current date.
 
@@ -31,10 +31,16 @@ Profiles
 
 - id SERIAL
 - birthday DATE
-- city_id INTEGER FK
-- state_id INTEGER FK
 - zip_code_id INTEGER FK
 - gender_id INTEGER FK
+
+---
+
+ZipCodes
+
+- id SERIAL
+- code VARCHAR(32)
+- city_id INTEGER FK
 
 ---
 
@@ -61,15 +67,10 @@ Countries
 
 ---
 
-ZipCodes
-
-- id SERIAL
-- code VARCHAR(32)
-- state_id INTEGER FK
-
----
-
 Genders
 
 - id SERIAL
 - name VARCHAR(16)
+
+
+
