@@ -62,4 +62,4 @@ Basic
 
 Intermediate
 
-1.  
+1. Figure out the relationship between comments on submissions, and comments on comments. 
