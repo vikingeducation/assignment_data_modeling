@@ -34,7 +34,7 @@ INTERMEDIATE
 - Users table with login info; primary key = unique id
 - Comments table with text, timestamp, foreign key = user_id
 - Links table with an entry for each link, has a foreign key of user_id as well
-- pseudo-join table with a row for each comment; comment_id, user_id, link_id (can be blank if the comment is on a comment), root_comment_id (what the original comment is connected to, can be blank if the comment is on a link)
+- pseudo-join table with a row for each comment; comment_id, user_id, parent_id, parent_type (either Link or Comment)
 - User posts a new Link: gets added to Links table, and also to the join table
 
 
