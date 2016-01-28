@@ -21,7 +21,10 @@ BASIC
 2. profile page
 - user should only have one profile
 - email should be additional primary key
-- I would add this information to the existing Users table because I will most likely want to query to find out demographic information; how many users do I have from MI? how many users are between 18-49? if I was adding addresses for a specific function, like shipping, I might break out into an addresses table
+- create Addresses table, foreign key = user_id
+- Users table: first_name, last_name, email, age, gender
+- Addresses table: line1, line2, city, state, zip, user_id
+- add other information to the existing Users table because I will most likely want to query to find out demographic information, ex. how many users are between 18-49?
 
 
 INTERMEDIATE
