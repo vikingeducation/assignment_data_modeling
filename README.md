@@ -128,7 +128,57 @@ Shipments
 
 Order
     user_id
-    
+
+
+#########
+optional advanced problem - Julia & Deepa
+#########
+
+entities
+    visitor
+    user
+    page
+    link
+    clicks
+
+
+relps
+    user:page  n:n
+    link:page  n:n
+    link:click  1:n
+
+User
+    userid, username, firstname, lastname, email
+
+Page
+    pageid
+    url
+
+Link
+    linkid
+    url
+
+UserPage (join)
+    id
+    userid
+    pageid
+    visitorid
+    timespent
+
+LinkPage (join)
+    id
+    pageid
+    linkid
+
+ClickLink (join)
+    id
+    clickid
+    click
+    jointplid
+    userid
+    visitorid
+
+
 
 
 
