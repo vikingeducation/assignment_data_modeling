@@ -15,7 +15,7 @@ The Attributes?
 Students
 - email address (string - max length, must have a @?)
 - password (string - minimum length, maximum length, one capital, one letter?)
-- user name (string - minimum length, must be unique)
+- username (string - minimum length, must be unique)
 
 Courses
 - title (string - maximum length)
@@ -35,19 +35,19 @@ Each lesson can be part of many courses
 
 
 
-Students
+Student
 student_id - email - username - password
       \
       join table
       student_id - course_id
       /
-Courses
+Course
 course_id - title - description
       \
       join table
       course_id - lesson_id
       /
-Lessons
+Lesson
 lesson_id - title - body text
 
 

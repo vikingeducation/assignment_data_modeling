@@ -1,0 +1,23 @@
+For each of the following scenarios, think through
+- the product which is being created
+- and then write down the models, columns, validations and associations you might use to implement it like we did in the example above.
+
+Basic 2.
+You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
+
+The product which is being created?
+We are building the profile page for a new User on our login site.
+
+1. Think how many profiles should a User have?
+ONE
+
+2. How would you relate this to the User model?
+It's a One to One relationship.
+
+User
+user_id - username - email - password
+
+        \
+
+Profile
+profile_id - user_id (FOREIGN KEY) - city - state - country - age - gender
