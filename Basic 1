@@ -1,0 +1,53 @@
+For each of the following scenarios, think through
+- the product which is being created
+- and then write down the models, columns, validations and associations you might use to implement it like we did in the example above.
+
+Basic 1.
+You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
+
+The product which is being created?
+We are building a free online learning platform who are exclusively online.
+
+The Entities?
+Students - Courses - Lessons
+
+The Attributes?
+Students
+- email address (string - max length, must have a @?)
+- password (string - minimum length, maximum length, one capital, one letter?)
+- user name (string - minimum length, must be unique)
+
+Courses
+- title (string - maximum length)
+- description (string - maximum length)
+
+Lessons
+- title (string - maximum length)
+- body text (string - maximum length??)
+
+
+
+Each student can have many courses
+Each course can have many students
+
+Each course can have many lessons
+Each lesson can be part of many courses
+
+
+
+Students
+student_id - email - username - password
+      \
+      join table
+      student_id - course_id
+      /
+Courses
+course_id - title - description
+      \
+      join table
+      course_id - lesson_id
+      /
+Lessons
+lesson_id - title - body text
+
+
