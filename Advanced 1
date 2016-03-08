@@ -32,11 +32,8 @@ a shipment can have many orders
             User
             user_id - user_details
                   \
-                    Join Table
-                    user_id - order_id
-                  /
             Order
-            order_id - order_details
+            order_id - user_id - order_details
            /                        \
   Shipment                         Join Table
   shipment_id - order_id           order_id - product_id
