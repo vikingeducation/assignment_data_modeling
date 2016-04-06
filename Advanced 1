@@ -1,0 +1,43 @@
+For each of the following scenarios, think through
+- the product which is being created
+- and then write down the models, columns, validations and associations you might use to implement it like we did in the example above.
+
+Advanced 1
+
+You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app.
+
+1. What is the product which is being created?
+
+An e-commerce site which needs to keep track of products, users, orders and shipmemts.
+
+ENTITIES
+- Products
+- Users
+- Orders
+- Shipments
+
+RELATIONSHIPS
+
+users can have many orders
+an order can only belong to one user
+
+Orders can have many products
+products can belong to many orders
+
+an order can be part of one shipment
+a shipment can have many orders
+
+# Not counting if an order is sent and somethign is left out and has to be sent in another shipment. Guess we'd just make that another order.
+
+            User
+            user_id - user_details
+                  \
+            Order
+            order_id - user_id - order_details
+           /                        \
+  Shipment                         Join Table
+  shipment_id - order_id           order_id - product_id
+                Foreign Key                    /
+                                    Product
+                                    product_id - product_details
+

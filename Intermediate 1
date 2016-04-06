@@ -1,0 +1,41 @@
+For each of the following scenarios, think through
+- the product which is being created
+- and then write down the models, columns, validations and associations you might use to implement it like we did in the example above.
+
+Intermediate 1.
+
+You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+
+1. The product which is being created.
+The product is a message board where users can post links and other users can comment on these submissions or comment on the comments.
+
+Users - Posts - Comments
+
+A user can have many posts
+A post can only have one User
+
+A post can have many comments
+A comment can only belong to one post
+
+A comment can have many comments
+A comment can only belong to one comment 
+
+
+User
+user_id - user_details
+      \
+Post
+post_id - user_id - post_details
+        \
+Comment
+comment_id - post_id - comment_details
+          \
+Reply
+reply_id - comment_id - chat_details
+
+2. How would you make sure a comment know where in the hierarchy it lives?
+
+If it's a comment of the post, we can just pull up all the comments that have that post_id and then order them by comment_id
+
+If it's a reply of a comment, we can just pull up all the replies that belong to a comment_id and then order them by reply_id.
+
