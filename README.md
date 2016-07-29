@@ -51,3 +51,32 @@ class Comment
   has_many :comments
 
 
+
+
+3. Advanced
+
+class Product
+
+
+class User
+has_many :addresses
+has_one :profile
+
+
+
+class Order
+
+
+
+class Shipment
+
+
+class Profile
+belongs_to :user
+has_one :address(should profile have address?)
+
+
+class Address
+belongs_to :user, foreign_key: user
+
+
