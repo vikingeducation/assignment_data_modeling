@@ -70,3 +70,33 @@ Have posts and show them, allow for comments, and show them, and keep order inte
 
 How would we make sure a comment knows where in the heirarch it lives?
  -> Follow the post_id then go to comment_id which it would be nested under.  Find other comments in tat section and compare vote_score.
+ 
+#Advanced
+
+Advanced #1: amazon.com
+
+Goals
+----
+Collect products,user, orders, shipments, and other data to create a package for the user. procured marketing.
+
+###Entities
+1. Product
+	* name:varchar
+	* description:text
+	* price:int
+	* sku:bigint
+2. User
+	* name:varchar
+3. Order
+4. Location
+	* address:varchar
+	* city:varchar
+	* state:varchar
+	* country:varchar
+5. Shipment
+
+
+Charmin
+T1 T2
+
+
