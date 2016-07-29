@@ -112,3 +112,19 @@ Comment: CommmentID(Integer), PostID(Integer), Created(DateTime).
 Constraints: CommentID must be unique, unalterable, non-empty. PostID must
 be unique, unalterable, non-empty. And, Created must have type DateTime.
 
+
+### Advanced
+1.
+#### Entities
+Product, User, Order, Shipment, ProductOrder.
+
+#### Attributes
+Product: ProductID, Name, Description, Price, Weight, Dimension.
+User: UserID, First_Name, Last_Name, Street_Address, City, State, Zip_Code,
+Email.
+Order: OrderID, Created, UserID.
+Shipment: ShipmentID, OrderID, UserID, Shipment_Date, Delivered.
+ProductOrder: ProductID, OrderID.
+
+#### Types and Constraints
+
