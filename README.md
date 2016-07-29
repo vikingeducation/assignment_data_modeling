@@ -149,6 +149,7 @@ Attributes
 Relationships
   A user has many orders.
   An order has one product.
+  A product has many orders
   A shipment has many orders.
   An order belongs to a user.
   An order has one shipment.
