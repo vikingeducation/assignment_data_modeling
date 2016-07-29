@@ -90,8 +90,7 @@ Collect products,user, orders, shipments, and other data to create a package for
 	* location_id:int
 	* gender:varchar
 3. Order
-   * kart_id:int
-   * cost
+   * order_num:varchar
 4. Location
 	* address:varchar
 	* city:varchar
@@ -104,11 +103,6 @@ Collect products,user, orders, shipments, and other data to create a package for
    * order_id:int
 6. Item
 	* product_id:int
-	* serial_num:varchar
-7. Kart
-   * 
-
-Charmin
-T1 T2
+	* order_id:int
 
 
