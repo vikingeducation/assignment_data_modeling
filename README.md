@@ -20,7 +20,49 @@ Hannah Squier & Chris Goodson
   Goal: Collect demographic information for user already stored in DB
 
   Entities and Attributes:
-    1) User: username
+    1) User: username - user ID - email  - city ID - gender
+              string  -  int  -  string  -  int    -  string
+
+       city: Name -  City ID - State ID 
+             string - int  - int
+
+      state: Name - state ID (1 to many with City)      
 
   Relationships:
-    1) User/Profile: 1-to-1. Profile belongs to user
+        User has one city
+        State has many cities
+
+
+#### Intermediate 
+
+## 1a) model
+
+        Posts/ users/ comments / comment-comments
+
+        User : UserID - UserName -  
+               int    - string   - 
+
+        Posts: PostID - UserID(author) - body - title 
+                int   -  int           - text - string
+
+     Comments: UserID - CommentID  - PostID - ParentID - body
+                int   -    int     -  int   -   int    -  text
+
+
+
+##1b) relationships
+        
+        User : has many posts( 1 to many )
+        User : has many comments( 1 to many )
+        Post : has many comments( 1 to many ) 
+     Comment : has many comments( 1 to many )
+
+
+#### Advanced
+
+## 1)
+
+      Products
+
+
+You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
