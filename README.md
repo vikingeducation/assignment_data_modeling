@@ -56,27 +56,45 @@ class Comment
 3. Advanced
 
 class Product
+has_many: orders
+
+name: string, price: integer
 
 
 class User
-has_many :addresses
 has_one :profile
-
+has_many :orders
+username: string, email: string, password: string, created_at: date, updated_at: date
 
 
 class Order
+has_many: products
+belongs_to: user
+has_one: shipment
+
 
 
 
 class Shipment
+belongs_to: order
+belongs_to: address
+belongs_to: profile
+
 
 
 class Profile
 belongs_to :user
-has_one :address(should profile have address?)
+has_many :addresses(should profile have address?)
+has many :shipments
+first_name: string
+last_name: string
+age: integer
+
+
 
 
 class Address
 belongs_to :user, foreign_key: user
 
+city: string, state: string, street: string, street number: integer, zip: integer, country: string
 
