@@ -84,3 +84,10 @@ Goals
   - We want to know what comments belong to what posts
   - Which comments belong to which users
   - We want to know if if a comment is on a post on on another comment, which belongs to a post
+Entities
+  - users
+  - posts
+  - post_comments
+  - comment_comments
+Attributes
+  - User: 
