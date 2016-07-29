@@ -87,7 +87,94 @@ Goals
 Entities
   - users
   - posts
-  - post_comments
-  - comment_comments
+  - comments
 Attributes
   - User: 
+    -User_name (string, unique)
+    -Email (string, unique)
+  -Posts
+    -User_id (foreign key, integer)
+    -Title (string)
+    -Body  (text)
+  -Comments
+    -Parent_id (foreign key, integer)
+    -Parent type(comment or post)
+    -user_id (foreign key, integer)
+    -Body (text)
+Relationships
+  A user has many posts and has many comments.
+  A post belongs to one user.
+  A comment belongs to one user.
+  A post has many comments. 
+  A comment belongs to one "parent". 
+  A comment has many comments. 
+
+# Advanced
+You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+Goals
+  -Keep track of products, users, orders and shipments.
+  -Product: what is the price? Inventory? what is it?
+  -User: Who are they? Where do they live? Payment information
+  -Orders: Items and quantities, when was order placed? 
+  -Shipments: Where is it going? When is it arriving? Has it arrived? 
+Entities
+  -Product
+  -User
+  -Order
+  -Shipment
+Attributes
+  Product
+    -Price
+    -Inventory
+    -Name
+    -Product_id
+    -Description
+  User
+    -First_name
+    -Last Name
+    -Password
+    -Address
+    -Payment information
+  Order
+    -User_id
+    -Shipment_id
+    -Product_id
+    -Item quanitity
+    -Date ordered
+  Shipment
+    -Scheduled arrival date
+    -Scheduled departure date
+    -Arrived? (boolean)
+Relationships
+  A user has many orders.
+  An order has one product.
+  A shipment has many orders.
+  An order belongs to a user. 
+  An order has one shipment.
+
+(Optional) You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure. You'll have to use your judgement about what additional attributes would be interesting to track
+
+Goals
+What pages has a user visited?
+What links has a user clicked on?
+How long did they spend on each page?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
