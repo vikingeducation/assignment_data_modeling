@@ -23,26 +23,26 @@ Hannah Squier & Chris Goodson
     1) User: username - user ID - email  - city ID - gender
               string  -  int  -  string  -  int    -  string
 
-       city: Name -  City ID - State ID 
+       city: Name -  City ID - State ID
              string - int  - int
 
-      state: Name - state ID (1 to many with City)      
+      state: Name - state ID (1 to many with City)
 
   Relationships:
         User has one city
         State has many cities
 
 
-#### Intermediate 
+#### Intermediate
 
 ## 1a) model
 
         Posts/ users/ comments / comment-comments
 
-        User : UserID - UserName -  
-               int    - string   - 
+        User : UserID - UserName -
+               int    - string   -
 
-        Posts: PostID - UserID(author) - body - title 
+        Posts: PostID - UserID(author) - body - title
                 int   -  int           - text - string
 
      Comments: UserID - CommentID  - PostID - ParentID - body
@@ -51,18 +51,60 @@ Hannah Squier & Chris Goodson
 
 
 ##1b) relationships
-        
+
         User : has many posts( 1 to many )
         User : has many comments( 1 to many )
-        Post : has many comments( 1 to many ) 
+        Post : has many comments( 1 to many )
      Comment : has many comments( 1 to many )
 
 
 #### Advanced
 
-## 1)
+## 1)E-Commerce
+      Goal: Organize ecommerce data in DRY way
 
-      Products
+      Products: ProductID (PK)  -  Name  -  Description  -  Price  -  Quantity in Stock
+                  int           - string -    text       -  float  -  int
+
+      Users:   UserID (PK) -  First name - last name
+                  int      -     str     -   str
+
+      Addresses : UserID (FK)  -  AddressID (PK)  - address - city - state - zip
+                    int        -    int           - string  - str  - str   - int
+
+      Orders: OrderID (PK)  -  UserID (FK) - order date - AddressID (FK)
+                int         -   int   -  date
+
+      Order/Product: ProductID (FK) - OrderID (FK)
+                            int     -  int
+
+      Shipments: shipmentId (PK)  -   OrderID (FK)  - delivery date
+                    int           -           int   -    date
+
+  Relationships:
+      - 1 user has many addresses
+      - 1 user has many orders
+      - many products have many orders
+      - 1 order has many shipments
+
+## 2) Website Analytics
+      Goal: Keep track of website analytics in efficient way
+
+      Visitors : VisitorID (PK)  -  city  -  state/region  -   country
+                      int        -  str   -     str        -     str
+
+      Pages    :  PageID (PK)
+
+      Pages/Visitors:  PageID (FK)  -  VisitorID (FK)
+                          int       -        int
+
+      Links    :  LinkID (PK) - FromPageID (FK)  - ToPageID (FK)
+                    int       -     int          -   int
+
+  Relationships:
+      - many pages have many visitors
+      - 1 page has many links
 
 
-You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+
