@@ -84,17 +84,29 @@ Collect products,user, orders, shipments, and other data to create a package for
 	* name:varchar
 	* description:text
 	* price:int
-	* sku:bigint
+	* sku:varchar
 2. User
 	* name:varchar
+	* location_id:int
+	* gender:varchar
 3. Order
+   * kart_id:int
+   * cost
 4. Location
 	* address:varchar
 	* city:varchar
 	* state:varchar
 	* country:varchar
 5. Shipment
-
+   * ship_to_location_id:int
+   * ship_from_location_id:int
+   * tracking_num:varchar
+   * order_id:int
+6. Item
+	* product_id:int
+	* serial_num:varchar
+7. Kart
+   * 
 
 Charmin
 T1 T2
