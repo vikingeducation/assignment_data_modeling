@@ -148,21 +148,32 @@ Mmmmm.... dataaaaa....
     - track time on page
 - Entities
   - User
+    - ip_address
+  - Session
+   - user_id
   - URL
+    - html
+  - HTML
+  - HTMLLinks
+    - html_id
+    - link_id
   - Request
     - url_id
     - ip_address
-    - session_cookie
-  - Page
-    - views
+    - session_id
+    - link_id
   - Link
-  - Click
-    - link_id
-  - PageLinks
-    - page_id
-    - link_id
-  - TimeSpent
-    - datetime
+   - url_id
+  
+ 
+
 - Relationships
   - URL has many Requests. A Request belongs to a URL.
-  - A Link has many Clicks. A Click belongs to a Link.
+  - A user has many sessions. A session belongs to a user. 
+  - A URL belongs to many links. A link has a URL.
+  - A URL has HTML. HTML belongs to a url.
+  - HTML has many links. A link belongs to many HTMLs
+  - A request has a url. A url belongs to many requests.
+  - A request has a user. A user has many requests.
+  - A request has session_id. A session_id has a user.
+  
