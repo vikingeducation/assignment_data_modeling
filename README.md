@@ -139,3 +139,30 @@ Mmmmm.... dataaaaa....
     - An Address has many shipments. A Shipment belongs to an Address.
     - UserAddress belongs to a User. UserAddress belongs to an Address.
     - ProductWarehouse belongs to a Product. ProductWarehouse belongs to a Warehouse.
+
+[OPTIONAL]
+- goals
+  - track visitors and track logged-in users
+    - track page views
+    - track link clicks
+    - track time on page
+- Entities
+  - User
+  - URL
+  - Request
+    - url_id
+    - ip_address
+    - session_cookie
+  - Page
+    - views
+  - Link
+  - Click
+    - link_id
+  - PageLinks
+    - page_id
+    - link_id
+  - TimeSpent
+    - datetime
+- Relationships
+  - URL has many Requests. A Request belongs to a URL.
+  - A Link has many Clicks. A Click belongs to a Link.
