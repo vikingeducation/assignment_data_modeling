@@ -53,14 +53,21 @@ Password: Password, UserID.
 
 #### Types and Constraints
 User: UserID(Integer), Username(String), Email(String).
-Constraints: UserID must be unique, unalterable, non-empty, Username must be unique and 
-non-empty and must not contain special characters, Email must be a properly
-formatted email address.
+Constraints: UserID must be unique, unalterable, non-empty, Username must be
+unique and non-empty and must not contain special characters, Email must be a
+properly formatted email address.
 
-Profile: City(String), State(String), Country(String)
+Profile: City(String), State(String), Country(String), Age(Integer),
+Gender(String), UserID(Integer).
+Constraints: City, State, Country, and Gender have to be non-empty strings.
+State and Country should match a state or country. UserID must be unique,
+unalterable, non-empty.
+
+Password: Password(String), UserID(Integer).
+Constraints: Password should be at least 8 characters long, and should contain
+at least 1 digit. UserID must be unique, unalterable, non-empty.
 
 #### Relationships
-A course can have one or more lessons, and a lesson can potentially belong
-to more than one course. So, this is a M:N (many to many) relationship.
-
+User and Profile: 1-1.
+User and Password: 1-1.
 
