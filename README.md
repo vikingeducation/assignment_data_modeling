@@ -71,3 +71,44 @@ at least 1 digit. UserID must be unique, unalterable, non-empty.
 User and Profile: 1-1.
 User and Password: 1-1.
 
+
+
+### Intermediate
+1.
+
+#### Entities:
+User, Password, Post, Favorites, and Comment.
+
+#### Attributes
+User: UserID, Username, Created, Clout, and About.
+Password: Password, UserID.
+Post: PostID, UserID, Title, Body, Created, Upvotes.
+Favorites: UserID, PostID, Date.
+Comment: CommentID, PostID, Created.
+
+#### Types and Constraints
+User: UserID(Integer), Username(String), Created(DateTime), Clout(Integer),
+and About(String).
+Constraints: UserID must be unique, unalterable, non-empty, Username must be
+unique and non-empty and must not contain special characters. Created must
+be a DateTime, Clout should be a non-negative integer. And, About should be
+a non-empty string.
+
+Password: Password(String), UserID(Integer).
+Constraints: Password should be at least 8 characters long, and should contain
+at least 1 digit. UserID must be unique, unalterable, non-empty.
+
+Post: PostID(Integer), UserID(Integer), Title(String), Body(Text),
+Created(DateTime), Upvotes(Integer).
+Constraints: PostID must be unique, unalterable, non-empty. UserID must be
+unique, unalterable, non-empty. Title must be a non-empty string, and Body
+is an optional text.
+
+Favorites: UserID(Integer), PostID(Integer), Date(DateTime).
+Constraints: UserID must be unique, unalterable, non-empty. PostID must be
+unique, unalterable, non-empty. And, Date must be of type DateTime.
+
+Comment: CommmentID(Integer), PostID(Integer), Created(DateTime).
+Constraints: CommentID must be unique, unalterable, non-empty. PostID must
+be unique, unalterable, non-empty. And, Created must have type DateTime.
+
