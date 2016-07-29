@@ -1,3 +1,7 @@
+Jess
+
+CJ
+
 # assignment_data_modeling
 Mmmmm.... dataaaaa....
 
