@@ -45,9 +45,15 @@ class GeographicProfle
 
 class Post
   has_many :comments
+  belongs_to :user
 
 class Comment
   belongs_to :post
+  belongs_to :user
+  has_many :comments
+
+class User
+  has_many :posts
   has_many :comments
 
 
