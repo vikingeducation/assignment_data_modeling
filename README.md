@@ -89,7 +89,7 @@ Entities
   - posts
   - comments
 Attributes
-  - User: 
+  - User:
     -User_name (string, unique)
     -Email (string, unique)
   -Posts
@@ -105,9 +105,9 @@ Relationships
   A user has many posts and has many comments.
   A post belongs to one user.
   A comment belongs to one user.
-  A post has many comments. 
-  A comment belongs to one "parent". 
-  A comment has many comments. 
+  A post has many comments.
+  A comment belongs to one "parent".
+  A comment has many comments.
 
 # Advanced
 You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
@@ -116,8 +116,8 @@ Goals
   -Keep track of products, users, orders and shipments.
   -Product: what is the price? Inventory? what is it?
   -User: Who are they? Where do they live? Payment information
-  -Orders: Items and quantities, when was order placed? 
-  -Shipments: Where is it going? When is it arriving? Has it arrived? 
+  -Orders: Items and quantities, when was order placed?
+  -Shipments: Where is it going? When is it arriving? Has it arrived?
 Entities
   -Product
   -User
@@ -150,7 +150,7 @@ Relationships
   A user has many orders.
   An order has one product.
   A shipment has many orders.
-  An order belongs to a user. 
+  An order belongs to a user.
   An order has one shipment.
 
 (Optional) You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure. You'll have to use your judgement about what additional attributes would be interesting to track
@@ -159,22 +159,37 @@ Goals
 What pages has a user visited?
 What links has a user clicked on?
 How long did they spend on each page?
+Is a user logged in?
+Display all this infor centrally
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Entities
+  - user
+  - page
+  - link
+  - time
+Attributes
+  - User
+    - user_name: string
+    - Password: string
+  - page
+    - content: string
+  - link
+    - url: string
+    - page_id: foreighn key
+  - clicks
+    - link_id: foreign_key
+    - user_id: foreign_key
+  - time
+    - page_id: foriegn_key
+    - time_spent: time
+    - user_id: foreign_key
+  Relationships
+    - page has many users
+    - page has many links
+    - link has many pages
+    - link has many clicks
+    - a user has many clicks
+    - user has many page visits
+    - a page has many visits
+    - a page has many times
+    - a user has many times
