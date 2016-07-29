@@ -35,29 +35,29 @@ least 20 chars and no limit.
 A course can have one or more lessons, and a lesson can potentially belong
 to more than one course. So, this is a M:N (many to many) relationship.
 
+
+
 2)
 #### Goals and Needs:
-The login site needs to keep track of users, and each user may potentially
-have one or more profiles (public and private, say). A profile should keep
-track of username, email, city, state, country, age, and gender.
+The login site needs to keep track of users, and each user may have only one 
+profile. A profile should keep track of username, email, city, state, country,
+age, and gender, as well as username and email. 
 
 #### Entities:
-Course and Lesson.
+User, Profile, Password (Encrypted). 
 
 #### Attributes:
-Course: Key, Id, Title, Description.
-Lesson: Key, Id, Title, Body_Text.
+User: UserID, Username, Email.
+Profile: City, State, Country, Age, Gender, UserID.
+Password: Password, UserID.
 
 #### Types and Constraints
-Course: Key(Integer), Id (String), Title (String), Description (Text).
-Constraints: Key has to be unique, Id has to be non-empty string, Title
-should be less than 255 characters, and Description should be text with at
-least 20 chars and no limit.
+User: UserID(Integer), Username(String), Email(String).
+Constraints: UserID must be unique, unalterable, non-empty, Username must be unique and 
+non-empty and must not contain special characters, Email must be a properly
+formatted email address.
 
-Lesson: Key(Integer), Id (String), Title (String), Body_Text (Text).
-Constraints: Key has to be unique, Id has to be non-empty string, Title
-should be less than 255 characters, and Body_Text should be text with at
-least 20 chars and no limit.
+Profile: City(String), State(String), Country(String)
 
 #### Relationships
 A course can have one or more lessons, and a lesson can potentially belong
