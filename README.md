@@ -31,11 +31,23 @@ class User
   username:string, email:string
 
 class DemographicProfile
-  has_one :user
+  belongs_to :user
 
   age:integer, gender:string
 
 class GeographicProfle
-  has_one :user
+  belongs_to :user
 
   city:string, state:string, country:string
+
+
+2. Intermediate
+
+class Post
+  has_many :comments
+
+class Comment
+  belongs_to :post
+  has_many :comments
+
+
