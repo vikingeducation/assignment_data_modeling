@@ -54,3 +54,42 @@ Intermediate 1:
     -type ID (integer)
     
 advanced 1. 
+  User table:
+    -ID (integer)
+    -name (string(50))
+    -email(string(255))
+    ...
+  Order table:
+    -ID (integer)
+    -userID (integer)
+    -date (date)
+    -subtotal (float)
+    -tax (float)
+    -shipping$ (float)
+    -billing stuff
+    -shiping address
+    
+  OrderItem table:
+    -ID (integer)
+    -Order ID (integer)
+    -Product ID (integer)
+    -quantity (integer)
+  
+  Product table:
+    -ID int
+    -name string
+    -price float
+    -description string(long)
+    
+  Shipment table:
+    -ID
+    -Order ID
+    -date
+    
+  ShippedItem table:
+    -shipment id
+    -product id
+    -quantity
+
+Advanced 2.
+
