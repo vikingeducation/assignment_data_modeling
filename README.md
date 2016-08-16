@@ -40,3 +40,30 @@ State: string
 Country: string   
 age:  integer  
 gender: string  
+
+## Intermediate 1
+### You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+Table 1  
+User_id(PK): integer  
+username: string  
+email: string  
+password: string  
+
+Table 2  
+Post_id(PK): integer  
+User_id(FK): integer  
+title: string  
+body: string  
+
+Table 3  
+Comment_id(PK): integer  
+User_id(FK): integer  
+Post_id(FK): integer  
+body: string  
+
+Table 4
+Comment_id(PK): integer  
+Comment_id(FK): integer  
+
+## Advanced 1
+### You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
