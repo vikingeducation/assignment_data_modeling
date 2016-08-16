@@ -61,9 +61,38 @@ User_id(FK): integer
 Post_id(FK): integer  
 body: string  
 
-Table 4
+Table 4  
 Comment_id(PK): integer  
 Comment_id(FK): integer  
 
 ## Advanced 1
 ### You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+Table 1  
+User_id(PK): integer  
+username: string  
+email: string  
+password: string  
+
+Table 2  
+Product_id(PK): integer  
+product_name: string  
+price: integer  
+description: string  
+manufacture: string  
+produce_date: date  
+
+Table 3  
+Order_id(PK): integer  
+Product_id(FK): integer  
+
+Table 4  
+Order_id(PK): integer  
+User_id(FK): integer  
+Shipments_id: integer  
+
+Table 5  
+Shipments_id(PK): integer  
+User_id(FK): integer  
+City: string  
+State:  string  
+Address: string   
