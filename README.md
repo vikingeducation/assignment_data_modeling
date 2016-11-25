@@ -297,9 +297,14 @@ Tables
     col - url - url
 
   Table Clicks
+    col - time_at - DateTime
     col - visit ID - Foreign Key
     col - link ID - Foreign Key
 
   Join Table Pages & Links
     col - link ID - Foreign Key
     col - page ID - Foreign Key
+
+  Table Messages
+    col - sender ID
+    col - reciever ID
