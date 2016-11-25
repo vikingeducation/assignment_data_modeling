@@ -180,6 +180,7 @@ Comments
 
  ################################################
 
+Entities & Attributes
 
  Users
   username
@@ -226,11 +227,13 @@ Table Products
 
 Table Shipments
   col - order ID
+  col - Address ID
   col - carrier
   col - shipment date
 
 Table Address
   col - User ID 
+  col - street address
   (see other implementation for details)
 
 Join Table - Users to Order
@@ -241,3 +244,62 @@ Join Table - Order to Product
   col - Order ID
   col - Quantity
   col - Product ID
+
+
+ ################################################################################################
+
+(Optional) You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure. You'll have to use your judgement about what additional attributes would be interesting to track
+
+################################################
+
+Entities & Attributes
+
+  Users
+    -username
+    -id 
+
+  Pages
+    - page url
+    - links present (many to many)
+
+  Visit 
+    - visit ID
+    - when visited
+    - when left
+    - user ID 
+    - page ID
+
+  Links 
+    - url 
+    - page ID
+
+  Clicks 
+    - link ID
+    - vist ID 
+
+Tables
+
+  Table Users
+    col - username - string
+    col - id - key
+
+  Table Pages
+    col - page url - string
+
+  Table Visit 
+    col - visit ID - Primary Key
+    col - when visited - Date Time
+    col - when left - Date time
+    col - user ID - Foreign Key
+    col - page ID - Foreign Key
+
+  Table Link 
+    col - url - url
+
+  Table Clicks
+    col - visit ID - Foreign Key
+    col - link ID - Foreign Key
+
+  Join Table Pages & Links
+    col - link ID - Foreign Key
+    col - page ID - Foreign Key
