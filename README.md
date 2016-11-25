@@ -5,7 +5,7 @@ Mmmmm.... dataaaaa....
 
 Completed by James and Luke
 
-
+XML diagrams (basic.xml, intermediate.xml, advanced.xml) can be loaded in [here](http://ondras.zarovi.cz/sql/demo/).
 
 ## Basic 1
 
@@ -29,7 +29,7 @@ Completed by James and Luke
 **Lesson Attributes**
   Title -- Chars -- Length Limit
   Body Text -- Chars -- Length Limit
-  Course Id(Foreign Key) -- Integer 
+  Course Id(Foreign Key) -- Integer
 
 **StudentCoursesAttributes**
   StudentID(Foreign Key)
@@ -41,7 +41,7 @@ Completed by James and Luke
   StudentID(Foreign Key)
   CourseID(Foreign Key)
   Completed -- Boolean
-  Grade -- Decimal -- Between 0 and 100 
+  Grade -- Decimal -- Between 0 and 100
 
 **Relationships**
   One course has many lessons
@@ -146,7 +146,7 @@ Completed by James and Luke
   State -- Text -- 2 chars
   Zip -- Integer -- 5 chars
   Country -- Text
-  Phone Number -- Text 
+  Phone Number -- Text
   UserID (foreign key)
 
 **Credit Card**
@@ -194,6 +194,3 @@ Completed by James and Luke
   One billing address has many orders
   One user has many orders
   A vendor address has many shipments
-
-
-
