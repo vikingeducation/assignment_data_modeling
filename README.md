@@ -5,7 +5,9 @@ Mmmmm.... dataaaaa....
 
 Completed by James and Luke
 
-## Basic
+
+
+## Basic 1
 
 **Goal** -- We want to store basic student data and keep track of their progress in their courses
 
@@ -45,3 +47,25 @@ Completed by James and Luke
   One course has many lessons
   Many students have many courses
   Many students have many lessons
+
+
+
+## Basic 2
+
+** Entities**
+  Students
+  Profiles
+
+**Student Attributes**
+  Username -- Chars -- Length Limit
+  Email Address -- Chars -- Length Limit
+
+**Profile Attributes**
+  City -- Chars -- Length Limit
+  State -- Chars -- 2 Length Text Field
+  Country -- Chars -- Length Limit
+  Age -- Integer -- Between 0 to 120
+  Gender -- Chars -- Length Limit
+
+** Relationships**
+  One student has one profile
