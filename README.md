@@ -3,26 +3,23 @@ Mmmmm.... dataaaaa....
 
 *Include your ERM modeling "pseudocode" in the space below*
 
+################################################################################################
+
 You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
 
-Entities:
+################################################
 
-  Students
+Entities & Attributes
 
-  Courses 
-
-  Lessons
-
-Attributes
   Students
     Name - str
     Email -emailstr
-    What courses they take (many) - many to many relationship with courses. 
+    What courses they take (many) - many to many relationship with courses.
     Completed Lessons (many) -many to many relationship with lessons
 
   Courses
-    Lessons - one to many relationship 
-    Students enrolled - many to many relationship with students. 
+    Lessons - one to many relationship
+    Students enrolled - many to many relationship with students.
     Title -string
     Description - string
 
@@ -32,53 +29,132 @@ Attributes
     Body - bigtext
     Students Completed - many to many relationship with students
 
+################################################
+
 Table Students
   column - first_name -str
   column last_name - str
   column -email - emailstr
 
-Table Courses 
+Table Courses
   column - Title -str
-  column -description - str 
+  column -description - str
 
-Table Lessons 
+Table Lessons
   column - Course ID - foregin key
   column - Title - string
   column - Body  - text
 
 Join Table - Courses Taken
   column - course id
-  column - student id 
+  column - student id
 
 Join Table - Lessons Completed
   column - lesson id
-  column - student id 
+  column - student id
 
+################################################################################################
 
 You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
 
 Goal: To allow users to keep profiles with relevant information, including gender, age, location. Location should reflect reality if reality changes. Each user should have one profile, linked by id.  
 
+################################################
+
 User
-  - Email
-  - Username
-  - Password
-  - Profile ID 
+  - Email - string
+  - Username - string
+  - Password - string
+  - Profile ID - key
 
 Profile
-  -Birthday 
-  -City Id
+  - Birthday - date
+  - City ID - key
 
-
-City 
-  -Name 
-  -State ID
+City
+  - Name - string
+  - State ID - key
 
 State
-  -Name
-  -Country
+  - Name - string
+  - Country ID - key
 
-Country 
-  -Name 
+Country
+  - Name - string
 
-Gender 
+Gender
+  - Name - boolean (string?)
+
+################################################
+
+Table - User
+  column - username
+  column - email
+  column - password
+  column - profile ID
+
+Table - Profile
+  column - gender
+  column - birthday
+  column - city ID
+
+Table - City
+  column - name
+  column - State ID - key
+
+State
+  column - Name - string
+  column - Country ID - key
+
+Country
+  column - Name - string
+
+Gender
+  column- Name - boolean (string?)
+
+Join Table - Location (City & State)
+  column - city ID
+  column - state ID
+
+Join Table - Location (State & Country)
+  column - state ID
+  column - country ID
+
+################################################################################################
+
+You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+
+Goals: Create a robust system to deal with comment tracking, specifically with nested comments. Note that there is a "root comment" that links to the main link.
+
+################################################
+
+Entities & Attributes
+
+Users
+  username
+  email
+  user ID
+  links
+  comments
+
+Links
+  user ID
+  url
+  comments - one link to many comments
+
+Comments
+  user ID
+  body
+  parent link
+
+#####
+
+Link Comment
+  body
+  user ID
+  parent link - one link to many comments
+
+Child Comment
+  body
+  user ID
+  parent comment - one parent comment to many child comments
