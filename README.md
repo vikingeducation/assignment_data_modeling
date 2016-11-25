@@ -76,7 +76,7 @@ Completed by James and Luke
 **Goal**
   Represent the relationship between users, posts and comments
 
-** Entities**
+**Entities**
   Users
   Posts
   Comments
