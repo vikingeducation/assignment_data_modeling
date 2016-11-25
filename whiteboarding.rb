@@ -171,7 +171,6 @@ Attributes:
       - city
       - state
       - country
-
     Attributes:
       Users:
         - first name
@@ -232,49 +231,98 @@ Attributes:
       - order/products: many-to-many, orders can contain multiple products and products can be a part of multiple orders
 
     Data Model:
-    3. "created_at", DateTime
-    4. "updated_at", DateTime
 
-    User Table:
-    1. "id", Integer
-    2. "first_name", String, limit 60 characters
-    3. "last_name", String, limit 60 characters
-    4. "created_at", DateTime
-    5. "updated_at", DateTime
+      User Table:
+        1. "id", Integer
+        2. "first_name", String, limit 60 characters
+        3. "last_name", String, limit 60 characters
+        4. "created_at", DateTime
+        5. "updated_at", DateTime
 
-    Orders Table:
-    1. "id", Integer
-    2. "UserId", Integer
-    3. "total", Float
-    4. "created_at", DateTime
-    5. "updated_at", DateTime
+      Orders Table:
+        1. "id", Integer
+        2. "UserId", Integer
+        3. "total", Float
+        4. "created_at", DateTime
+        5. "updated_at", DateTime
 
-    Payment Table:
-    1. "id", Integer
-    2. "card_type", String, max 20 characters
-    3. "card_number", Integer
-    4. "cvv", Integer, max 4
-    5. "expiration_date", DateTime
-    6. "cardholder_name", String, no limit
-    7. "UserID", Integer
-    8. "created_at", DateTime
-    9. "updated_at", DateTime
+      Payment Table:
+        1. "id", Integer
+        2. "card_type", String, max 20 characters
+        3. "card_number", Integer
+        4. "cvv", Integer, max 4
+        5. "expiration_date", DateTime
+        6. "cardholder_name", String, no limit
+        7. "UserID", Integer
+        8. "created_at", DateTime
+        9. "updated_at", DateTime
 
-    Product Table:
-    1. "id", Integer
-    2. "name", String
-    3. "description", Text
-    4. "price", Float
-    5. "sku", String
-    6. "created_at", DateTime
-    7. "updated_at", DateTime
+      Product Table:
+        1. "id", Integer
+        2. "name", String
+        3. "description", Text
+        4. "price", Float
+        5. "sku", String
+        6. "created_at", DateTime
+        7. "updated_at", DateTime
 
-    Review Table:
-    1. "id", Integer
-    2. "text", Text
-    3. "rating", Integer
-    4. "ProductID", Integer
-    5. "UserID", Integer
+      Review Table:
+        1. "id", Integer
+        2. "text", Text
+        3. "rating", Integer
+        4. "ProductID", Integer
+        5. "UserID", Integer
+        6. "created_at", DateTime
+        7. "updated_at", DateTime
 
-join table payment/order
-join table order/products
+      Shipment Table:
+        1. "id", Integer
+        2. "carrier", String, no limit
+        3. "tracking number", String
+        4. "UserID", Integer
+        5. "OrderID", Integer
+        6. "AddressID", Integer
+        7. "created_at", DateTime
+        8. "updated_at", DateTime
+
+      City:
+        1. "id", Integer
+        2. "name", String, 60 characters max
+        3. "created_at", DateTime
+        4. "updated_at", DateTime
+
+      Country:
+        1. "id", Integer
+        2. "name", String, 60 characters max
+        3. "created_at", DateTime
+        4. "updated_at", DateTime
+
+      State:
+        1. "id", Integer
+        2. "name", String, 60 characters max
+        3. "CountryID", Integer
+        4. "created_at", DateTime
+        5. "updated_at", DateTime
+
+      Address:
+        1. "id", Integer
+        2. "CityID", Integer
+        3. "StateID", Integer
+        4. "CountryID", Integer
+        5. "street name", String, no limit
+        6. "street number", Integer
+        7. "zip code", String
+        8. "created_at", DateTime
+        9. "updated_at", DateTime
+
+      PaymentOrder Join Table:
+        1. "PaymentID", Integer
+        2. "OrderID", Integer
+        3. "created_at", DateTime
+        4. "updated_at", DateTime
+
+      OrderProduct Join Table
+        1. "ProductID", Integer
+        2. "OrderID", Integer
+        3. "created_at", DateTime
+        4. "updated_at", DateTime
