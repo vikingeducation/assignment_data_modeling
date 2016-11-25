@@ -52,7 +52,7 @@ Completed by James and Luke
 
 ## Basic 2
 
-** Entities**
+**Entities**
   Students
   Profiles
 
@@ -69,3 +69,46 @@ Completed by James and Luke
 
 ** Relationships**
   One student has one profile
+
+
+## Intermediate
+
+** Goal**
+  Represent the relationship between users, posts and comments
+
+** Entities**
+  Users
+  Posts
+  Comments
+
+**User Attributes**
+  UserID -- Integer (primary key)
+  Username -- Text
+  Email Address -- Text
+  Hashed Password -- Text
+
+**Post Attributes**
+  PostID
+  Title -- Text -- Length Limit
+  Link -- Text
+  Creation Timestamp -- Timestamp
+  Points -- Integer -- Above 0
+  UserID (foreign key)
+
+**Comment Attributes**
+  CommentID
+  Content -- Text -- Length Limit
+  Creation Timestamp -- Timestamp
+  Edit Timestamp -- Timestamp
+  Edited -- Boolean
+  Score -- Integer -- Above 0
+  UserID (foreign key)
+  ParentID (foreign key)
+  Parent Type (foreign key)
+
+**Relationships**
+  One user has many posts
+  One user has many comments
+  One post has many comments
+  One comment has many comments
+
