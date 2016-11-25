@@ -31,13 +31,13 @@ Completed by James and Luke
   Body Text -- Chars -- Length Limit
   Course Id(Foreign Key) -- Integer 
 
-**StudentCourses**
+**StudentCoursesAttributes**
   StudentID(Foreign Key)
   LessonID(Foreign Key)
   Completed -- Boolean
   Grade -- Decimal -- Between 0 and 100
 
-**StudentLessons**
+**StudentLessonsAttributes**
   StudentID(Foreign Key)
   CourseID(Foreign Key)
   Completed -- Boolean
@@ -111,4 +111,89 @@ Completed by James and Luke
   One user has many comments
   One post has many comments
   One comment has many comments
+
+
+
+## Advanced
+
+** Goal**
+  To track how money has been spent, track profitability by order, etc.
+  To allow customers to look at upcoming shipments of orders
+  To look at list of products to make a purchase
+
+** Entities **
+  Users
+  Products
+  Orders
+  Shipments
+  Address
+  Credit Card
+  ProductOrders
+
+** User Attributes **
+  User ID -- Text
+  First Name -- Text
+  Last Name -- Text
+  Email Address -- Text
+  Hashed Password -- Text
+  Profile Image URL -- Text (file path)
+
+** Address **
+  ID
+  Line 1 -- Text
+  Line 2 -- Text
+  City -- Text
+  State -- Text -- 2 chars
+  Zip -- Integer -- 5 chars
+  Country -- Text
+  Phone Number -- Text 
+  UserID (foreign key)
+
+** Credit Card **
+  CC ID -- Integer
+  CC Number -- Integer
+  Expiration Date -- Date Stamp
+  Security Code -- Text - 3 chars
+  Billing Address ID (foreign key)
+  User ID (foreign key)
+
+** Products **
+  Product ID -- Integer
+  Title -- Text
+  Description -- Text
+  Price -- Decimal
+  Profile Image URL -- Text (file path)
+
+** Orders **
+  Order ID -- Integer
+  User ID -- Integer
+  CC ID -- Integer
+  Shipping Address ID
+  Billing Address ID
+
+** ProductOrder **
+  Product ID (foreign key)
+  Order ID (foreign key)
+  Quantity
+  Price
+
+** Shipments **
+  ID -- Integer
+  Order ID
+  Vendor Address (foreign key)
+
+** Relationships **
+  One user has many credit cards
+  One billing address has many credit cards
+  One user has many shipping addresses
+  One user has many billing addresses
+  An order has many shipments
+  Many orders have many products through productorders
+  One credit card has many orders
+  One shipping address has many orders
+  One billing address has many orders
+  One user has many orders
+  A vendor address has many shipments
+
+
 
