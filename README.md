@@ -53,5 +53,48 @@ INTERMEDIATE
 
 ADVANCED
 
-1. Product - Name (string, min-max)
-             Description
+1. Product - Name (string, min-max, present)
+             Description (text, min-max)
+             cost (Float, min = 0, 2 decimal precision, present)
+             image (string, REGEX validation for URL/path to img)
+
+   User - First name (string, min-max, present)
+          Last name (string, min-max, present)
+          email (string, REGEX validation, unique, present)
+          password (string, min-max, hashed)
+          Credit card number (Assumed you have to register CC) (Integer, BigNum?, length, present)
+          credit card PIN (Integer, length, present)
+          Street address (string, REGEX validation, present)
+          City (string, min-max length , present)
+          zip code (integer, present, length)
+          Foreign key: State (optional if not US)
+          Foreign key: Country (present)
+          Active (bool, delete cc, password, address if inactive)
+
+   Order -  Foreign key: User ID (present)
+            Alt. Address (optional) -  Street address (string, REGEX validation, present)
+                                       City (string, min-max length , present)
+                                       zip code (integer, present, length)
+                                       Foreign key: State (optional if not US)
+                                       Foreign key: Country (present)
+
+  Shipments - Foreign key: Order ID (present)
+              Foreign key: Vendor ID (present)
+              Tracking ID (string, length, optional)
+
+  Join Table - Combined Key: Product ID (present)      
+               Combined Key: Shipment ID (present)
+               Quantity of Product (integer, min)
+
+  User:Order - 1 to Many
+  Order:Shipment - 1 to Many
+  Product:Shipments - Many to Many
+
+2.  Tables - User(logged in or IP address), Page, Links (Foreign key: Page ID)
+
+    Join table (views) - User ID (optional): Page ID : Time on page (present)
+    Join table (clicks) - User ID (optional): Link ID
+
+    Can calculate number of user visits off of views and time views occurred at?
+    Or track as user attribute and increment with each new session from same
+    IP address?
