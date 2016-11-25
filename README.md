@@ -177,3 +177,67 @@ Comments
  ################################################################################################
 
  You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+ ################################################
+
+
+ Users
+  username
+  address
+  email
+  password
+  orders
+
+ Orders
+  products (quantity in link table)
+  shipments
+
+ Products
+  name 
+  description
+  inventory
+  price
+
+ Shipments
+  order
+  carrier
+  shipment date
+
+ Address
+  (same implementation as profile addresses in Easy 2)
+
+
+Table User
+  col - username
+  col - address id 
+  col - email
+  col - password
+  col - ID
+
+Table Orders
+  col - User ID
+  col - ID
+
+Table Products
+  col - name 
+  col - description
+  col - inventory
+  col - price
+
+Table Shipments
+  col - order ID
+  col - carrier
+  col - shipment date
+
+Table Address
+  col - User ID 
+  (see other implementation for details)
+
+Join Table - Users to Order
+  col - User ID
+  col - Order ID
+
+Join Table - Order to Product
+  col - Order ID
+  col - Quantity
+  col - Product ID
