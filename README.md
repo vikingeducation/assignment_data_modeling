@@ -53,4 +53,5 @@ INTERMEDIATE
 
 ADVANCED
 
-1. 
+1. Product - Name (string, min-max)
+             Description
