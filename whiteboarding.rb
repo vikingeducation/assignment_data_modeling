@@ -92,3 +92,82 @@ Data Model:
     3. "CountryID", Integer
     4. "created_at", DateTime
     5. "updated_at", DateTime
+
+Intermediate:
+  You want to build a message board like Hacker News. Users can post links.
+  Other users can comment on these submissions or comment on the comments.
+  How would you make sure a comment knows where in the hierarchy it lives?
+  Design the data model for this web app.
+
+Goals:
+  - Allow users to submit links which we will keep track of along with allowing users to comment on the links and other comments.
+
+Entities:
+  - users
+  - links
+  - comments
+
+Attributes:
+  users:
+    - username
+
+  links:
+    - url
+    - title
+    - user id
+
+  comments:
+    - comment
+    - comment id
+    - user id
+    - link id
+
+  Relationships:
+    users/links - one-to-many, a user can submit multiple links but a link only has one submitter
+    users/comments - one-to-many, a user can  submit multiple comments but each comment only has one author
+    links/comments - one-to-many, a link can have multiple comments but each comment will belong to one link
+    comments/comments - one-to-many, a comment can have multiple sub-comments but each comment/sub-comment will belong to, at most, one comment
+
+  Data Model:
+    User Table:
+      1. "username", String, 25 character max
+      2. "id", Integer
+      3. "created_at", DateTime
+      4. "updated_at", DateTime
+
+    Link Table:
+      1. "id", Integer
+      2. "url", String, no limit
+      3. "title", String, 140 character limit
+      4. "UserID", Integer
+      5. "created_at", DateTime
+      6. "updated_at", DateTime
+
+    Comment Table:
+      1. "id", Integer
+      2. "comment", Text, no limit
+      3. "UserID", Integer
+      4. "LinkID", Integer
+      5. "CommentID", Integer # Default value = null
+      6. "created_at", DateTime
+      7. "updated_at", DateTime
+
+    You want to build an e-commerce site like a very simplified Amazon.com.
+    You will need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together.
+    Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped?
+    Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+    Goals:
+      - Keep track of products, users, orders, & shipments.
+
+    Entities:
+      - users
+      - products
+      - orders
+      - shipments
+      - address
+      - state
+      - country
+
+    Relationships:
+    Data Model:
