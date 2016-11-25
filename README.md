@@ -67,13 +67,13 @@ Completed by James and Luke
   Age -- Integer -- Between 0 to 120
   Gender -- Chars -- Length Limit
 
-** Relationships**
+**Relationships**
   One student has one profile
 
 
 ## Intermediate
 
-** Goal**
+**Goal**
   Represent the relationship between users, posts and comments
 
 ** Entities**
@@ -116,12 +116,12 @@ Completed by James and Luke
 
 ## Advanced
 
-** Goal**
+**Goal**
   To track how money has been spent, track profitability by order, etc.
   To allow customers to look at upcoming shipments of orders
   To look at list of products to make a purchase
 
-** Entities **
+**Entities**
   Users
   Products
   Orders
@@ -130,7 +130,7 @@ Completed by James and Luke
   Credit Card
   ProductOrders
 
-** User Attributes **
+**User Attributes**
   User ID -- Text
   First Name -- Text
   Last Name -- Text
@@ -138,7 +138,7 @@ Completed by James and Luke
   Hashed Password -- Text
   Profile Image URL -- Text (file path)
 
-** Address **
+**Address**
   ID
   Line 1 -- Text
   Line 2 -- Text
@@ -149,7 +149,7 @@ Completed by James and Luke
   Phone Number -- Text 
   UserID (foreign key)
 
-** Credit Card **
+**Credit Card**
   CC ID -- Integer
   CC Number -- Integer
   Expiration Date -- Date Stamp
@@ -157,32 +157,32 @@ Completed by James and Luke
   Billing Address ID (foreign key)
   User ID (foreign key)
 
-** Products **
+**Products**
   Product ID -- Integer
   Title -- Text
   Description -- Text
   Price -- Decimal
   Profile Image URL -- Text (file path)
 
-** Orders **
+**Orders**
   Order ID -- Integer
   User ID -- Integer
   CC ID -- Integer
   Shipping Address ID
   Billing Address ID
 
-** ProductOrder **
+**ProductOrder**
   Product ID (foreign key)
   Order ID (foreign key)
   Quantity
   Price
 
-** Shipments **
+**Shipments**
   ID -- Integer
   Order ID
   Vendor Address (foreign key)
 
-** Relationships **
+**Relationships**
   One user has many credit cards
   One billing address has many credit cards
   One user has many shipping addresses
