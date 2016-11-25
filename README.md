@@ -131,21 +131,19 @@ Goals: Create a robust system to deal with comment tracking, specifically with n
 Entities & Attributes
 
 Users
-  username
-  email
-  user ID
-  links
-  comments
+  username - string
+  email - string
+  user ID - key
 
 Links
-  user ID
-  url
-  comments - one link to many comments
+  user ID - foreign key
+  url - url
 
 Comments
-  user ID
-  body
-  parent link
+  user ID - foreign key
+  body - text
+  parent link - can be nil or link ID - foreign key or nil
+  parent comment - foreign key or nil
 
 #####
 
@@ -158,3 +156,24 @@ Child Comment
   body
   user ID
   parent comment - one parent comment to many child comments
+
+#####
+
+Table - Users
+  column - username
+  column - email
+  column - ID
+
+Table Links
+  user ID
+  url
+
+Comments
+  user ID - foreign key
+  body - text
+  parent link - can be nil or link ID - foreign key or nil
+  parent comment - foreign key or nil
+
+ ################################################################################################
+
+ You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
