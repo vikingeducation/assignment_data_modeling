@@ -56,3 +56,29 @@ Join Table - Lessons Completed
 
 
 You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
+
+Goal: To allow users to keep profiles with relevant information, including gender, age, location. Location should reflect reality if reality changes. Each user should have one profile, linked by id.  
+
+User
+  - Email
+  - Username
+  - Password
+  - Profile ID 
+
+Profile
+  -Birthday 
+  -City Id
+
+
+City 
+  -Name 
+  -State ID
+
+State
+  -Name
+  -Country
+
+Country 
+  -Name 
+
+Gender 
