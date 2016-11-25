@@ -162,12 +162,69 @@ Attributes:
 
     Entities:
       - users
-      - products
       - orders
+      - payment
+      - products
+      - reviews
       - shipments
       - address
+      - city
       - state
       - country
 
+    Attributes:
+      Users:
+        - first name
+        - last name
+      Orders:
+        - user id
+        - total
+      Payment:
+        - card type
+        - card number
+        - cvv
+        - expiration date
+        - cardholder name
+        - user id
+      Products:
+        - name
+        - description
+        - price
+        - sku
+      Reviews:
+        - product id
+        - text
+        - rating
+        - user id
+      Shipments:
+        - carrier
+        - tracking number
+        - user id
+        - order id
+        - address id
+      City:
+        - name
+      Country:
+        - name
+      State:
+        - name
+        - country id
+      Address:
+        - city id
+        - state id
+        - country id
+        - street name
+        - street number
+        - zip code
+
     Relationships:
+      - users/orders: One-to-many, a user can have many orders but an order will only belong to one user
+      - users/payments: One-to-many, a user can have multiple form of payments but each form of payment can only belong to one user (this is not necessarily true, but you would not want one person to change an attribute on the payment method and have it change for however many parties have access to it)
+      - user/review: one to many, a user can have many reviews but a review cannot have more than one author
+      - product/reviews: One-to-many, a product can have many reviews but a review cannot belong to more than one product
+      - 
     Data Model:
+
+join table address/user
+join table payment/order
+join table order/products
