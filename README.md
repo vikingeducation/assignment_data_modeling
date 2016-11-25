@@ -3,7 +3,7 @@ Mmmmm.... dataaaaa....
 
 *Include your ERM modeling "pseudocode" in the space below*
 
-
+<code>
 http://ondras.zarovi.cz/sql/demo
 
 <?xml version="1.0" encoding="utf-8" ?>
@@ -266,3 +266,4 @@ http://ondras.zarovi.cz/sql/demo
 </key>
 </table>
 </sql>
+</code>
