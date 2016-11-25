@@ -222,9 +222,59 @@ Attributes:
       - users/payments: One-to-many, a user can have multiple form of payments but each form of payment can only belong to one user (this is not necessarily true, but you would not want one person to change an attribute on the payment method and have it change for however many parties have access to it)
       - user/review: one to many, a user can have many reviews but a review cannot have more than one author
       - product/reviews: One-to-many, a product can have many reviews but a review cannot belong to more than one product
-      - 
-    Data Model:
+      - user/shipments: one-to-many, a user can have multiple shipments but each shipment only belongs to one user
+      - order/shipments: one-to-many, an order can be broken up over multiple shipments but each shipment is part of only one order.
+      - address/shipment: one-to-one, an address can have multiple shipments but it does not need to know that.
+      - city, country, state/address: one-to-many, a city, state, or country will belong to more than one address but the address will only have one of each of them
+      - country/state: one-to-many, a country will have many states but a state will not belong to more than one country
+      - user/address: one-to-many, users can have multiple addresses and addresses can belong to multiple users but the system should not care or update user b when user a updates the shared address.
+      - order/payment: many-to-many, orders can have multiple methods of payment (gc and cc) and payment methods can be used on multiple orders
+      - order/products: many-to-many, orders can contain multiple products and products can be a part of multiple orders
 
-join table address/user
+    Data Model:
+    3. "created_at", DateTime
+    4. "updated_at", DateTime
+
+    User Table:
+    1. "id", Integer
+    2. "first_name", String, limit 60 characters
+    3. "last_name", String, limit 60 characters
+    4. "created_at", DateTime
+    5. "updated_at", DateTime
+
+    Orders Table:
+    1. "id", Integer
+    2. "UserId", Integer
+    3. "total", Float
+    4. "created_at", DateTime
+    5. "updated_at", DateTime
+
+    Payment Table:
+    1. "id", Integer
+    2. "card_type", String, max 20 characters
+    3. "card_number", Integer
+    4. "cvv", Integer, max 4
+    5. "expiration_date", DateTime
+    6. "cardholder_name", String, no limit
+    7. "UserID", Integer
+    8. "created_at", DateTime
+    9. "updated_at", DateTime
+
+    Product Table:
+    1. "id", Integer
+    2. "name", String
+    3. "description", Text
+    4. "price", Float
+    5. "sku", String
+    6. "created_at", DateTime
+    7. "updated_at", DateTime
+
+    Review Table:
+    1. "id", Integer
+    2. "text", Text
+    3. "rating", Integer
+    4. "ProductID", Integer
+    5. "UserID", Integer
+
 join table payment/order
 join table order/products
