@@ -117,18 +117,67 @@ tables
 
 
 ADVANCED
+#1 ecommerce site
 goals
+  display list of products, users
+  orders list corresponding product, user, and shipment
+  shipments list corresponding product, user, and order
 entities
+  product
+  user
+  order
+  shipment
 attributes
+  product
+    image
+    description
+    price
+  user
+    username
+    email
+    password
+    address
+    payment info
+  order
+    date
+    product id
+    user id
+    shipment id
+  shipment
+    date
+    status
+    order id
 types/constraints
 relationships
+  users:orders is one:many
+  product:orders is many:many
+  orders:shipments is one:one
 tables
+  product
+    product id (primary key)
+    product image
+    product description
+  user
+    user id (primary key)
+    username
+    email
+    password
+    address
+    payment info
+  order
+    order id (primary key)
+    product id (foreign key)
+    user id (foreign key)
+    date
+    shipment id
+  product order
+    order id (foreign key)
+    product id (foreign key)
+    quantity
+  shipment
+    shipment id (primary key)
+    order id (foreign key)
+    date
+    status
 normalization
-
-goals
-entities
-attributes
-types/constraints
-relationships
-tables
-normalization
+  join table links products to orders (to specify quantity of each product in an order)
