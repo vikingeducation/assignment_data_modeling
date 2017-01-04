@@ -5,9 +5,8 @@ Mmmmm.... dataaaaa....
 
 Tingting 
 
-models, columns, validations, associations
-BASIC
-#1 free online learning platform
+#BASIC
+1) free online learning platform
 goals 
   display list of courses and lessons for each course
   display lesson for each course
@@ -41,7 +40,7 @@ tables
 normalization
   passes all normal forms
 
-#2 user profile
+2) user profile
 goals
   display user information (city, state, country, age, gender, username, email) in profile
 entities
@@ -78,8 +77,8 @@ tables
 normalization
   not entirely normalized because location data is in strings, which allows for variability (NYC vs new york), redundancy, inaccuracy. ideally each piece of location data becomes its own data table.
 
-INTERMEDIATE
-#1 hacker news
+#INTERMEDIATE
+1) hacker news
 goals
   display list of link posts
   display comments for each post
@@ -116,8 +115,8 @@ tables
     comment, string
 
 
-ADVANCED
-#1 ecommerce site
+#ADVANCED
+1) ecommerce site
 goals
   display list of products, users
   orders list corresponding product, user, and shipment
