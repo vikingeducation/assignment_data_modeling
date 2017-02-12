@@ -20,10 +20,9 @@ This is a one-to-many relationship: A course may have many lessons, but each les
 **Courses:**   
 
 |Column| courseID | title | description  
-|:--|:--|:--|:-- |
+|:--|:--|:--|
 |**Type** | integer | string | string |
 | **Other** | primary key |  |  |
-
 
 **Lessons:**
 
@@ -31,7 +30,6 @@ This is a one-to-many relationship: A course may have many lessons, but each les
 |:--|:--|:--|:--|:--|
 | **Type**  | integer | string | string | integer |
 | **Other** | primary key |  |  |   foreign key |
-
 
 ### Profiles
 #### Goals
@@ -75,7 +73,7 @@ Display a user's demographic information like city, state, country, age and gend
 **City Table:**  
 
 | Column | city_id | city_name | city_state | country_id
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|
 | **Type** | integer | string | string | integer |
 | **Other** | primary key | | | foreign key|  
 
@@ -113,7 +111,7 @@ Relationships between the tables:
 **Post Table**
 
 | Column | post_id | title | url | author_id |
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|
 | Type | integer | string | string | integer|
 | Other | primary key |  |  | |
 
@@ -168,7 +166,11 @@ Build an e-commerce site. Keep track of products, users, orders, shipments.
 **Shipment Table**
 
 | Column | shipment_id | order_id | shipment_status_id | shipment_address | ... |
+<<<<<<< HEAD
 |:--|:--|:--|:--|:--| :-- |
+=======
+|:--|:--|:--|:--|:--|
+>>>>>>> 2eff969c09ed2b4fd2494a74e6a7d652814dc807
 | Type |  int | int | int | string | |
 | Other | primary key | foreign key | foreign key |  | |
 
