@@ -46,11 +46,35 @@ Goals: display courses and lessons
 
 You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
 
-Users, Posts, Post Comments, Comments Comments
-User (user_id, name, email); has many Posts
-Post (post_id, user_id (foreign key), title, link, description); belongs to user
+| users          |         |          |
+|----------------|---------|----------|
+| name           | string  | required |
+| email          | string  | required |
+| has many posts |         |          |
 
+| posts                  |         |                              |
+|------------------------|---------|------------------------------|
+| user_id                | integer | required, index, foreign key |
+| title                  | string  | required                     |
+| link                   | string  | required                     |
+| description            | string  | required                     |
+| belongs to user        |         |                              |
+| has many post_comments |         |                              |
 
+| post_comments     |         |                              |
+|-------------------|---------|------------------------------|
+| post_id           | integer | required, index, foreign key |
+| title             | string  | required                     |
+| body              | text    | required                     |
+| belongs to posts  |         |                              |
+| has many comments |         |                              |
+
+| comments                  |         |                              |
+|---------------------------|---------|------------------------------|
+| post_comment_id           | integer | required, index, foreign key |
+| title                     | string  | required                     |
+| body                      | text    | required                     |
+| belongs to post_comments  |         |                              |
 
 ## Advanced
 
