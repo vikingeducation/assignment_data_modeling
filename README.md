@@ -124,7 +124,65 @@ Profile (MANY) - City Table (ONE)
 #### You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
 
 
+*Goal*
+We want to create message board, showing links with news, under which we can see comments and comments to comments.
 
+*Entities*
+User
+Posts
+Comments
+Comments_Relations
+
+*Attributes, Types & Constraints*
+1. Users
+- username, string, 1-20 characters long, must be unique, required
+- email, string, 1-64 characters long, must be unique, required
+2. Posts
+- title, string, 4-16 characters long, must be unique, required
+- link, string, no limits, must be unique, required
+3. Comments
+- title, string, 4-16 characters long, must be unique, required
+- description, text, no limits
+- username, string, 1-20 characters long, must be unique, required
+4. Comments_Relations - JOIN TABLE
+- parent_comment_ID, integer
+- child_comment_ID, integer
+
+
+*Relationships*
+User (ONE) - Post (MANY)
+Post (ONE) - Comments (MANY)
+Comments(MANY) - Comments(MANY)
+
+### USERS
+1. User_ID
+2. Username
+3. Email
+4. Created_at
+5. Updated_at
+
+### POST
+1. Post_ID
+2. Title
+3. Link
+4. Created_at
+5. Updated_at
+6. User_ID
+
+### COMMENTS
+1. Comments_ID
+2. Title
+3. Description
+4. Created_at
+5. Updated_at
+6. User_ID
+7. Post_ID
+
+### CITIES_RELATIONS TABLE
+1. Parent_Comments_ID
+2. Child_Comments_ID
+4. Created_at
+5. Updated_at
 
 
 ## Advanced
