@@ -10,7 +10,7 @@ Dariusz Biskupski
 We want to display list of students, where each student has a specific course chosen, possible I could see what lessons the student is on. I want to see list of courses, where each course show adequate lessons.
 
 *Entities*
-Students
+Students (Which is already in database, present only to picture)
 Courses
 Lessons
 
@@ -24,11 +24,11 @@ Lessons
 - description, text, no limits
 3. Lessons
 - title, string, 4-16 characters long, must be unique, required
-- body, text, no limits
+- description, text, no limits
 
 *Relationships*
 Students (MANY) - Courses (MANY)
-Courses (ONE) - Lessons (ONE) (unless possible that some lessons can be used by more than one course)
+Courses (ONE) - Lessons (MANY) (unless possible that some lessons can be used by more than one course)
 
 ### STUDENTS TABLE
 1. Student_ID
@@ -41,23 +41,21 @@ Courses (ONE) - Lessons (ONE) (unless possible that some lessons can be used by 
 ### COURSES TABLE
 1. Course_ID
 2. Title
-3. Body
+3. Description
 4. created_at
 5. updated_at
-
-### STUDENT_COURSES TABLE
-1. Student_ID
-2. Course_ID
-3. created_at
-4. updated_at
 
 ### LESSONS TABLE
 1. Lesson_ID
 2. Title
-3. Body
+3. Description
 4. created_at
 5. updated_at
 6. Course_ID
+
+*Normalization*
+1st Normal Form - Data is very atomic
+2nd & 3rd Normal Form - no duplications or composite keys
 
 
 #### You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
@@ -117,7 +115,9 @@ Profile (MANY) - City Table (ONE)
 3. Created_at
 4. Updated_at
 
-
+*Normalization*
+1st Normal Form - Data is very atomic
+2nd & 3rd Normal Form - no duplications thanks to extracting separate table with cities or composite keys
 
 ## Intermediate
 
