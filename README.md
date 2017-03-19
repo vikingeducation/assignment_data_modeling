@@ -149,7 +149,7 @@ Comments_Relations
 - child_comment_ID, integer
 
 
-*Relationships*
+* Relationships *
 User (ONE) - Post (MANY)
 Post (ONE) - Comments (MANY)
 Comments(MANY) - Comments(MANY)
@@ -178,7 +178,7 @@ Comments(MANY) - Comments(MANY)
 6. User_ID
 7. Post_ID
 
-### CITIES_RELATIONS TABLE
+### COMMENTS_RELATIONS TABLE
 1. Parent_Comments_ID
 2. Child_Comments_ID
 4. Created_at
@@ -188,3 +188,112 @@ Comments(MANY) - Comments(MANY)
 ## Advanced
 
 #### You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+*Goal*
+We want to create e-commerce website which helps to track users, their orders with products, shipments and control big range of products on display
+
+*Entities*
+User
+Products
+Orders
+Shipments
+
+*Attributes, Types & Constraints*
+1. Users
+- username, string, 1-20 characters long, must be unique, required
+- email, string, 1-64 characters long, must be unique, required
+- first_name, string, 1-20 characters long, required
+- second_name, string, 1-20 characters long, required
+- street_name, string, 1-20 characters long, required
+- house_no, string, 1-20 characters long, required
+- city_ID, integer
+2. City Table
+- City, string, 2-20 characters long, required
+- Post Code, string, 2-10 characters long, required
+- State, string, 2 characters long, required
+- Country, string, 4-12 characters long, required
+3. Products
+- name, string, 4-16 characters long, must be unique, required
+- description, string, no limits, must be unique, required
+- category
+- price
+- image_url
+3. Orders
+- product_id
+- quantity
+- user_id
+4. Shipments
+- date_of_purchase
+- date_of_shipping_out
+- quantity
+- product_id
+5. Deleted_Accounts**
+- username, string, 1-20 characters long, must be unique, required
+- email, string, 1-64 characters long, must be unique, required
+- first_name, string, 1-20 characters long, required
+- second_name, string, 1-20 characters long, required
+- street_name, string, 1-20 characters long, required
+- house_no, string, 1-20 characters long, required
+- city_ID, integer
+
+
+* Relationships *
+User (ONE) - Order (MANY)
+User (MANY) - City_Table (ONE)
+ORDERS (MANY) - PRODUCTS (MANY)
+SHIPMENTS(MANY) - ORDERS(ONE) (if order can be split into few shipments)
+
+### USERS
+1. User_ID
+2. Username
+3. Email
+4. First_Name
+5. Second_Name
+6. Street_Name
+7. House_No
+8. Created_at
+9. Updated_at
+10. City_ID
+
+### CITIES_TABLE
+1. City_ID
+2. City
+3. Post Code
+4. State
+5. Country
+6. Created_at
+7. Updated_at
+
+### PRODUCTS
+1. Product_ID
+2. Name
+3. Description
+4. Category
+5. Price
+6. Units_Available
+7. Image_URL
+4. Created_at
+5. Updated_at
+
+### ORDERS
+1. Order_ID
+2. Created_at
+3. Updated_at
+4. User_ID
+
+### PRODUCTS_ORDERS JOIN TABLE
+1. Order_ID
+2. Product_ID
+3. Quantity
+
+### SHIPMENTS
+1. Shipment_ID
+2. Order_ID
+3. Created_at
+4. Updated_at
+
+
+
+
+
+
