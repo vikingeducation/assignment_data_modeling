@@ -31,7 +31,7 @@ ERM
 
 2.   Entities (models)
   Course, Lesson, User-login, User-demographics
-
+
 3.   Attributes (columns)   4. Types       Validations/Associations
   Course
   Course ID        Integer       Must be present, 4 chars?
@@ -44,13 +44,12 @@ ERM
   Title            Short text        Must be present, 4 chars min?
   Body           Long text       
   Course ID        Integer       Must be present, Foreign ID
-  User ID        Integer       Must be present, Foreign ID
 
   User-login
   User-ID        Integer       Must be present, 4 chars?
   Name first         Short text        Must be present, 4 chars min?
   Name last        Short text        Must be present, 4 chars min?
-  Email        Short text          Must be present, 4 chars min?
+  Email            Short text        Must be present, 4 chars min?
 
   User-demographics
   User ID        Integer       Must be present, 4 chars?
@@ -93,14 +92,20 @@ ERM
   Article
   Article ID          Integer   Max of 4?
   Article body          Long text
-  Author ID         Integer   Max of 4?
+  Author ID**       Integer   Max of 4?
   
   Comment
-  Article ID          Integer     Composite ID
-  Comment ID          Integer     Composite ID
+  Comment ID          Integer     Max of 4?
+  Parent ID         Integer     Composite foreign key
+  Parent Type         Short Text      Composite foreign key
+              “Article” or “Comment” only*
   Comment body        Long text
-  Comment-author ID         Integer   Max of 4?
-  Article-author ID       Integer   Max of 4?
+  Author ID**       I       Integer   Max of 4?
+
+
+to differentiate, that is, from which to decide whether to access the article or comment table to get details of the parent
+
+
 
 5.   Relationships between entities
   Author one-to-many Article
@@ -108,12 +113,10 @@ ERM
   Comment one-to-many Comment (note: but only to sub-comments)
 
 6.   Normalize data
-  Parent-Comment-Child
-  Comment ID          Integer   Max of 4?
-  Comment-Parent ID       Integer   Max of 4? May be nil
-  Comment-Child ID        Integer   Max of 4? May be nil
+  Normalized
 
-  Note: This is unclear because of unique relationships only between children and parents (thus relationships are limited). Should this join table be limited to only parent and child comment ID’s? In theory, perhaps yes; but in practice could lead to loads of join tables in solving some data access problem. Is a Relational DB ideal here? What about something like a data graph tree — links could be accessed faster. Discuss.Advanced 
+
+Advanced  
 
 ERM
 
@@ -125,7 +128,7 @@ Track product, customer = user, order, shipments
 (d) How handle historical data (customer deletes account)? Ans: add “deleted” field to Customer table and amend analysis accordingly?
 
 2.   Entities (models)
-  Customer, Product, Order, Shipment
+  Customer, Address, Product, Order, Order-Item, Shipment, Invoice
 
 3.   Attributes (columns)   4. Types    Validations/Associations
   Customer
@@ -133,6 +136,11 @@ Track product, customer = user, order, shipments
   Name*           Short Text
   Billing Address*        Long Text   Atomize this field
   Shipping Address*       Long Text   Atomize this field
+  Address table
+  Address ID
+  Address*
+  Address Type          Short Text    Values: “Billing”, “Shipping” or “Both”
+  Customer ID         Integer   Foreign key
   Product
   Product ID          Integer
   Description         Text
@@ -141,20 +149,35 @@ Track product, customer = user, order, shipments
   Order ID          Integer
   Item ID           Integer
   Customer ID         Integer
+  Order Date          Date
   Item
   Item ID           Integer
-  Product ID          Integer
   Quantity          Integer
-  Order ID          Integer
+  Product ID          Integer   Foreign key
+  Order ID          Integer     Foreign key
   Shipment
   Delivery ID         Integer
-  Order ID          Integer
   Delivery Date         Date
+  Order ID          Integer   Foreign key
+  Address ID          Integer   Foreign key; i.e., shipping address 
+                chosen by customer
+   Invoice
+  Invoice ID          Integer
+  Invoice Date          Date
+  Order ID          Integer   Foreign key
+  Address ID          Integer   Foreign key, i.e., invoice address
+                chosen by customer
+
 
 5.   Relationships between entities
   Customer one-to-many Order-Item
+  Customer one-to-many Address
+  Order one-to-one Invoice (separate because traditional?) 
   Order-Item one-to-many Item
-  Order-Item one-to-many Shipment
+  Order one-to-many Shipment 
+  Product many-to-many Customer 
+    (could have Product-Customer join table for this if useful)
+
 
 6.   Normalize data
-  Normalized through Order-Item
+  Normalized
