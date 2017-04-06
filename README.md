@@ -31,6 +31,11 @@ end
 ## Profile Page
 
 ```ruby
+class User
+  integer :id, :auto_increment
+  string :name
+  integer :profile_id
+
 class Profile
   integer :id, :auto_increment
   integer :user_id
@@ -43,17 +48,17 @@ end
 
 class City
   integer :id, :auto_increment
-  string :name, lengh: 128
+  string :name, lengh: 128, unique: true
 end
 
 class State
   integer :id, :auto_increment
-  string :name, lengh: 128
+  string :name, lengh: 128, unique: true
 end
 
 class Country
   integer :id, :auto_increment
-  string :name, lengh: 128
+  string :name, lengh: 128, unique: true
 end
 
 class Gender
@@ -128,6 +133,7 @@ class Order
   integer :user_id
   datetime :created_at
   datetime :updated_at
+  boolean :placed?
 end
 
 class Shipment
