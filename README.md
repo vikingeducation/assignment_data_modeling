@@ -14,7 +14,7 @@ Mmmmm.... dataaaaa....
 
 ### Entities/Attributes/Types/Constraints
 
-Student
+##### Student
 -------
 id: int, primary_key
 first_name: string
@@ -22,21 +22,21 @@ last_name: string
 email: string, unique index: true
 
 
-Course
+##### Course
 -------
 id: int, primary_key
 title: string
 description: text
 
 
-StudentCourses
+##### StudentCourses
 --------------
 id: int, primary_key
 student_id: int
 course_id: int
 
 
-Lesson
+##### Lesson
 -------
 id: int, primary_key
 course_id: int
@@ -44,16 +44,16 @@ title: string
 body: text
 
 
-### Relationships
-
-Student
+##### Relationships
+---------------
+**Student**
 has_and_belongs_to_many :courses [many-to-many]
 
-Course
+**Course**
 has_many :lessons [one-to-many]
 has_and_belongs_to_many :students [many-to-many]
 
-Lesson
+**Lesson**
 belongs_to :course [many-to-one]
 
 ---------------------------------
