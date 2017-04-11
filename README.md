@@ -83,18 +83,75 @@ post_id: INT (composite key)
 Products
 
 id: INT
-name:
-description:
-price:
+name: VARCHAR
+description: VARCHAR
+
+Users
+
+id: INT
+addressNumber: INT
+street: VARCHAR
+zip: INT
+city: VARCHAR
+state: VARCHAR
+
+Orders
+
+id: INT
+user_id: INT
+shipment_id: INT
+
+Shipments
+
+id: INT
+order_id: INT
+
+Order_Products
+
+order_id: INT
+products_id: INT
+product_quantity: INT
+
+user and orders: one to many
+order and shipment: one to one
+orders and products: many to many (join table with order_id and products_id)
+(shipment has access to user through order, access to products through order)
+
+<!-- (Optional) You want to collect analytics data for visitors and logged-in-users who are visiting your website. This includes basic information like page views and more advanced things like link clicks and time on page. You ideally want to tie this information back to a given user if possible. Design the data model for this analytics infrastructure. You'll have to use your judgement about what additional attributes would be interesting to track -->
 
 Users
 
 id:
+username:
 
-Orders
+Session
 
-Shipments
+id:
+user_id: (foreign key)
 
 
+Webpage
+
+id:
 
 
+Links
+
+id:
+webpage_id:
+
+Views
+
+id:
+webpage_id:
+user_id:
+duration:
+exit_link:
+
+
+WebpageSessions
+webpage_id:
+session_id:
+time_on_page:
+
+User can have many sessions, sessions have one user
