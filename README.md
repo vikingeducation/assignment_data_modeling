@@ -68,7 +68,7 @@ ADVANCED
 
 1. E-commerce site
 
-  PRODUCT
+  PRODUCT             // X:X ORDER, 1:X MEDIA, CATEGORY
     productID : INT
     productName : VARCHAR(100), required
     productDescription : TEXT
@@ -80,41 +80,41 @@ ADVANCED
     weight : VARCHAR(10)
     dimensions : VARCHAR(20)
 
-  PRODUCTCATEGORY      // One-to-many: Product to Category
+  PRODUCTCATEGORY      // Join
     productID : INT
     categoryID : INT
 
-  CATEGORY
+  CATEGORY             // X:X CONSTRAINT, X:1 PRODUCT
     categoryID : INT
     categoryName : VARCHAR(60)
     catDescription : TEXT
 
-  CONSTRAINT
+  CONSTRAINT           // X:X CATEGORY
     constraintID : INT
     constraintName : VARCHAR(60)
     constraintDesc : TEXT
 
-  CATEGORYCONSTRAINT
+  CATEGORYCONSTRAINT   // Join  
     categoryID : INT
     constraintID : INT
 
-  PRODUCTMEDIA
+  PRODUCTMEDIA         // Join 
     productID : INT
     mediaID : INT
 
-  MEDIA
+  MEDIA                // X:1 PRODUCT
     mediaID : INT
     type: VARCHAR(60)
     link : VARCHAR(100)
     productID : INT
 
-  USER
+  USER                 // 1:1 PROFILE, 1:X ORDER, X:X MEMBERSHIP
     userID : INT
     email : VARCHAR (60), required
     username : VARCHAR (20), required
     password: VARCHAR (20), required
 
-  PROFILE
+  PROFILE             // 1:1 USER
     profileID : INT
     city : VARCHAR (20)
     state : VARCHAR (20)
@@ -124,24 +124,36 @@ ADVANCED
     gender : VARCHAR (3)
     userID : INT
 
-  MEMBERSHIP
+  MEMBERSHIP          // X:X USER
     membershipID: INT
     membershipType : VARCHAR (20), required
     membershipDesc : TEXT
 
-  USERMEMBERSHIP
+  USERMEMBERSHIP      // Join
     userID : INT
     membershipID: INT
 
-  ORDERPRODUCT
+  ORDERPRODUCT        // Join
     orderID: INT
     productID : INT
     quantity : INT       
 
-  ORDER
+  ORDER               // X:1 USER, X:X PRODUCT, 1:X SHIPMENT
     orderID: INT
-    shippingMethod : VARCHAR (10), required
+    gift : BOOLEAN
+    city : VARCHAR (20), required
+    state : VARCHAR (20), required
+    zip : INT, required
+    country : VARCHAR (20), required
     userID: INT
 
-  SHIPMENT
+  SHIPMENT            // X:1 ORDER
     shipmentID : INT
+    shipDate : DATETIME
+    shipMethod : VARCHAR (10), required
+    carrier : VARCHAR(10), required
+    orderID : INT
+
+
+
+
