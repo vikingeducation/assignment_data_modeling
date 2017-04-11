@@ -80,12 +80,23 @@ ADVANCED
     weight : VARCHAR(10)
     dimensions : VARCHAR(20)
 
-  PRODUCTCATAGORY
+  PRODUCTCATEGORY      // One-to-many: Product to Category
+    productID : INT
+    categoryID : INT
 
   CATEGORY
     categoryID : INT
     categoryName : VARCHAR(60)
-    constraints : VARCHAR(25)
+    catDescription : TEXT
+
+  CONSTRAINT
+    constraintID : INT
+    constraintName : VARCHAR(60)
+    constraintDesc : TEXT
+
+  CATEGORYCONSTRAINT
+    categoryID : INT
+    constraintID : INT
 
   PRODUCTMEDIA
     productID : INT
@@ -103,21 +114,34 @@ ADVANCED
     username : VARCHAR (20), required
     password: VARCHAR (20), required
 
-  USERORDER
+  PROFILE
+    profileID : INT
+    city : VARCHAR (20)
+    state : VARCHAR (20)
+    zip : INT
+    country : VARCHAR (20)
+    age : SMALLINT
+    gender : VARCHAR (3)
+    userID : INT
+
+  MEMBERSHIP
+    membershipID: INT
+    membershipType : VARCHAR (20), required
+    membershipDesc : TEXT
+
+  USERMEMBERSHIP
+    userID : INT
+    membershipID: INT
+
+  ORDERPRODUCT
+    orderID: INT
+    productID : INT
+    quantity : INT       
 
   ORDER
     orderID: INT
-
+    shippingMethod : VARCHAR (10), required
     userID: INT
 
   SHIPMENT
-
-
-
-
-
-
-
-
-
-
+    shipmentID : INT
