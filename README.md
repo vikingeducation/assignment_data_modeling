@@ -47,14 +47,14 @@ body: text
 ### Relationships
 
 Student
-has_and_belongs_to_many :courses
+has_and_belongs_to_many :courses [many-to-many]
 
 Course
-has_many :lessons
-has_and_belongs_to_many :students
+has_many :lessons [one-to-many]
+has_and_belongs_to_many :students [many-to-many]
 
 Lesson
-belongs_to :course
+belongs_to :course [many-to-one]
 
 ---------------------------------
 
@@ -101,18 +101,18 @@ gender: string
 ### Relationships
 
 User
-has_one :profile
+has_one :profile [one-to-one]
 
 State
-has_many :profiles
+has_many :profiles [one-to-many]
 
 Country
-has_many :profiles
+has_many :profiles [one-to-many]
 
 Profile
-belongs_to :user
-belongs_to :state
-belongs_to :country
+belongs_to :user [one-to-one]
+belongs_to :state [many-to-one]
+belongs_to :country [many-to-one]
 
 
 
@@ -142,25 +142,24 @@ Comment
 id: int, primary_key
 commentable_id: int
 user_id: int
-type: // [comment, post]
-
+type: string // [comment, post]
 
 
 ### Relationships
 User
-has_many :posts
-has_many :comments
+has_many :posts [one-to-many]
+has_many :comments [one-to-many]
 
 
 Post
-has_many :comments
-belongs_to: user
+has_many :comments [one-to-many]
+belongs_to: user [many-to-one]
 
 
 Comment
-has_many :comments
-belongs_to :post
-belongs_to :user
+has_many :comments [polymorphic]
+belongs_to :post [many-to-one]
+belongs_to :user [many-to-one]
 
 
 4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
@@ -229,35 +228,48 @@ id: int, primary_key
 users_id: foreign key
 orders_id: foreign key
 user_shipping_addresses_id: foreign key
-type: // [ground, air]
+type: string // [ground, air]
 shipping_cost: decimal
 
 ### Relationships
 
 User
-has many orders
-has many shipping addresses
-has many shipments
+----
+has_many :orders [one-to-many]
+has_many :shipping_addresses [one-to-many]
+has_many :shipments [one-to-many]
 
 UserShippingAddress
-belongs to user
+-------------------
+belongs_to :user [many-to-one]
 
 State
-has many usershippingaddresses
+-----
+has_many :user_shipping_addresses [many-to-one]
 
 Country
-has many usershippingaddresses
+-------
+has_many :user_shipping_addresses [many-to-one]
 
 Orders
-has many products
-belongs to shipment
+------
+has_many :order_products [one-to-many]
+belongs_to :user [many-to-one]
 
 Products
-has many orders
+--------
+has_many :order_products [one-to-many]
 
 OrderProducts
-belongs to orders
-belongs to products
+-------------
+belongs_to :orders [many-to-one]
+belongs_to :products [many-to-one]
 
 Shipments
-has one order
+---------
+belongs_to :user [many-to-one]
+belongs_to :order [one-to-one]
+belongs_to :user_shipping_addresses [one-to-one]
+
+
+
