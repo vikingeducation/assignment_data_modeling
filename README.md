@@ -16,45 +16,45 @@ Mmmmm.... dataaaaa....
 
 ##### Student
 -------
-id: int, primary_key
-first_name: string
-last_name: string
-email: string, unique index: true
+id: int, primary_key  
+first_name: string  
+last_name: string  
+email: string, unique index: true  
 
 
 ##### Course
 -------
-id: int, primary_key
-title: string
-description: text
+id: int, primary_key  
+title: string  
+description: text  
 
 
 ##### StudentCourses
 --------------
-id: int, primary_key
-student_id: int
-course_id: int
+id: int, primary_key  
+student_id: int  
+course_id: int  
 
 
 ##### Lesson
 -------
-id: int, primary_key
-course_id: int
-title: string
-body: text
+id: int, primary_key  
+course_id: int  
+title: string  
+body: text  
 
 
 ##### Relationships
 ---------------
-**Student**
-has_and_belongs_to_many :courses [many-to-many]
+**Student**  
+has_and_belongs_to_many :courses [many-to-many]  
 
-**Course**
-has_many :lessons [one-to-many]
-has_and_belongs_to_many :students [many-to-many]
+**Course**  
+has_many :lessons [one-to-many]  
+has_and_belongs_to_many :students [many-to-many]  
 
-**Lesson**
-belongs_to :course [many-to-one]
+**Lesson**  
+belongs_to :course [many-to-one]  
 
 ---------------------------------
 
