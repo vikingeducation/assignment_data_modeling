@@ -102,7 +102,7 @@ ADVANCED
     productID : INT
     mediaID : INT
 
-  MEDIA                // X:1 PRODUCT
+  MEDIA                // X:X PRODUCT
     mediaID : INT
     type: VARCHAR(60)
     link : VARCHAR(100)
@@ -172,10 +172,16 @@ ADVANCED
     pageID : INT
     pageDetails : TEXT
     monthlyVisits : INT
+    linkID : INT
+
+  LINK    // X:1 PAGE
+    linkID : INT
+    title : VARCHAR (100), required
+    url : VARCHAR (100), required
+    count : INT
 
   SITE   //  1:X SESSION, USER
     siteID: INT
     monthlyVistors : INT
     totalSessions : INT
     timePerSession : INT
-    
