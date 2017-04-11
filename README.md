@@ -100,7 +100,7 @@ type
 
 Advanced 1.
 
-To have a list of products, users, orders, shipments, and see which user made an order, which products were in the order. Each order can be broken up in many shipments, and one shipment might contain many orders.
+To have a list of products, users, orders, shipments, and see which user made an order, which products were in the order. Each order can be broken up in many shipments, and one shipment might contain many orders. each product might be in many orders and many shipments
 
 product
 user
@@ -150,10 +150,12 @@ zip
 order
   id - INT
   user_id - INT
+  date
 
 shipment
   id - INT
   user_id - INT
+  date
 
 join order-product
   order_id - INT
@@ -181,8 +183,8 @@ links
 
 user
   id
-  total time site
-  total clicks
+  username
+
 
 pages
   id
@@ -193,4 +195,14 @@ join user-pages
   user_id
   page_id
   number_of_visits
+  total_time
 
+links
+  id
+  name
+  location
+
+join user-links
+  user_id
+  link_id
+  number_of_clicks
