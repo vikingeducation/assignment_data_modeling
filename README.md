@@ -163,18 +163,101 @@ belongs_to :post
 belongs_to :user
 
 
+4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
 
+### What are the Goals?
 
+1. Customers can sign up with an email address.
+2. Signed up customers can place orders on products.
+3. Customers can add shipping/billing addresses to their account.
+3. Each order will keep track of which and how many products were ordered, and which shipping/billing address to use.
+4. If a user deletes their account, the user still exists on the back end, they just can't log in anymore.
+5. Orders should track their shipping status.
 
+### Entities/Attributes/Types/Constraints
 
+Users
+-----
+id: int, primary_key
+email: string
+billing_address: street
+billing_city: string
+state_id: foreign key
+country_id: foreign key
+active: boolean
 
+UserShippingAddresses
+---------------------
+id: int, primary_key
+users_id: foreign key
+address: string
+city: string
+states_id: foreign key
+countries_id: foreign key
 
+States
+------
+id: int, primary_key
+name: string
 
+Countries
+---------
+id: int, primary_key
+name: string
 
+Orders
+------
+id: int, primary_key
+users_id: foreign key
 
+Products
+--------
+id: int, primary_key
+name: string
+price: decimal
 
+OrderProducts
+-------------
+id: int, primary_key
+orders_id: foreign key
+products_id: foreign key
+quantity: int
 
+Shipments
+---------
+id: int, primary_key
+users_id: foreign key
+orders_id: foreign key
+user_shipping_addresses_id: foreign key
+type: // [ground, air]
+shipping_cost: decimal
 
+### Relationships
 
+User
+has many orders
+has many shipping addresses
+has many shipments
 
+UserShippingAddress
+belongs to user
 
+State
+has many usershippingaddresses
+
+Country
+has many usershippingaddresses
+
+Orders
+has many products
+belongs to shipment
+
+Products
+has many orders
+
+OrderProducts
+belongs to orders
+belongs to products
+
+Shipments
+has one order
