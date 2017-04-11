@@ -14,7 +14,7 @@ Mmmmm.... dataaaaa....
 
 ### Entities/Attributes/Types/Constraints
 
-##### Student
+#### Student
 -------
 id: int, primary_key  
 first_name: string  
@@ -22,21 +22,21 @@ last_name: string
 email: string, unique index: true  
 
 
-##### Course
+#### Course
 -------
 id: int, primary_key  
 title: string  
 description: text  
 
 
-##### StudentCourses
+#### StudentCourses
 --------------
 id: int, primary_key  
 student_id: int  
 course_id: int  
 
 
-##### Lesson
+#### Lesson
 -------
 id: int, primary_key  
 course_id: int  
@@ -44,7 +44,7 @@ title: string
 body: text  
 
 
-##### Relationships
+#### Relationships
 ---------------
 **Student**  
 has_and_belongs_to_many :courses [many-to-many]  
@@ -68,55 +68,55 @@ belongs_to :course [many-to-one]
 
 ### Entities/Attributes/Types/Constraints
 
-User
+#### User
 -----
-id: int, primary_key
-username: string
-email: string, unique, index
+id: int, primary_key  
+username: string  
+email: string, unique, index  
+ 
 
-
-State
+#### State
 -----
-id: int, primary_key
-name: string
+id: int, primary_key  
+name: string  
 
 
-Country
+#### Country
 -------
-id: int, primary_key
-name: string
+id: int, primary_key  
+name: string  
 
 
-Profile
+#### Profile
 -------
-id: int, primary_key
-city: string
-state_id: int
-country_id: int
-user_id: int
-age: int
-gender: string
+id: int, primary_key  
+city: string  
+state_id: int  
+country_id: int  
+user_id: int  
+age: int  
+gender: string  
 
 
 ### Relationships
+--------------
+**User**  
+has_one :profile [one-to-one]  
 
-User
-has_one :profile [one-to-one]
+**State**  
+has_many :profiles [one-to-many]  
 
-State
-has_many :profiles [one-to-many]
+**Country**  
+has_many :profiles [one-to-many]  
 
-Country
-has_many :profiles [one-to-many]
-
-Profile
-belongs_to :user [one-to-one]
-belongs_to :state [many-to-one]
-belongs_to :country [many-to-one]
-
+**Profile**
+belongs_to :user [one-to-one]  
+belongs_to :state [many-to-one]  
+belongs_to :country [many-to-one]  
 
 
 ---------------------------------
+
 3. You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
 
 ### What are the Goals?
@@ -126,41 +126,43 @@ belongs_to :country [many-to-one]
 
 ### Entities/Attributes/Types/Constraints
 
-User
-----
-id: int, primary_key
-email: string, unique, index
+#### User
+------
+id: int, primary_key  
+email: string, unique, index  
 
-Post
+#### Post
 ----
-id: int, primary_key
-user_id: int, primary_key
-body: text
+id: int, primary_key  
+user_id: int, primary_key  
+body: text  
 
-Comment
+#### Comment
 -------
-id: int, primary_key
-commentable_id: int
-user_id: int
-type: string // [comment, post]
+id: int, primary_key  
+commentable_id: int  
+user_id: int  
+type: string // [comment, post]  
 
 
 ### Relationships
-User
-has_many :posts [one-to-many]
-has_many :comments [one-to-many]
+---------------
+**User**  
+has_many :posts [one-to-many]  
+has_many :comments [one-to-many]  
 
 
-Post
-has_many :comments [one-to-many]
-belongs_to: user [many-to-one]
+**Post**  
+has_many :comments [one-to-many]  
+belongs_to: user [many-to-one]  
 
 
-Comment
-has_many :comments [polymorphic]
-belongs_to :post [many-to-one]
-belongs_to :user [many-to-one]
+**Comment**  
+has_many :comments [polymorphic]  
+belongs_to :post [many-to-one]  
+belongs_to :user [many-to-one]  
 
+-----------------------
 
 4. You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
 
@@ -175,101 +177,93 @@ belongs_to :user [many-to-one]
 
 ### Entities/Attributes/Types/Constraints
 
-Users
+#### Users
 -----
-id: int, primary_key
-email: string
-billing_address: street
-billing_city: string
-state_id: foreign key
-country_id: foreign key
-active: boolean
+id: int, primary_key  
+email: string  
+billing_address: street  
+billing_city: string  
+state_id: foreign key  
+country_id: foreign key  
+active: boolean  
 
-UserShippingAddresses
+#### UserShippingAddresses
 ---------------------
-id: int, primary_key
-users_id: foreign key
-address: string
-city: string
-states_id: foreign key
-countries_id: foreign key
+id: int, primary_key  
+users_id: foreign key  
+address: string  
+city: string  
+states_id: foreign key  
+countries_id: foreign key  
 
-States
+#### States
 ------
-id: int, primary_key
-name: string
+id: int, primary_key  
+name: string  
 
-Countries
+#### Countries
 ---------
-id: int, primary_key
-name: string
+id: int, primary_key  
+name: string  
 
-Orders
+#### Orders
 ------
-id: int, primary_key
-users_id: foreign key
+id: int, primary_key  
+users_id: foreign key  
 
-Products
+#### Products
 --------
-id: int, primary_key
-name: string
-price: decimal
+id: int, primary_key  
+name: string  
+price: decimal  
 
-OrderProducts
+#### OrderProducts
 -------------
-id: int, primary_key
-orders_id: foreign key
-products_id: foreign key
-quantity: int
+id: int, primary_key  
+orders_id: foreign key  
+products_id: foreign key  
+quantity: int  
 
-Shipments
+#### Shipments
 ---------
-id: int, primary_key
-users_id: foreign key
-orders_id: foreign key
-user_shipping_addresses_id: foreign key
-type: string // [ground, air]
-shipping_cost: decimal
+id: int, primary_key  
+users_id: foreign key  
+orders_id: foreign key  
+user_shipping_addresses_id: foreign key  
+type: string // [ground, air]  
+shipping_cost: decimal  
 
 ### Relationships
+----------------
+**User**  
+has_many :orders [one-to-many]  
+has_many :shipping_addresses [one-to-many]  
+has_many :shipments [one-to-many]  
 
-User
-----
-has_many :orders [one-to-many]
-has_many :shipping_addresses [one-to-many]
-has_many :shipments [one-to-many]
+**UserShippingAddress**  
+belongs_to :user [many-to-one]  
 
-UserShippingAddress
--------------------
-belongs_to :user [many-to-one]
+**State**  
+has_many :user_shipping_addresses [many-to-one]  
 
-State
------
-has_many :user_shipping_addresses [many-to-one]
+**Country**  
+has_many :user_shipping_addresses [many-to-one]  
 
-Country
--------
-has_many :user_shipping_addresses [many-to-one]
+**Orders**  
+has_many :order_products [one-to-many]  
+belongs_to :user [many-to-one]  
 
-Orders
-------
-has_many :order_products [one-to-many]
-belongs_to :user [many-to-one]
+**Products**  
+has_many :order_products [one-to-many]  
 
-Products
---------
-has_many :order_products [one-to-many]
+**OrderProducts**  
+belongs_to :orders [many-to-one]  
+belongs_to :products [many-to-one]  
 
-OrderProducts
--------------
-belongs_to :orders [many-to-one]
-belongs_to :products [many-to-one]
-
-Shipments
----------
-belongs_to :user [many-to-one]
-belongs_to :order [one-to-one]
-belongs_to :user_shipping_addresses [one-to-one]
+**Shipments**  
+belongs_to :user [many-to-one]  
+belongs_to :order [one-to-one]  
+belongs_to :user_shipping_addresses [one-to-one]  
 
 
 
