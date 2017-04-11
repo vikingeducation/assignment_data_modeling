@@ -98,7 +98,7 @@ ADVANCED
     categoryID : INT
     constraintID : INT
 
-  PRODUCTMEDIA         // Join 
+  PRODUCTMEDIA         // Join
     productID : INT
     mediaID : INT
 
@@ -108,11 +108,12 @@ ADVANCED
     link : VARCHAR(100)
     productID : INT
 
-  USER                 // 1:1 PROFILE, 1:X ORDER, X:X MEMBERSHIP
+  USER                 // 1:1 PROFILE, 1:X ORDER, SESSION,  X:X MEMBERSHIP
     userID : INT
     email : VARCHAR (60), required
     username : VARCHAR (20), required
     password: VARCHAR (20), required
+    active : BOOLEAN
 
   PROFILE             // 1:1 USER
     profileID : INT
@@ -154,6 +155,27 @@ ADVANCED
     carrier : VARCHAR(10), required
     orderID : INT
 
+  SESSION   // X:1 USER, SITE
+    userID : INT
+    sessionID : INT
+    pageViews : INT
+    timeOnSite : INT
+    siteID : INT
 
+  PAGEANALYTICS   // X:1 SESSION
+    sessionID : INT
+    pageID  : INT
+    wasBounced : BOOLEAN
+    timeOnPage : INT
 
+  PAGE    //    X:1 PAGEANALYTICS
+    pageID : INT
+    pageDetails : TEXT
+    monthlyVisits : INT
 
+  SITE   //  1:X SESSION, USER
+    siteID: INT
+    monthlyVistors : INT
+    totalSessions : INT
+    timePerSession : INT
+    
