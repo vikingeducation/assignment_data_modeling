@@ -129,6 +129,7 @@ user
   city_id - INT
   country_id - INT
   zip_id - INT
+  active - boolean
 
 state
   id - INT
@@ -162,3 +163,32 @@ join order-product
 join product-shipment
   product_id
   shipment_id
+  productQuantity - INT
+
+join order-shipment
+  order_id
+  shipment_id
+
+
+Optional 2.
+
+track user and visitor activity on the website
+all visitor activity will be tracked under user_id 1
+
+user
+pages
+links
+
+user
+  id
+  total time site
+  total clicks
+
+pages
+  id
+  views
+
+join user-pages
+  user_id
+  page_id
+  number_of_visits
