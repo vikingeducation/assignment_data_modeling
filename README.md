@@ -186,9 +186,11 @@ user
 
 pages
   id
-  views
+  name
+  body
 
 join user-pages
   user_id
   page_id
   number_of_visits
+
