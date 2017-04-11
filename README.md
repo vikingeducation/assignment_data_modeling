@@ -59,5 +59,65 @@ INTERMEDIATE
 
   COMMENT
     commentID : INT
-    comment : TEXT
-    userID:
+    comment : TEXT, required
+    userID : INT
+    linkID : INT
+    parentID : INT, default(0)
+
+ADVANCED
+
+1. E-commerce site
+
+  PRODUCT
+    productID : INT
+    productName : VARCHAR(100), required
+    productDescription : TEXT
+    image : VARCHAR(100)
+    price : DECIMAL
+    manufacturer : VARCHAR(60)
+    manufactureDate : DATETIME
+    expirationDate : DATETIME
+    weight : VARCHAR(10)
+    dimensions : VARCHAR(20)
+
+  PRODUCTCATAGORY
+
+  CATEGORY
+    categoryID : INT
+    categoryName : VARCHAR(60)
+    constraints : VARCHAR(25)
+
+  PRODUCTMEDIA
+    productID : INT
+    mediaID : INT
+
+  MEDIA
+    mediaID : INT
+    type: VARCHAR(60)
+    link : VARCHAR(100)
+    productID : INT
+
+  USER
+    userID : INT
+    email : VARCHAR (60), required
+    username : VARCHAR (20), required
+    password: VARCHAR (20), required
+
+  USERORDER
+
+  ORDER
+    orderID: INT
+
+    userID: INT
+
+  SHIPMENT
+
+
+
+
+
+
+
+
+
+
