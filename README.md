@@ -37,18 +37,36 @@ Name: Christian Florez
     - "city name": string (58 char max)
     - "stateID": integer
   - **State**
-    -"id": integer
-    -"state name": string (58 char max)
+    - "id": integer
+    - "state name": string (58 char max)
     - "countryID": integer
   - **Country**
-    -"id": integer
-    -"country name": string (50 char max)
+    - "id": integer
+    - "country name": string (50 char max)
   - **Gender**
-    -"id": integer
-    -"gender name": string (30 char max)
+    - "id": integer
+    - "gender name": string (30 char max)
 
 ## Intermediate
 ### Message Board
+1. Goals: A message board where users can post links and other uses can comment in a nested fashion to respond to the link
+2. Entities: Users, Submissions, Comments
+3. Attributes & Types:
+  - **User**
+    - "id": integer
+    - "username": string (18 char max)
+    - "email": string (50 char max)
+  - **Submissions**
+    - "id": integer
+    - "linkURL": string (256 char max)
+    - "title" string (25 char max)
+  - **Comments**
+    - "id" integer
+    - "submissionsID": integer
+    - "usernameID": integer
+    - "parentID": null or integer (relates to primary key in this table)
+    - "hasChildren": boolean
+    - "body": text (no limit)
 
 ## Advanced
 ### E-commerce site
