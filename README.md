@@ -127,14 +127,14 @@ Name: Christian Florez
     - "userID": integer
     - "viewCount": integer
     - "pageId": integer
-  - ** Links **
+  - **Links**
     - "id": integer
     - "url": string (128 char max)
-  - ** LinksUserClicksJoin **
+  - **LinksUserClicksJoin**
     - "userID": integer
     - "clickCount": integer
     - "linkID": integer
-  - ** TimeOnPage **
+  - **TimeOnPage**
     - "id": integer
     - "userID": integer
     - "pageID": integer
