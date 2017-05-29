@@ -70,4 +70,72 @@ Name: Christian Florez
 
 ## Advanced
 ### E-commerce site
-1. test2
+1. Goals: A full fledged site where user can order products and track shipments
+2. Entities: Users, Shipping Address, Billing Address, City, State, Country, Products, Orders, ProductOrdersJoin, Shipments
+3. Attributes & Types:
+  - **User**
+    - "id": integer
+    - "username": string (18 char max)
+    - "email": string (50 char max)
+    - "streetAddressID": integer
+    - "isActive": boolean
+  - **Street Address**
+    - "id": integer
+    - "street address": text (50 char max):
+    - "cityID": integer
+  - **City**
+    - "id": integer
+    - "city name": string (58 char max)
+    - "stateID": integer
+  - **State**
+    - "id": integer
+    - "state name": string (58 char max)
+    - "countryID": integer
+  - **Country**
+    - "id": integer
+    - "country name": string (50 char max)
+  - **Products**
+    - "id": integer
+    - "name": string (50 char max)
+    - "description": text (no limit)
+    - "price": number
+  - **Orders**
+    - "id": integer
+    - "shippingAddressID": integer (foreign key of Street Address table)
+    - "billingAddressID": integer (also foreign key of Street Address table)
+  - **ProductOrderJoin**
+    - "orderID": integer
+    - "quantity": integer
+    - "productID": integer
+    - "orderDate": datetime
+  - **Shipments**
+    - "id": integer
+    - "orderID": integer
+    - "shipmentDate": dateTime
+
+### Analytics
+1. Goals: To keep track of how a user interacts with a page by measuring page views, link clicks, and time on page
+2. Entities: Users, Pages, Page Views, Link Clicks, Time on Page
+  - **User**
+    - "id": integer
+    - "username": string (18 char max)
+    - "email": string (50 char max)
+  - **Pages**
+    - "id": integer
+    - "url": string (128 char max)
+  - **PageViewsUserJoin**
+    - "userID": integer
+    - "viewCount": integer
+    - "pageId": integer
+  - ** Links **
+    - "id": integer
+    - "url": string (128 char max)
+  - ** LinksUserClicksJoin **
+    - "userID": integer
+    - "clickCount": integer
+    - "linkID": integer
+  - ** TimeOnPage **
+    - "id": integer
+    - "userID": integer
+    - "pageID": integer
+    - "timeOnPage": datetime
