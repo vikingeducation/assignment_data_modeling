@@ -22,6 +22,30 @@ Name: Christian Florez
 
 
 ### Profile Page
+1. Goals: We need to allow users to enter as much demographic information as they would like and store that in a granular fashion on our db.
+2. Entities: User, City, State, Country, Gender
+3. Attributes & Types:
+  - **User**
+    - "id": integer
+    - "username": string (18 char max)
+    - "email": string (50 char max)
+    - "cityID": integer
+    - "age": integer (1 byte)
+    - "genderID": integer
+  - **City**
+    - "id": integer
+    - "city name": string (58 char max)
+    - "stateID": integer
+  - **State**
+    -"id": integer
+    -"state name": string (58 char max)
+    - "countryID": integer
+  - **Country**
+    -"id": integer
+    -"country name": string (50 char max)
+  - **Gender**
+    -"id": integer
+    -"gender name": string (30 char max)
 
 ## Intermediate
 ### Message Board
