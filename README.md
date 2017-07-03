@@ -87,21 +87,29 @@ User
 
 Profile
   - user_id (foreign key to User table)
+  - created_at (DateTime)
+  - updated_at (DateTime)
 
 City
   - city_id (primary key, unique)
   - city_name (String)
   - state_id (foreign key to State table)
   - profile_id (foreign key to Profile table)
+  - created_at (DateTime)
+  - updated_at (DateTime)
 
 State
   - state_id (primary key, unique)
   - state_name (String)
   - country_id (foreign key to Country table)
+  - created_at (DateTime)
+  - updated_at (DateTime)
 
 Country
   - country_id (primary key, unique)
   - country_name (String, unique)
+  - created_at (DateTime)
+  - updated_at (DateTime)
 
 ```
 
