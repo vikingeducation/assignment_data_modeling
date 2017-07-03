@@ -116,6 +116,39 @@ Country
 
 ## Intermediate
 ---
+### Message board like Hacker News
+
+#### Goals
+To display user-posted links and comments (on either the links themselves, or comments)
+
+#### Relationships
+```
+A Link can have many Comments.
+
+A Comment can also have many Comments.
+
+Each Comment can only be associated with either a separate Link or Comment, i.e. each Comment must belong to either a Link, or an existing Comment.
+```
+
+
+#### Entities and Attributes
+```
+Link
+  - link_id (primary key, unique)
+  - title (String)
+  - url (String)
+  - points (Integer)
+  - created_at (DateTime)
+  - updated_at (DateTime)
+
+Comment
+  - comment_id (primary key, unique)
+  - author (String / user_id, foreign key to User table)
+  - created_at (DateTime)
+  - updated_at (DateTime)
+  - belongs_to (either link_id or comment_id, must have a means to differentiate link_ids from comment_ids)  
+```
+
 
 ### Advanced
 ---
