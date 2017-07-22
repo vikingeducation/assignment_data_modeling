@@ -6,12 +6,12 @@ You are building a free online learning platform which will be used by students 
 
 ---------------------------------
 
-# Summmary of relationships
+## Summary of relationships
 A student can be enrolled in many courses.
 A course can be taken by many students.
 A course can have many lessons but a lesson can only belong to one course.
 
-# Student
+### Student
 - StudentID - Number
 - Address 1 - String
 - Address 2 - String
@@ -24,11 +24,11 @@ A course can have many lessons but a lesson can only belong to one course.
 
 StudentID and CourseID (composite key)
 
-# JoinTable
+### JoinTable
 - CourseID
 - StudentID
 
-# Course
+### Course
 - CourseID - Number
 - Title - String
 - Description - Text
@@ -36,7 +36,7 @@ StudentID and CourseID (composite key)
 
 CourseID and LessonID (composite key)
 
-Lesson
+### Lesson
 - LessonID (Primary Key) - Number 
 - Title - String
 - Body - Text
@@ -48,18 +48,18 @@ You are building the profile page for a new User on your login site. You are alr
 ## Summary of relationships
 A user has personal details that can be identified by a User ID to connect them address, age and gender
 
-# User
+### User
 - Username - String
 - Email - String
 - UserID (Primary Key)
 
-# User_Address
+### User_Address
 - UID (Foreign key) - Number
 - City - String
 - State - String
 - Country - String
 
-#User_Personal
+### User_Personal
 - UserID (Foreign key) - Number
 - Age - Number
 - Gender - String
@@ -68,13 +68,13 @@ A user has personal details that can be identified by a User ID to connect them 
 
 You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
 
-# Summmary of relationships
+## Summmary of relationships
 An article can only be created by one author, but an author can post many articles.
 An author can comment on many articles and many sub comments.
 An article can have many comments from many authors.
 An comment can only have one author
 
-# Article
+### Article
 - Author - String
 - AuthorID - Number
 - Article ID (Primary Key) - Number
@@ -82,17 +82,17 @@ An comment can only have one author
 - Link - String
 - Estimated read - Number
 
-# AuthorComments
+### AuthorComments
 - CommentID - Number
 - AuthorID - Number
 
-# Author
+### Author
 - First_name - String
 - Surname  - String
 - Profile Summary - String
 - AuthorID (Primary Key) - Number
 
-# Comment
+### Comment
 - CommentID (Primary Key) - Number
 - Parent_comment_ID - Number
 - Summary - Text
@@ -102,7 +102,7 @@ An comment can only have one author
 ------------------------------------
 You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
 
-# Summmary of relationships
+## Summmary of relationships
 A user can buy many products.
 A product can be bought by many users.
 Each order can only be for one user (customer) but can have many products.
@@ -111,7 +111,7 @@ A user can be a buyer and a seller.
 A shipment can have many orders
 
 
-# Product
+### Product
 - ProductID (Primary Key) - Number
 - Description - String
 - Price - Number
@@ -119,7 +119,7 @@ A shipment can have many orders
 - Price - Number
 - OverallRating - Number
 
-# ProductReviews
+### ProductReviews
 - ProductID - String
 - AuthorID - Number
 - Author_name - String
@@ -128,14 +128,14 @@ A shipment can have many orders
 - ReviewID (Primary Key) - Number
 
 
-# Seller Inventory
+### Seller Inventory
 - ProductID - String
 - Quantity - Number
 - UserID  - Number
 - DateSold - Date
 
 
-# Customer
+### Customer
 - UserID (Primary Key) - Number 
 - Rating - Number
 - Username - String
@@ -147,7 +147,7 @@ A shipment can have many orders
 - DateJoined - Date
 
 
-# Order
+### Order
 - OrderID (Primary Key) - Number
 - ProductID - String
 - Quantity - Number
@@ -156,7 +156,7 @@ A shipment can have many orders
 - Cost - Number
 
 
-# Shipment
+### Shipment
 - ShipmentID (Primary Key) - String
 - OrderID (Foreign key) - Number
 - Shipment_Created - Date
