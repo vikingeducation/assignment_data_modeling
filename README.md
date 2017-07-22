@@ -3,6 +3,7 @@
 *Include your ERM modeling "pseudocode" in the space below*
 
 You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
+
 ---------------------------------
 
 # Summmary of relationships
@@ -44,7 +45,7 @@ Lesson
 
 You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
 
-# Summmary of relationships
+## Summary of relationships
 A user has personal details that can be identified by a User ID to connect them address, age and gender
 
 # User
