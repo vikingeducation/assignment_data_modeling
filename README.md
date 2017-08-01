@@ -20,115 +20,150 @@ Lessons:
 
 -------Basic 2.-------
 Users:
-- ID
-- username
+- ID         [number]
+- username   [string]
 
 Profiles:
-- ID
-- userID
-- email
-- CityID
-- Age
-- Gender
+- ID        [number]
+- userID    [number] (foreign key)
+- email     [string]
+- CityID    [number] (foreign key)
+- Age       [number]
+- Gender    [string]
 
 Cities:
-- ID
-- StateID
-- Name
+- ID        [number]
+- StateID   [number] (foreign key)
+- Name      [string]
 
 States:
-- CountryID
-- ID
-- Name
+- CountryID   [number] (foreign key)
+- ID          [number]
+- Name        [string]
 
 Countries:
-- ID
-- Name
+- ID          [number]
+- Name        [string]
 
 
 -------Intermediate 1.-------
 
 Users:
-- ID
-- UserName
+- ID          [number]
+- UserName    [string]
 
 Posts:
-- ID
-- userID
-- link
-- points
+- ID          [number]
+- userID      [number] (foreign key)
+- link        [string]
+- points      [number]
 
 Comments:
-- ID
-- userID
-- postID
-- parentCommentID
-- points
+- ID               [number]
+- userID           [number] (foreign key)
+- postID           [number] (foreign key)
+- parentCommentID  [number] (foreign key)
+- points           [number]
 
 
 -------Advanced 1.-------
 Products:
-- ID
-- Name
-- Description
-- Price
-- Weight
-- Size
+- ID            [number]
+- Name          [string]
+- Description   [string]
+- Price         [number]
+- Weight        [number]
+- Volume        [number]
 
 Users:
-- ID
-- Username
-- Email
-- Active?
+- ID          [number]
+- Username    [string]
+- Email       [string]
+- Active?     [boolean]
 
 Addresses:
-- ID
-- UserID
+- ID          [number]
+- UserID      [number] (foreign key)
 
-Orders:
-- ID
-- UserID
-- Order Date
+Orders:   
+- ID            [number]
+- UserID        [number] (foreign key)
+- Order Date    [number]
 
 Shipments:
-- ID
-- UserID
-- AddressID
-- OrderID
-- Ship Date
+- ID            [number]
+- UserID        [number] (foreign key)
+- AddressID     [number] (foreign key)
+- OrderID       [number] (foreign key)
+- Ship Date     [number]
 
 *****Joins*****
 ProductUserJoin:
-- ProductID
-- UserID
+- ProductID       [number] (foreign key)
+- UserID          [number] (foreign key)
 
 ProductOrderJoin:
-- ProductID
-- OrderID
+- ProductID         [number] (foreign key)
+- OrderID           [number] (foreign key)
 
 ProductShipmentJoin:
-- ProductID
-- ShipmentID
+- ProductID         [number] (foreign key)
+- ShipmentID        [number] (foreign key)
 
 ---------Advanced 2.-----------
 Users:
-- ID
-- Username
-- Misc. Attrs.
+- ID              [number]
+- Username        [string]
+
+UserProfiles:
+- ID                [number]
+- UserID            [number] (foreign key)
+- Misc. Attrs.      [?]
 
 Sessions:
-- ID
-- BrowserSessionToken
-- UserID
-- Duration
+- ID                      [number]
+- BrowserSessionToken     [number]
+- UserID                 [number]    (foreign key)
+- Duration               [number]   
 
 Links:
-- ID
-- URL
-- Text
+- ID              [number]
+- URL             [number]
+- Text            [number]
 
+LinkClicks:
+- ID              [number]
+- LinkID          [number] (foreign key)
+- dateTime          [number]
+
+Pages:  
+- ID              [number]
+- URL             [number]
+
+PageProfiles:
+- ID              [number]
+- PageID          [number] (foreign key)
+- Misc. Attrs.    [number]
+
+PageViews:
+- ID              [number]
+- PageID            [number] (foreign key)
+- DateTime          [number]
+
+
+*****Joins*****
 SessionLinkJoin:
-- SessionID
-- LinkID
+- SessionID         [number] (foreign key)
+- LinkID            [number] (foreign key)
 
+SessionPagesJoin:
+- SessionID         [number] (foreign key)
+- LinkID            [number] (foreign key)
 
+LinkClicksSessionJoin:
+- SessionID         [number] (foreign key)
+- ClicksID          [number] (foreign key)
+
+PageViewSessionJoin:
+- SessionID           [number] (foreign key)
+- PageViewsID         [number] (foreign key)
