@@ -37,29 +37,78 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="189" y="132" name="Courses">
+</datatypes><table x="140" y="119" name="Users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="Title" null="1" autoincrement="0">
-<datatype>CHAR(36)</datatype>
-<default>NULL</default></row>
-<row name="Description" null="1" autoincrement="0">
-<datatype>CHAR(150)</datatype>
+<row name="Username" null="1" autoincrement="0">
+<datatype>VARCHAR(36)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="381" y="132" name="Lessons">
+<table x="141" y="247" name="Profiles">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id" null="1" autoincrement="0">
-<datatype>CHAR(36)</datatype>
+<row name="Email" null="1" autoincrement="0">
+<datatype>VARCHAR(36)</datatype>
 <default>NULL</default></row>
-<row name="new field" null="1" autoincrement="0">
+<row name="Age" null="1" autoincrement="0">
+<datatype>TINYINT</datatype>
+<default>NULL</default></row>
+<row name="Gender" null="1" autoincrement="0">
+<datatype>VARCHAR(36)</datatype>
+<default>NULL</default></row>
+<row name="id_Users" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Users" row="id" />
+</row>
+<row name="id_Cities" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Cities" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="390" y="126" name="Cities">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_States" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="States" row="id" />
+</row>
+<row name="Name" null="1" autoincrement="0">
+<datatype>VARCHAR(64)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="390" y="252" name="States">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_Countries" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Countries" row="id" />
+</row>
+<row name="Name" null="1" autoincrement="0">
+<datatype>VARCHAR(36)</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="386" y="379" name="Countries">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Name" null="1" autoincrement="0">
+<datatype>VARCHAR(64)</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
