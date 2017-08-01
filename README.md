@@ -65,25 +65,71 @@ Shipments have origin, destination, & method
 Relationships:
 Tables: (include date created and updated columns for each)(illustrating each of the above)
 
-wishlist join table with user, product
-past purchases join table with user, product, quantity
-credit card/user join table with users & credit card ids
-credit card table with #s and billing addresses
-ratings table
-reviews table
-Warehouse table with its address
-product table
-user table
-warehouse/product join table
-order tables (user, items)
-order item tables (destination, order, shipment, product)
-shipments (warehouse and user are foreign keys)
-shipment/order item join
+users - username, email, fname, lname, password
+
+address table with foreign keys from country, state, city, zip, plus a street address
+
+country table
+
+state table
+
+city table
+
+zip code table
+
+User/address join table
+
+Orders table with user,
+
+Order item table with order (one to many), product (ditto), quantity, price (for purchase history)
+
+Shipments table with origin (warehouse), destination (warehouse or user address), & method
+
+Join table with shipments and Orders
+
+join table with shipments and order items
+
+warehouse table with address
+
+join table with warehouse and product with a third column for quantity at location
+
+product table with primary key, sku, name, description, weight, packing instructions, price, color (may be blank?), size (may be blank?)
+
+review table with primary key, product, user, text
+
+credit card table primary key, number, expiration date, security code, address table references, and address
+
+join table for users and credit card
+
+wish list table with primary key and user
+
+Product/Wishlist join table
+
+ratings table with product, rater(user), and rating
 
 
+Optional)
 
-Goals:
-Entities:
+Goals: track all data
+
+Entities: pages, users, IP Addresses of visitors, individual visit sessions, link clicks/MIME requests
+
 Attributes, type and constraints:
+
+Page - url, 
+
+user - username, pw, fn, ln
+
+IP Addy - value
+
+Sessions - begin, end, IPA, user (0 if unknown), device info
+
+Link clicks - session, time on page, origin, destination
+
 Relationships:
+
 Tables: (include date created and updated columns for each)
+
+One for each entity above plus...
+
+Join users and IPA
