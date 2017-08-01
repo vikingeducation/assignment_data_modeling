@@ -45,7 +45,7 @@ A comment has many comments, a comment has one parent comment?
 
 4.
 
-Users: id, username, street address, city, state, country, zip_code, active
+Users: id, username, first_name, last_name, street address, city, state, country, zip_code, active
 
 Products: id, name, description, price, num_in_stock
 
@@ -72,13 +72,13 @@ visitors
 logged-in users   
 
 <!-- unique users: logged-in / not  -->
-users: id, username, visitor_id (foreign_key)
 visitors: id
-pages: id, url, category/site-section,  
+users: id, username, visitor_id (foreign_key)
+pages: id, url, category/site-section
 page views (attrs): id, page_id (foreign_key), visitor_id (foreign_key), session_id(foreign key), source_url, time  
 
-links: id, click, page_id(foreign_key), href
-link_clicks: id, page_view(foreign_key), link_id(foreign_key), time
+links: id, page_id(foreign_key), href
+link_clicks: id, page_view_id(foreign_key), link_id(foreign_key), time
 
 sessions: id, visitor_id(foreign_key), start_time, end_time
 
