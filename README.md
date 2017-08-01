@@ -67,3 +67,46 @@ Comments:
 
 
 -------Advanced 1.-------
+Products:
+- ID
+- Name
+- Description
+- Price
+- Weight
+- Size
+
+Users:
+- ID
+- Username
+- Email
+- Active?
+
+Addresses:
+- ID
+- UserID
+
+Orders:
+- ID
+- UserID
+- Order Date
+
+Shipments:
+- ID
+- UserID
+- AddressID
+- OrderID
+- Ship Date
+
+*****Joins*****
+ProductUserJoin:
+- ProductID
+- UserID
+
+ProductOrderJoin:
+- ProductID
+- OrderID
+
+ProductShipmentJoin:
+- ProductID
+- ShipmentID
+
