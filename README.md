@@ -110,3 +110,25 @@ ProductShipmentJoin:
 - ProductID
 - ShipmentID
 
+---------Advanced 2.-----------
+Users:
+- ID
+- Username
+- Misc. Attrs.
+
+Sessions:
+- ID
+- BrowserSessionToken
+- UserID
+- Duration
+
+Links:
+- ID
+- URL
+- Text
+
+SessionLinkJoin:
+- SessionID
+- LinkID
+
+
