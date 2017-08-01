@@ -1,6 +1,6 @@
 users - username, email, fname, lname, password
 
-address table with foreign keys from country, state, city, zip
+address table with foreign keys from country, state, city, zip, plus a street address
 
 country table
 
@@ -14,11 +14,9 @@ User/address join table
 
 Orders table with user,
 
-Order item table with order (one to many), product (ditto), quantity,
+Order item table with order (one to many), product (ditto), quantity, price (for purchase history)
 
-Order/item join table
-
-Shipments table with origin (warehouse) and destination (warehouse or user address)
+Shipments table with origin (warehouse), destination (warehouse or user address), & method
 
 Join table with shipments and Orders
 
@@ -28,7 +26,7 @@ warehouse table with address
 
 join table with warehouse and product with a third column for quantity at location
 
-product table with primary key, sku, name, description, weight, packing structions, price, review, etc
+product table with primary key, sku, name, description, weight, packing instructions, price, color (may be blank?), size (may be blank?)
 
 review table with primary key, product, user, text
 
@@ -36,4 +34,6 @@ credit card table primary key, number, expiration date, security code, address t
 
 join table for users and credit card
 
-wish list table with primary key, products
+wish list table with primary key and user
+
+Product/Wishlist join table

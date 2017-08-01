@@ -50,18 +50,18 @@ Vote join table with user and post/comment 1° keys and a vote column, +1 or -1
 A1) Delete just means hide from the user.  We keep all data forever.
 
 Goals: track all the data
-Entities: products, users, orders, order items, shipments, warehouses, countries, cities, states, wishlists, past purchases, reviews
+Entities: products, users, orders, order items, shipments, warehouses, countries, cities, states, zip codes, wishlists, addresses, reviews, credit cards
 Attributes, type and constraints: everybody gets a 1° key.
-Products have name, price, sku, description, picture(s), weights, packing instructions, reviews, ratings
-Users have fname, lname, country, city, state, email, password,
-Orders have order items
-Order Items have products, quantities, shipments they belong to, warehouses they're dispatched from
-Warehouses have quantities of products, which are decremented when a new Order Item is created and added to a shipment from that warehouse.  They also have countries, states, cities, and addresses.
-Credit Cards have billing addresses and associated users - we want to track who shares them.
-Wishlists have users and products
-Past purchases have users, products, quantities, prices
+Products have name, price, sku, description, picture(s), weights, packing instructions, reviews, ratings, color (may be blank?), size (may be blank?)
+Users have username, fname, lname, email, password,
+Orders have a user
+Order Items have products, quantities, order, price
+Warehouses have addresses.
+Credit Cards have billing addresses (street), foreign key from country/state/city/zip, number, exp, security code.
+Wishlists have users 
 Reviews have authors, titles, text, products
 Ratings have values, products and raters(users)
+Shipments have origin, destination, & method
 Relationships:
 Tables: (include date created and updated columns for each)(illustrating each of the above)
 
