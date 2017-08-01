@@ -6,7 +6,8 @@ Mmmmm.... dataaaaa....
 *Include your ERM modeling "pseudocode" in the space below*
 
 1.
-
+//Goals: A user should be able to identify different courses
+  // Specific lessons should be associated with their course
 Courses: id, title, description
 
 Lessons: id, title, body, course_id (foreign key)
@@ -16,6 +17,9 @@ A course has many lessons, a lesson belongs to one course
 
 
 2.
+//Goals:
+//Profile information should be associated with a particular user
+//Profile should contain demographic info
 
 Users: id, username, email
 
@@ -27,6 +31,12 @@ A user has one profile, a profile belongs to one user
 
 
 3.
+//Goals:
+//Users can make posts and comments
+//Every comment is associated with a post
+//Comments should be able to identify their place in the hierarchy
+//Comment can nest indefinitely
+
 
 Users: id, username
 
@@ -44,6 +54,15 @@ A comment has many comments, a comment has one parent comment?
 
 
 4.
+//Goals:
+//We need to be able to determine the address of a shipment
+//Need to be able to determine if an order is fulfilled
+//Users should be able to track their order/shipment status
+//Users should be able to access their order history
+//Links to funny cat pictures/memes
+//Free Chuck Norris jokes with every order
+//Inform a user of out-of-stock products / make sure their payment doesn't go through for it
+//Users should be able cancel their orders
 
 Users: id, username, first_name, last_name, street address, city, state, country, zip_code, active
 
@@ -67,11 +86,13 @@ goals:
   //tracking popularity of site features(?)
   //tracking common sources to our site
   //tracking the peak usage times
-visitors
-  //unique or not? using cookies
-logged-in users   
+  //Get data about average session times
+  //Track user flow through the site
+  //Track how often a particular user comes back to the site (on average)
+  //Track the percentage of visitors that become users
+  //Track how many pages people typically view in a session
 
-<!-- unique users: logged-in / not  -->
+
 visitors: id
 users: id, username, visitor_id (foreign_key)
 pages: id, url, category/site-section
