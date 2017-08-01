@@ -6,18 +6,22 @@ Mmmmm.... dataaaaa....
 
 B1)
 Goals: track your courses and lessons
-Entities: courses & lessons
+Entities: courses, lessons, and authors
 Attributes, type and constraints: see below
 Relationships: A course has many lessons, in a given order.  A single lesson can be part of multiple courses.
 
 Tables: (include date created and updated columns for each)
 Course table with primary key (integer, unique, required), title (short string, unique, required), and description (medium length string, unique, required)
 
-Lesson table with primary key (integer, unique, required), title (short string, unique, required), and text (unlimited length string, required)
+Lesson table with primary key (integer, unique, required), title (short string, unique, required),  text (unlimited length string, required)
 
 CourseLesson join table with Course and Lesson primary keys, and a third column giving the order of this lesson in this course (integer, unique per course, required)
 
-B2) 
+Author table with primary key, first name, last name, email
+
+AuthorLesson join table needing compound key for both author and lesson. 
+
+B2)
 Goals: track your data
 Entities: Users, Cities, States, Countries, Genders
 Attributes, type and constraints: Users have all other entities as attributes, plus profile, firstname, lastname, email, age, and any other demographics collected.  
@@ -35,7 +39,7 @@ Attributes, type and constraints: Everything has a date created and updated. Use
 Relationships: users make posts and comments, posts have comments, comments have comments, posts, and votes
 Tables: (include date created and updated columns for each)
 
-User table with 1° key, name, email, password, 
+User table with 1° key, name, email, password,
 
 Post table with 1° key, name, link, and poster
 
@@ -63,13 +67,13 @@ Tables: (include date created and updated columns for each)(illustrating each of
 
 wishlist join table with user, product
 past purchases join table with user, product, quantity
-credit card/user join table with users & credit card ids 
+credit card/user join table with users & credit card ids
 credit card table with #s and billing addresses
 ratings table
 reviews table
 Warehouse table with its address
 product table
-user table 
+user table
 warehouse/product join table
 order tables (user, items)
 order item tables (destination, order, shipment, product)
@@ -79,7 +83,7 @@ shipment/order item join
 
 
 Goals:
-Entities: 
-Attributes, type and constraints: 
+Entities:
+Attributes, type and constraints:
 Relationships:
 Tables: (include date created and updated columns for each)
