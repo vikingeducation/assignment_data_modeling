@@ -10,7 +10,7 @@ Mmmmm.... dataaaaa....
   // Specific lessons should be associated with their course
 Courses: id, title, description
 
-Lessons: id, title, body, course_id (foreign key)
+Lessons: id[integer], title[string, max=255], body[text, no limit], course_id (foreign key)[integer]
 
 A course has many lessons, a lesson belongs to one course
 
@@ -21,9 +21,11 @@ A course has many lessons, a lesson belongs to one course
 //Profile information should be associated with a particular user
 //Profile should contain demographic info
 
-Users: id, username, email
+// (We could pull state info into its own table for data integrity purposes, but eh)
 
-Profiles: city, state, country, age, gender, user_id (foreign key)
+Users: id[integer], username[string, max=31], email[string, max=63]
+
+Profiles: city[string max=63], state[string, 2 chars], country[string, max=63], age[integer, max=130], gender[string, 1 char], user_id (foreign key)[integer]
 
 A user has one profile, a profile belongs to one user
 
@@ -38,11 +40,11 @@ A user has one profile, a profile belongs to one user
 //Comment can nest indefinitely
 
 
-Users: id, username
+Users: id[integer], username[string, max=31]
 
-Posts: id, title, body, user_id (foreign key)
+Posts: id[integer], title[string, max=255], body[text, max=2047], user_id (foreign key)[integer]
 
-Comments: id, body, user_id (foreign key), post_id (foreign_key), parent_comment_id
+Comments: id[integer], body[text, max=2047], user_id (foreign key)[integer], post_id (foreign_key)[integer], parent_comment_id[integer]
 
 
 A user has many posts, a post has one user; a user has many comments, a comment has one user
@@ -64,19 +66,22 @@ A comment has many comments, a comment has one parent comment?
 //Inform a user of out-of-stock products / make sure their payment doesn't go through for it
 //Users should be able cancel their orders
 
-Users: id, username, first_name, last_name, street address, city, state, country, zip_code, active
+Users: id[integer], username[string, max=255], first_name[string, max=31], last_name[string, max=31], street address[string, max=255], city[string, max=63], state[string, 2 chars], country[string, max=63], zip_code[integer, 5 digits], active[boolean]
 
-Products: id, name, description, price, num_in_stock
+Products: id[integer], name[string, max=127], description[text, max=1023], price[float], num_in_stock[integer]
 
-Product/Order Join: order_id, product_id
+Product/Order Join: order_id[integer], product_id[integer]
 
-Orders: id, user_id (foreign key), order_status
+Orders: id[integer], user_id (foreign key)[integer], order_status[string, 1 char]
 
-Shipments: id, order_id (foreign key), shipping_status
+Product/Shipment Join: product_id[integer], shipment_id[integer]
+
+Shipments: id[integer], order_id (foreign key)[integer], shipping_status[string, 1 char]
 
 An order has many products, a product has many orders;
 A user has many orders, an order has one user;
 An order has many shipments, a shipment has one order;
+A shipment has many products, a product has many shipments
 
 If we do completely delete a user, change user_id in Orders table to dummy user account?
 
@@ -93,21 +98,29 @@ goals:
   //Track how many pages people typically view in a session
 
 
-visitors: id
-users: id, username, visitor_id (foreign_key)
-pages: id, url, category/site-section
-page views (attrs): id, page_id (foreign_key), visitor_id (foreign_key), session_id(foreign key), source_url, time  
+visitors: id[integer]
 
-links: id, page_id(foreign_key), href
-link_clicks: id, page_view_id(foreign_key), link_id(foreign_key), time
+users: id[integer], username[string, max=31], visitor_id (foreign_key)[integer]
 
-sessions: id, visitor_id(foreign_key), start_time, end_time
+pages: id[integer], url[string, max=255], category/site-section[string, max=127]
 
-users and visitors one-to-one
-visitors have many access-times, access-times hopefully will have many visitors
+page views (attrs): id[integer], page_id (foreign_key)[integer], visitor_id (foreign_key)[integer], session_id(foreign key)[integer], source_url[string, max=255], time[datetime]  
+
+links: id[integer], page_id(foreign_key)[integer], href[string, max=255]
+
+link_clicks: id[integer], page_view_id(foreign_key)[integer], link_id(foreign_key)[integer], time[datetime]
+
+sessions: id[integer], visitor_id(foreign_key)[integer], start_time[datetime], end_time[datetime]
+
+A user is one visitor, a visitor may be one or zero users
+
+A visitor has many sessions, a session has one visitor
+A visitor has many page views, a page view has one visitor
+
+A page has many page views, a page view has one page
+A page has many links, a link has one page
 
 page views can have many link clicks, link click belong to one page
-a visitor has many sessions, a session has one visitor
 a session has many page views, a page view has one session
 
 
