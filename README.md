@@ -72,24 +72,22 @@ visitors
 logged-in users   
 
 <!-- unique users: logged-in / not  -->
-users: visitor_id (foreign_key)
-visitors: id,
+users: id, username, visitor_id (foreign_key)
+visitors: id
 pages: id, url, category/site-section,  
-page views (attrs): id, page_id (foreign_key), visitor_id (foreign_key), time  
+page views (attrs): id, page_id (foreign_key), visitor_id (foreign_key), session_id(foreign key), source_url, time  
 
-links: id, click , page_id(foreign_key), href,
-link/link_clicks JOIN
+links: id, click, page_id(foreign_key), href
 link_clicks: id, page_view(foreign_key), link_id(foreign_key), time
 
-session time
-referring site
+sessions: id, visitor_id(foreign_key), start_time, end_time
 
 users and visitors one-to-one
 visitors have many access-times, access-times hopefully will have many visitors
-pages
 
 page views can have many link clicks, link click belong to one page
-
+a visitor has many sessions, a session has one visitor
+a session has many page views, a page view has one session
 
 
 
