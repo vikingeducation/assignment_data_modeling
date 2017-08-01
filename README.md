@@ -60,3 +60,40 @@ A user has many orders, an order has one user;
 An order has many shipments, a shipment has one order;
 
 If we do completely delete a user, change user_id in Orders table to dummy user account?
+
+
+5.
+goals:
+  //tracking popularity of site features(?)
+  //tracking common sources to our site
+  //tracking the peak usage times
+visitors
+  //unique or not? using cookies
+logged-in users   
+
+<!-- unique users: logged-in / not  -->
+users: visitor_id (foreign_key)
+visitors: id,
+pages: id, url, category/site-section,  
+page views (attrs): id, page_id (foreign_key), visitor_id (foreign_key), time  
+
+links: id, click , page_id(foreign_key), href,
+link/link_clicks JOIN
+link_clicks: id, page_view(foreign_key), link_id(foreign_key), time
+
+session time
+referring site
+
+users and visitors one-to-one
+visitors have many access-times, access-times hopefully will have many visitors
+pages
+
+page views can have many link clicks, link click belong to one page
+
+
+
+
+
+
+
+///
