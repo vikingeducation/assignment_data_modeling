@@ -50,9 +50,12 @@ Vote join table with user and post/comment 1° keys and a vote column, +1 or -1
 A1) Delete just means hide from the user.  We keep all data forever.
 
 Goals: track all the data
-Entities: products, users, orders, order items, shipments, warehouses, countries, cities, states, zip codes, wishlists, addresses, reviews, credit cards
+
+Entities: products, users, orders, order items, shipments, warehouses, countries, cities, states, zip codes, wishlists, addresses, reviews, credit cards, ratings
+
 Attributes, type and constraints: everybody gets a 1° key.
-Products have name, price, sku, description, picture(s), weights, packing instructions, reviews, ratings, color (may be blank?), size (may be blank?)
+Products have name, price, sku, description,, weights, packing instructions, reviews, ratings, color (may be null), size (may be null)
+Pictures have product foreign key, blob
 Users have username, fname, lname, email, password,
 Orders have a user
 Order Items have products, quantities, order, price
@@ -62,49 +65,30 @@ Wishlists have users
 Reviews have authors, titles, text, products
 Ratings have values, products and raters(users)
 Shipments have origin, destination, & method
-Relationships:
+
 Tables: (include date created and updated columns for each)(illustrating each of the above)
 
+pictures - with product
 users - username, email, fname, lname, password
-
 address table with foreign keys from country, state, city, zip, plus a street address
-
 country table
-
 state table
-
 city table
-
 zip code table
-
 User/address join table
-
 Orders table with user,
-
 Order item table with order (one to many), product (ditto), quantity, price (for purchase history)
-
 Shipments table with origin (warehouse), destination (warehouse or user address), & method
-
 Join table with shipments and Orders
-
 join table with shipments and order items
-
 warehouse table with address
-
 join table with warehouse and product with a third column for quantity at location
-
-product table with primary key, sku, name, description, weight, packing instructions, price, color (may be blank?), size (may be blank?)
-
+-product table with primary key, sku, name, description, weight, packing instructions, price, color (may be blank?), size (may be blank?)
 review table with primary key, product, user, text
-
-credit card table primary key, number, expiration date, security code, address table references, and address
-
+-credit card table primary key, number, expiration date, security code, address table references, and address
 join table for users and credit card
-
 wish list table with primary key and user
-
 Product/Wishlist join table
-
 ratings table with product, rater(user), and rating
 
 
