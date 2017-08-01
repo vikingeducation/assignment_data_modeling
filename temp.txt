@@ -1,0 +1,25 @@
+users - username, email, fname, lname, password  
+
+address table with foreign keys from country, state, city, zip
+
+country table
+
+state table
+
+city table
+
+zip code table
+
+User/address join table
+
+Orders table with user,
+
+Order item tables with order (one to many), product (ditto), quantity, 
+
+Order/item join table
+
+Shipments table with origin (warehouse) and destination (warehouse or user address)
+
+Join table with 
+
+warehouse table with address

@@ -41,11 +41,11 @@ Tables: (include date created and updated columns for each)
 
 User table with 1° key, name, email, password,
 
-Post table with 1° key, name, link, and poster
+Post table with 1° key (unique between posts and comments), name, link, rating, and poster
 
-Comment table with 1° key, post, parent comment (0 for OP), author
+Comment table with 1° key (unique between posts and comments), post, parent comment (0 for OP), author, rating
 
-Vote join table with user and comment 1° keys and a vote column, +1 or -1
+Vote join table with user and post/comment 1° keys and a vote column, +1 or -1
 
 A1) Delete just means hide from the user.  We keep all data forever.
 
