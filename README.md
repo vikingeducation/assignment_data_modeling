@@ -5,9 +5,9 @@ Chuck Michael's (https://github.com/chuckinabox/) Solution
 *Include your ERM modeling "pseudocode" in the space below*
 
 
-Basic 1 ('Modeled PseudoCode/Basic1CourseLessons.png')
+**Basic 1 ('Modeled PseudoCode/Basic1CourseLessons.png')**
 
-  Course Table
+  *Course Table*
 
   --Course Id - unique
 
@@ -18,7 +18,7 @@ Basic 1 ('Modeled PseudoCode/Basic1CourseLessons.png')
   --Lesson Id - foreign key
 
 
-  Lesson Table
+  *Lesson Table*
 
   --Lesson Id - unique
 
@@ -29,9 +29,9 @@ Basic 1 ('Modeled PseudoCode/Basic1CourseLessons.png')
   --Lesson Content
 
 
-Basic 2 ('Modeled PseudoCode/Basic2UserDemographic.png')
+**Basic 2 ('Modeled PseudoCode/Basic2UserDemographic.png')**
 
-  User Table
+  *User Table*
 
   --User Id - unique
 
@@ -46,7 +46,7 @@ Basic 2 ('Modeled PseudoCode/Basic2UserDemographic.png')
   --gender
 
 
-  Location Table
+  *Location Table*
 
   --Location Id - unique
 
@@ -57,15 +57,15 @@ Basic 2 ('Modeled PseudoCode/Basic2UserDemographic.png')
   --Country
 
 
-Intermediate 1 ('Modeled PseudoCode/Intermediate1PostComments.png')
+**Intermediate 1 ('Modeled PseudoCode/Intermediate1PostComments.png')**
 
-  User Table
+  *User Table*
 
   --User Id - unique
 
   --Username
 
-  Post Table
+  *Post Table*
 
   --Post Id - unique
 
@@ -75,7 +75,7 @@ Intermediate 1 ('Modeled PseudoCode/Intermediate1PostComments.png')
 
   --Comment Id - foreign key
 
-  Comments Table
+  *Comments Table*
 
   --Id - unique
 
@@ -90,9 +90,9 @@ Intermediate 1 ('Modeled PseudoCode/Intermediate1PostComments.png')
   --Date/Time Created
 
 
-Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
+**Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')**
 
-  User Table
+  *User Table*
 
   --User Id - unique
 
@@ -104,7 +104,7 @@ Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
 
   --Address Id - foreign key
 
-  Order Table
+  *Order Table*
 
   --Id - unique
 
@@ -118,7 +118,7 @@ Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
 
   --Quantity
 
-  Product Table
+  *Product Table*
 
   --Product Id - unique
 
@@ -131,7 +131,7 @@ Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
   --Price
 
 
-  Shipment Table
+  *Shipment Table*
 
   --Id - unique
 
@@ -139,7 +139,7 @@ Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
 
   --Address Id - foreign key
 
-  Address Table
+  *Address Table*
 
   --Address Id - unique
 
@@ -147,12 +147,12 @@ Advance 1 ('Modeled PseudoCode/Advance1Ecommerce.png')
 
   --CountryState Id - foreign key
 
-  CountryState Table
+  *CountryState Table*
 
   --CountryState Id - unique
 
   --Country
 
   --State
-  
+
   --City
