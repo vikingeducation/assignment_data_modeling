@@ -12,7 +12,7 @@ Gregory Alford
 ===========================================================================
 
 
-#### You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
+### You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. What are the Goals? Entities? Attributes, types and constraints? Relationships? Design the data model for this web app.
 
 ## 1. SYSTEM GOALS:
 
@@ -80,7 +80,7 @@ Gregory Alford
 ===========================================================================
 ===========================================================================
 
-#### You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
+### You are building the profile page for a new User on your login site. You are already storing your User's username and email, but now you want to collect demographic information like City, State, Country, Age and Gender. Think -- how many profiles should a User have? How would you relate this to the User model? Design the data model for this web app.
 
 ## 1. SYSTEM GOALS:
 
@@ -184,7 +184,7 @@ Gregory Alford
 
 # Intermediate
 
-#### You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+### You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
 
 ## 1. SYSTEM GOALS:
 
@@ -289,3 +289,163 @@ Gregory Alford
 ===========================================================================
 ===========================================================================
 ===========================================================================
+
+
+# Advanced
+
+### You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+## 1. SYSTEM GOALS:
+
+  Display lists of all products with prices, keep track of all users order history and shipping history. Keep track of user address and relate it to an order.
+
+  I wouldn't delete all user data and oder history if a user deletes their account because the company still needs that info for their records
+
+## 2. ENTITIES:
+
+  - products
+
+  - users
+
+  - orders
+
+
+## 3. ATTRIBUTES AND TYPES:
+
+  Users:
+
+    1. "Username". 4-32 characters, string, unique, required
+
+    2. "email". string, unique required
+
+  User address:
+
+    1. "country", string, required
+
+    2. "state", string, required
+
+    4. "city", string, required
+
+    5. "zip", integer, required
+
+    6. address, string, required
+
+  products:
+
+    1. "product_name", 4-180 characters, string, required
+
+    2. "url", string, required, unique
+
+    3. "picture", jpeg
+
+    4. "description", text, 4-3000 characters, required
+
+  orders:
+
+    1. "products", integers
+
+    2. "quantity", integer
+
+    3. customer_id, integer
+
+    4. delivery_address,
+
+
+## 4. RELATIONSHIPS:
+
+  For every one product there are many orders.
+
+  For every one user there are many orders
+
+  for every one order there are one user and many products
+
+  for every one user there are (potentially) many user addresses
+
+  I need to split an order into multiple tables and have a many to many relationship for
+
+
+## 5. TABLES:
+
+  User:
+
+    1. "user_id". integer
+
+    2. "first_name". 4-64 characters, string, required
+
+    3. "last_name". 4-64 characters, string, required
+
+    4. "email". string, unique required
+
+    5. "created_at", DateTime
+
+    6. "updated_at", DateTime
+
+
+  User_addresss:
+
+    1. "address_id", integer
+
+    2. "country", string, required
+
+    3. "state", string, required
+
+    4. "city", string, required
+
+    5. "zip", integer, required
+
+    6. "street_address", string, required
+
+    7. "user_id", integer
+
+    8. "created_at", DateTime
+
+    9. "updated_at", DateTime
+
+
+  Product:
+
+    1. "product_id", integer
+
+    2. "product_name", 4-180 characters, string, required
+
+    2. "url", string, required, unique
+
+    3. "picture", jpeg
+
+    4. "description", text, 4-3000 characters, required
+
+    5. "created_at", DateTime
+
+    6. "updated_at", DateTime
+
+  order:
+
+    1. "order_id" integer
+
+    2. "user_id" integer
+
+    3. "address_id", integer
+
+    5. "time_placed", DateTime
+
+  order_item:
+
+    1. "order_item_id" integer
+
+    2. "price", integer
+
+    3. "product_id", integer
+
+  order and order_item join table:
+
+    1. "order_id" integer
+
+    2. order_item_id, integer
+
+## 6. NORMALIZATION:
+
+  1NF: each data peice contains only atomic values, the street_address could be split up but I think it is fine
+
+  2NF: There is no repeating data, except for necessary join tables
+
+  3NF: There are no nested dependencies
