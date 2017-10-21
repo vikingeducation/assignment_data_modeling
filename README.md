@@ -1,10 +1,10 @@
-# assignment_data_modeling
+#  "Entity Relationship Modeling" process
 
-Dariusz Biskupski
+This is a thinking/designing project by building data models for real problems and checking them against the normalization criteria using "Entity Relationship Modeling" process.
 
 ## Basic
 
-#### You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text. 
+#### You are building a free online learning platform which will be used by students who are exclusively online (but don't need to be logged in or kept track of). You offer many different courses, each with a title and description, and each course has multiple lessons which can be displayed. Lesson content consists of a title and body text.
 
 *Goals*
 We want to display list of students, where each student has a specific course chosen, possible I could see what lessons the student is on. I want to see list of courses, where each course show adequate lessons.
@@ -293,7 +293,11 @@ SHIPMENTS(MANY) - ORDERS(ONE) (if order can be split into few shipments)
 4. Updated_at
 
 
+## Authors
+
+* **Dariusz Biskupski** - *Initial work* - https://dariuszbiskupski.com
 
 
+## Acknowledgments
 
-
+It is the assignment created for [Viking Code School](https://www.vikingcodeschool.com/)
