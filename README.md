@@ -5,23 +5,23 @@ Mmmmm.... dataaaaa....
 
 
 Basic
-  1. Online Learning Platform
-    Course:
+  1. Online Learning Platform  
+    Course:  
       - courseId: Integer
       - title: String
       - description: String
-    Lesson:
+    Lesson:  
       - lessonId: Integer
       - title: String
       - body: String
       - courseId: Integer
 
-  2. Profile Page
-    User:
+  2. Profile Page  
+    User:  
       - userId: Integer
       - username: String
       - email: String
-    Demographic:
+    Demographic:  
       - demoId: Integer
       - city: String
       - state: String
@@ -31,55 +31,55 @@ Basic
       - userId: Integer
 
 Intermediate
-  1. Message Board
-    User:
+  1. Message Board  
+    User:  
       - userId: Integer
       - username: String
       - email: String
-    Post:
+    Post:  
       - postId: Integer
       - link: String
       - userId: Integer
-    Comment:
+    Comment:  
       - commentId: Integer
       - postId: Integer
       - userId: Integer
       - comment: String
 
 Advanced:
-  1. E-Commerce Site
-    User:
+  1. E-Commerce Site  
+    User:  
       - userId: Integer
       - username: String
       - email: String
       - addressId: Integer
-    Address:
+    Address:  
       - addressId: Integer
       - streetAddress: String
       - cityId: Integer
-    City:
+    City:  
       - cityId: Integer
       - cityName: String
       - stateId: Integer
-    State:
+    State:  
       - stateId: Integer
       - state: String
       - countryId: Integer
-    Country:
+    Country:  
       - countryId: Integer
       - countryName: String
-    Product:
+    Product:  
       - productId: Integer
       - name: String
       - price: Integer
       - description: String
-    Order:
+    Order:  
       - orderId: Integer
       - userId: Integer
       - productId: Integer
       - addressId: Integer
       - quantity: Integer
-    Shipment:
+    Shipment:  
       - shipmentId: Integer
       - orderId: Integer
       - addressId: Integer
