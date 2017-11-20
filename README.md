@@ -6,10 +6,10 @@ Mmmmm.... dataaaaa....
 
 Basic
   1. Online Learning Platform  
-    Course:  
+    Course:
       - courseId: Integer
       - title: String
-      - description: String
+      - description: String  
     Lesson:  
       - lessonId: Integer
       - title: String
@@ -17,10 +17,10 @@ Basic
       - courseId: Integer
 
   2. Profile Page  
-    User:  
+    User:
       - userId: Integer
       - username: String
-      - email: String
+      - email: String  
     Demographic:  
       - demoId: Integer
       - city: String
@@ -35,11 +35,11 @@ Intermediate
     User:  
       - userId: Integer
       - username: String
-      - email: String
+      - email: String  
     Post:  
       - postId: Integer
       - link: String
-      - userId: Integer
+      - userId: Integer  
     Comment:  
       - commentId: Integer
       - postId: Integer
@@ -52,33 +52,33 @@ Advanced:
       - userId: Integer
       - username: String
       - email: String
-      - addressId: Integer
+      - addressId: Integer  
     Address:  
       - addressId: Integer
       - streetAddress: String
-      - cityId: Integer
+      - cityId: Integer  
     City:  
       - cityId: Integer
       - cityName: String
-      - stateId: Integer
+      - stateId: Integer  
     State:  
       - stateId: Integer
       - state: String
-      - countryId: Integer
+      - countryId: Integer  
     Country:  
       - countryId: Integer
-      - countryName: String
+      - countryName: String  
     Product:  
       - productId: Integer
       - name: String
       - price: Integer
-      - description: String
+      - description: String  
     Order:  
       - orderId: Integer
       - userId: Integer
       - productId: Integer
       - addressId: Integer
-      - quantity: Integer
+      - quantity: Integer  
     Shipment:  
       - shipmentId: Integer
       - orderId: Integer
