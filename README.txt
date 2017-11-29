@@ -134,6 +134,7 @@ Models:
 
 
   Tables:
+  --------
     User:
       UserId (big int, unique)
       username (varchar, unique)
@@ -144,7 +145,7 @@ Models:
       ProductId (big int, unique)
       Name (varchar)
       Location (varchar)
-      OrderKey (big int, unique, foreign key)
+      OrderKey (big int, foreign key)
 
     Orders:
       OrderId (big int, unique)
@@ -154,6 +155,19 @@ Models:
     Shipments:
       shipmentId (big int, unique)
       Address(varchar)
-      
+      ShippedDate(DATE)
+      OrderId(big int, foreign key, unique)
 
+    Relationships:
+    --------------
+    User-Order (one to many)
+    Order-products (one to many)
+    Order-Shipments (one to one)
 
+    Normalization:
+    --------------
+    1NF --> Everything is granular --checked
+    2NF --> a) Composite Key? -- All primary key, foreign key combinations are going to be unique
+            b) Redundancy? -- No
+            So, 2NF --checked
+    3NF --> Data should be only dependent on primary key --checked
