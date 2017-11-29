@@ -1,0 +1,24 @@
+USERS
+- username
+- total upvotes
+- date creation
+
+
+USER/LINKS (FAVORITES) JOIN
+- linkID
+- username (who has favorited link)
+
+
+LINKS
+- linkID
+- url
+- upvotes
+- userID
+
+
+
+COMMENTS
+- commentID
+- userID (as a foreign key)
+- linkID (as a foreign key)
+- parent comment (if applicable?)
