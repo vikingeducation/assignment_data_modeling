@@ -1,0 +1,32 @@
+USERS
+-userID (primary key)
+-address
+Users(many) to Products(many)
+
+CATEGORY
+-categoryID (primary key)
+
+Category(one) to Products(many)
+
+PRODUCTS
+-productID (primary key)
+-categoryID (as foreign key)
+-product description
+-product price
+
+
+JOIN USERS/PRODUCTS to make ORDERS, add Primary key for OrderID
+ORDERS
+-orderID (primary key)
+-productID (as foreign key)
+-userID (as foreign key)
+-address (as foreign key)
+-status (shopping cart vs submission)
+
+Orders(one) to Shipments(many)
+
+SHIPMENTS
+-shippingID (primary key)
+-orderID (foreign key)
+-shipping method
+-shipping status (canceled vs processing vs shipped)

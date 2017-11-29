@@ -1,0 +1,29 @@
+USERS
+- username
+- total upvotes that includes links and comment upvotes
+- date creation
+
+UPVOTES: USER/LINKS/COMMENTS Upvotes JOIN
+
+FAVORITES: USER/LINKS JOIN
+- linkID
+- username (who has favorited link)
+
+LINKS
+- linkID
+- url
+- upvotes
+- userID
+
+Links(One) to Comments(many)
+
+COMMENTS
+- commentID
+- linkID (as a foreign key)
+- userID (as a foreign key)
+- date creation
+- commentUpvotes
+
+NESTED COMMENTS: Parent Comment/Child Comment JOIN
+- parentCommentID
+- childCommentID
