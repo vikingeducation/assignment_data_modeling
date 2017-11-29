@@ -86,5 +86,40 @@ Problem 2:
   Third Normal Form-
     Data only dependent on primary key
 
+Intermidate
+
+  You want to build a message board like Hacker News. Users can post links. Other users can comment on these submissions or comment on the comments. How would you make sure a comment knows where in the hierarchy it lives? Design the data model for this web app.
+
+  Models:
+    User
+    Commentable
+
+  Tables:
+    Users:
+      id (big int, unique)
+      username (varchar, unique)
+      email (varchar, unique)
+      password (varchar)
+
+    Commentables:
+      id (big int, unique)
+      parentId (big int, foreign key)
+      title (varchar)
+      body (mediumtext)
+      createdAt (date)
+      userId (big int, foreign key)
+
+    Relationships-
+
+    Parent to child comments- one to many
+    Users to comments- one to many
+
+    1NF - checked
+    2NF - checked
+    3NF - checked
 
 
+1st post
+  2nd comment
+    3rd comment
+  4th comment
