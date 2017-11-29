@@ -30,8 +30,61 @@ Tables:
     CourseId: big int
 
     //join table for many to many relationships
-  Join Table(Students dand Courses):
+  Join Table(Students and Courses):
     Student ID: big int
     Course ID: big int
+    (student id and course id combination should be unique)
+
+    Normalization:
+    --------------
+
+    First Normal Form checked.
+    Second normal form
+    --------------------
+    1. Having a composite key - checked
+     - made join table for many-to-many relationship between students and courses
+    2. Composite key combination should be unique - checked
+
+
+Problem 2:
+  ==========
+  Goals: To categorize users based on demographic information.
+  Models:
+  -------
+  1. User
+  2. Profiles
+
+  Tables:
+  -------
+  1. User
+  2. Profile
+  ---------
+  User
+    1. id (big int, unique)
+    2. Username (varchar(15))
+    3. Password (varchar(15))
+
+  Profile
+    0. ProfileId (big int, unique)
+    1. Email (varchar)
+    2. City (varchar(10))
+    3. State (char(2))
+    3. Country (varchar)
+    4. Age (small int)
+    5. Gender (char(1))
+    6. UserId (foreign key, unique, big int)
+
+  Relationships: one to one between user and profile
+
+  First Normal Form-
+    Store 1 data piece per row/column
+
+  Second Normal Form-
+    Do we have composite key?
+    No redundant data
+
+  Third Normal Form-
+    Data only dependent on primary key
+
 
 
