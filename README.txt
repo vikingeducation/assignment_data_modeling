@@ -119,7 +119,41 @@ Intermidate
     3NF - checked
 
 
-1st post
-  2nd comment
-    3rd comment
-  4th comment
+  Advanced
+  ========
+
+You want to build an e-commerce site like a very simplified Amazon.com. You'll need to keep track of products, users, orders, shipments and all the bits and pieces necessary to glue them all together. Design the data model for this web app. How can you handle the quantity of items in each order? How do you know where an order has been shipped? Bonus: What happens to your historical data if a user opts to delete their account? How might you handle this?
+
+Goals: track everything about an order and save.
+
+Models:
+  Users
+  Products
+  Orders
+    -fulfilled (false, true)
+
+
+  Tables:
+    User:
+      UserId (big int, unique)
+      username (varchar, unique)
+      Email(varchar, unique)
+      password (varchar)
+
+    Products:
+      ProductId (big int, unique)
+      Name (varchar)
+      Location (varchar)
+      OrderKey (big int, unique, foreign key)
+
+    Orders:
+      OrderId (big int, unique)
+      UserId (big int, foreign key)
+      Address(varchar)
+
+    Shipments:
+      shipmentId (big int, unique)
+      Address(varchar)
+      
+
+
