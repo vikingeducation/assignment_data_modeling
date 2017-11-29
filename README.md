@@ -33,5 +33,37 @@ Tables:
   Join Table(Students and Courses):
     Student ID: big int
     Course ID: big int
+    (student id and course id combination should be unique)
 
+    Normalization:
+    --------------
 
+    First Normal Form checked.
+    Second normal form
+    --------------------
+    1. Having a composite key - checked
+     - made join table for many-to-many relationship between students and courses
+    2. Composite key combination should be unique - checked
+
+  Problem 2:
+  ==========
+  Goals: To categorize users based on demographic information.
+  Models:
+  -------
+  1. User
+  2. City
+  3. State
+  4. Country
+  5. Age-group
+  6. Gender
+
+  Tables:
+  -------
+  1. User:
+  ---------
+  a) User ID
+  b) Username
+  c) Email
+  d) City ID
+
+  Question: Should we have separate tables for city, state or not!
